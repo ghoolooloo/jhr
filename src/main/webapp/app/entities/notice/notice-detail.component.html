@@ -1,0 +1,54 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="notice">
+            <h2><span jhiTranslate="jhrApp.notice.detail.title">Notice</span> {{ notice.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="jhrApp.notice.content" [ngbTooltip]="'jhrApp.notice.help.content' | translate">Content</span></dt>
+                <dd>
+                    <span>{{ notice.content }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhrApp.notice.sort" [ngbTooltip]="'jhrApp.notice.help.sort' | translate">Sort</span></dt>
+                <dd>
+                    <span>{{ notice.sort }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhrApp.notice.status">Status</span></dt>
+                <dd>
+                    <span jhiTranslate="{{ 'jhrApp.NoticeStatus.' + notice.status }}">{{ notice.status }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhrApp.notice.createdBy">Created By</span></dt>
+                <dd>
+                    <span>{{ notice.createdBy }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhrApp.notice.createdDate">Created Date</span></dt>
+                <dd>
+                    <span>{{ notice.createdDate }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhrApp.notice.lastModifiedDate">Last Modified Date</span></dt>
+                <dd>
+                    <span>{{ notice.lastModifiedDate }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhrApp.notice.lastModifiedBy">Last Modified By</span></dt>
+                <dd>
+                    <span>{{ notice.lastModifiedBy }}</span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/notice', notice.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

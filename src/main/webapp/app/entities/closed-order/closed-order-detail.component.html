@@ -1,0 +1,230 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="closedOrder">
+            <h2><span jhiTranslate="jhrApp.closedOrder.detail.title">Closed Order</span> {{ closedOrder.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="jhrApp.closedOrder.sn" [ngbTooltip]="'jhrApp.closedOrder.help.sn' | translate">Sn</span></dt>
+                <dd>
+                    <span>{{ closedOrder.sn }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhrApp.closedOrder.memberName" [ngbTooltip]="'jhrApp.closedOrder.help.memberName' | translate">Member Name</span></dt>
+                <dd>
+                    <span>{{ closedOrder.memberName }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhrApp.closedOrder.memberSN" [ngbTooltip]="'jhrApp.closedOrder.help.memberSN' | translate">Member SN</span></dt>
+                <dd>
+                    <span>{{ closedOrder.memberSN }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhrApp.closedOrder.orderType" [ngbTooltip]="'jhrApp.closedOrder.help.orderType' | translate">Order Type</span></dt>
+                <dd>
+                    <span jhiTranslate="{{ 'jhrApp.OrderType.' + closedOrder.orderType }}">{{ closedOrder.orderType }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhrApp.closedOrder.shopSN" [ngbTooltip]="'jhrApp.closedOrder.help.shopSN' | translate">Shop SN</span></dt>
+                <dd>
+                    <span>{{ closedOrder.shopSN }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhrApp.closedOrder.shopName" [ngbTooltip]="'jhrApp.closedOrder.help.shopName' | translate">Shop Name</span></dt>
+                <dd>
+                    <span>{{ closedOrder.shopName }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhrApp.closedOrder.priceTotal" [ngbTooltip]="'jhrApp.closedOrder.help.priceTotal' | translate">Price Total</span></dt>
+                <dd>
+                    <span>{{ closedOrder.priceTotal }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhrApp.closedOrder.cardReduce" [ngbTooltip]="'jhrApp.closedOrder.help.cardReduce' | translate">Card Reduce</span></dt>
+                <dd>
+                    <span>{{ closedOrder.cardReduce }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhrApp.closedOrder.cards" [ngbTooltip]="'jhrApp.closedOrder.help.cards' | translate">Cards</span></dt>
+                <dd>
+                    <span>{{ closedOrder.cards }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhrApp.closedOrder.rewardPointsReduce" [ngbTooltip]="'jhrApp.closedOrder.help.rewardPointsReduce' | translate">Reward Points Reduce</span></dt>
+                <dd>
+                    <span>{{ closedOrder.rewardPointsReduce }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhrApp.closedOrder.paymentTotal" [ngbTooltip]="'jhrApp.closedOrder.help.paymentTotal' | translate">Payment Total</span></dt>
+                <dd>
+                    <span>{{ closedOrder.paymentTotal }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhrApp.closedOrder.distributionPlatform" [ngbTooltip]="'jhrApp.closedOrder.help.distributionPlatform' | translate">Distribution Platform</span></dt>
+                <dd>
+                    <span jhiTranslate="{{ 'jhrApp.DistributionPlatform.' + closedOrder.distributionPlatform }}">{{ closedOrder.distributionPlatform }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhrApp.closedOrder.deliveryNo" [ngbTooltip]="'jhrApp.closedOrder.help.deliveryNo' | translate">Delivery No</span></dt>
+                <dd>
+                    <span>{{ closedOrder.deliveryNo }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhrApp.closedOrder.deliveryStatus" [ngbTooltip]="'jhrApp.closedOrder.help.deliveryStatus' | translate">Delivery Status</span></dt>
+                <dd>
+                    <span>{{ closedOrder.deliveryStatus }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhrApp.closedOrder.deliveryDesc" [ngbTooltip]="'jhrApp.closedOrder.help.deliveryDesc' | translate">Delivery Desc</span></dt>
+                <dd>
+                    <span>{{ closedOrder.deliveryDesc }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhrApp.closedOrder.deliverier" [ngbTooltip]="'jhrApp.closedOrder.help.deliverier' | translate">Deliverier</span></dt>
+                <dd>
+                    <span>{{ closedOrder.deliverier }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhrApp.closedOrder.deliverierMobile" [ngbTooltip]="'jhrApp.closedOrder.help.deliverierMobile' | translate">Deliverier Mobile</span></dt>
+                <dd>
+                    <span>{{ closedOrder.deliverierMobile }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhrApp.closedOrder.deliveryDeductFee" [ngbTooltip]="'jhrApp.closedOrder.help.deliveryDeductFee' | translate">Delivery Deduct Fee</span></dt>
+                <dd>
+                    <span>{{ closedOrder.deliveryDeductFee }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhrApp.closedOrder.deliveryFee" [ngbTooltip]="'jhrApp.closedOrder.help.deliveryFee' | translate">Delivery Fee</span></dt>
+                <dd>
+                    <span>{{ closedOrder.deliveryFee }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhrApp.closedOrder.contact" [ngbTooltip]="'jhrApp.closedOrder.help.contact' | translate">Contact</span></dt>
+                <dd>
+                    <span>{{ closedOrder.contact }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhrApp.closedOrder.sex" [ngbTooltip]="'jhrApp.closedOrder.help.sex' | translate">Sex</span></dt>
+                <dd>
+                    <span jhiTranslate="{{ 'jhrApp.Sex.' + closedOrder.sex }}">{{ closedOrder.sex }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhrApp.closedOrder.mobile" [ngbTooltip]="'jhrApp.closedOrder.help.mobile' | translate">Mobile</span></dt>
+                <dd>
+                    <span>{{ closedOrder.mobile }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhrApp.closedOrder.country" [ngbTooltip]="'jhrApp.closedOrder.help.country' | translate">Country</span></dt>
+                <dd>
+                    <span>{{ closedOrder.country }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhrApp.closedOrder.province" [ngbTooltip]="'jhrApp.closedOrder.help.province' | translate">Province</span></dt>
+                <dd>
+                    <span>{{ closedOrder.province }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhrApp.closedOrder.city" [ngbTooltip]="'jhrApp.closedOrder.help.city' | translate">City</span></dt>
+                <dd>
+                    <span>{{ closedOrder.city }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhrApp.closedOrder.district" [ngbTooltip]="'jhrApp.closedOrder.help.district' | translate">District</span></dt>
+                <dd>
+                    <span>{{ closedOrder.district }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhrApp.closedOrder.offsetType" [ngbTooltip]="'jhrApp.closedOrder.help.offsetType' | translate">Offset Type</span></dt>
+                <dd>
+                    <span jhiTranslate="{{ 'jhrApp.OffsetType.' + closedOrder.offsetType }}">{{ closedOrder.offsetType }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhrApp.closedOrder.longitude" [ngbTooltip]="'jhrApp.closedOrder.help.longitude' | translate">Longitude</span></dt>
+                <dd>
+                    <span>{{ closedOrder.longitude }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhrApp.closedOrder.latitude" [ngbTooltip]="'jhrApp.closedOrder.help.latitude' | translate">Latitude</span></dt>
+                <dd>
+                    <span>{{ closedOrder.latitude }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhrApp.closedOrder.address" [ngbTooltip]="'jhrApp.closedOrder.help.address' | translate">Address</span></dt>
+                <dd>
+                    <span>{{ closedOrder.address }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhrApp.closedOrder.packingFee" [ngbTooltip]="'jhrApp.closedOrder.help.packingFee' | translate">Packing Fee</span></dt>
+                <dd>
+                    <span>{{ closedOrder.packingFee }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhrApp.closedOrder.paymentMode" [ngbTooltip]="'jhrApp.closedOrder.help.paymentMode' | translate">Payment Mode</span></dt>
+                <dd>
+                    <span jhiTranslate="{{ 'jhrApp.PaymentMethod.' + closedOrder.paymentMode }}">{{ closedOrder.paymentMode }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhrApp.closedOrder.diningDate" [ngbTooltip]="'jhrApp.closedOrder.help.diningDate' | translate">Dining Date</span></dt>
+                <dd>
+                    <span>{{ closedOrder.diningDate }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhrApp.closedOrder.remark" [ngbTooltip]="'jhrApp.closedOrder.help.remark' | translate">Remark</span></dt>
+                <dd>
+                    <span>{{ closedOrder.remark }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhrApp.closedOrder.status" [ngbTooltip]="'jhrApp.closedOrder.help.status' | translate">Status</span></dt>
+                <dd>
+                    <span jhiTranslate="{{ 'jhrApp.OrderStatus.' + closedOrder.status }}">{{ closedOrder.status }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhrApp.closedOrder.createdDate" [ngbTooltip]="'jhrApp.closedOrder.help.createdDate' | translate">Created Date</span></dt>
+                <dd>
+                    <span>{{ closedOrder.createdDate }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhrApp.closedOrder.paidDate" [ngbTooltip]="'jhrApp.closedOrder.help.paidDate' | translate">Paid Date</span></dt>
+                <dd>
+                    <span>{{ closedOrder.paidDate }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhrApp.closedOrder.expiredDate" [ngbTooltip]="'jhrApp.closedOrder.help.expiredDate' | translate">Expired Date</span></dt>
+                <dd>
+                    <span>{{ closedOrder.expiredDate }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhrApp.closedOrder.completedDate" [ngbTooltip]="'jhrApp.closedOrder.help.completedDate' | translate">Completed Date</span></dt>
+                <dd>
+                    <span>{{ closedOrder.completedDate }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhrApp.closedOrder.exceptionDate" [ngbTooltip]="'jhrApp.closedOrder.help.exceptionDate' | translate">Exception Date</span></dt>
+                <dd>
+                    <span>{{ closedOrder.exceptionDate }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhrApp.closedOrder.handler" [ngbTooltip]="'jhrApp.closedOrder.help.handler' | translate">Handler</span></dt>
+                <dd>
+                    <span>{{ closedOrder.handler }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhrApp.closedOrder.handledDate" [ngbTooltip]="'jhrApp.closedOrder.help.handledDate' | translate">Handled Date</span></dt>
+                <dd>
+                    <span>{{ closedOrder.handledDate }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhrApp.closedOrder.handledDesc" [ngbTooltip]="'jhrApp.closedOrder.help.handledDesc' | translate">Handled Desc</span></dt>
+                <dd>
+                    <span>{{ closedOrder.handledDesc }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhrApp.closedOrder.applicant" [ngbTooltip]="'jhrApp.closedOrder.help.applicant' | translate">Applicant</span></dt>
+                <dd>
+                    <span>{{ closedOrder.applicant }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhrApp.closedOrder.appliedDate" [ngbTooltip]="'jhrApp.closedOrder.help.appliedDate' | translate">Applied Date</span></dt>
+                <dd>
+                    <span>{{ closedOrder.appliedDate }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhrApp.closedOrder.refundDesc" [ngbTooltip]="'jhrApp.closedOrder.help.refundDesc' | translate">Refund Desc</span></dt>
+                <dd>
+                    <span>{{ closedOrder.refundDesc }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhrApp.closedOrder.refundedBy" [ngbTooltip]="'jhrApp.closedOrder.help.refundedBy' | translate">Refunded By</span></dt>
+                <dd>
+                    <span>{{ closedOrder.refundedBy }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhrApp.closedOrder.refundedDate" [ngbTooltip]="'jhrApp.closedOrder.help.refundedDate' | translate">Refunded Date</span></dt>
+                <dd>
+                    <span>{{ closedOrder.refundedDate }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhrApp.closedOrder.refundAmount" [ngbTooltip]="'jhrApp.closedOrder.help.refundAmount' | translate">Refund Amount</span></dt>
+                <dd>
+                    <span>{{ closedOrder.refundAmount }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhrApp.closedOrder.reply" [ngbTooltip]="'jhrApp.closedOrder.help.reply' | translate">Reply</span></dt>
+                <dd>
+                    <span>{{ closedOrder.reply }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhrApp.closedOrder.passed" [ngbTooltip]="'jhrApp.closedOrder.help.passed' | translate">Passed</span></dt>
+                <dd>
+                    <span>{{ closedOrder.passed }}</span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/closed-order', closedOrder.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

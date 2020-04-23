@@ -1,0 +1,94 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="foodSalesReport">
+            <h2><span jhiTranslate="jhrApp.foodSalesReport.detail.title">Food Sales Report</span> {{ foodSalesReport.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="jhrApp.foodSalesReport.day" [ngbTooltip]="'jhrApp.foodSalesReport.help.day' | translate">Day</span></dt>
+                <dd>
+                    <span>{{ foodSalesReport.day }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhrApp.foodSalesReport.shopSN" [ngbTooltip]="'jhrApp.foodSalesReport.help.shopSN' | translate">Shop SN</span></dt>
+                <dd>
+                    <span>{{ foodSalesReport.shopSN }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhrApp.foodSalesReport.shopName" [ngbTooltip]="'jhrApp.foodSalesReport.help.shopName' | translate">Shop Name</span></dt>
+                <dd>
+                    <span>{{ foodSalesReport.shopName }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhrApp.foodSalesReport.categorySN" [ngbTooltip]="'jhrApp.foodSalesReport.help.categorySN' | translate">Category SN</span></dt>
+                <dd>
+                    <span>{{ foodSalesReport.categorySN }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhrApp.foodSalesReport.categoryName" [ngbTooltip]="'jhrApp.foodSalesReport.help.categoryName' | translate">Category Name</span></dt>
+                <dd>
+                    <span>{{ foodSalesReport.categoryName }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhrApp.foodSalesReport.foodSN" [ngbTooltip]="'jhrApp.foodSalesReport.help.foodSN' | translate">Food SN</span></dt>
+                <dd>
+                    <span>{{ foodSalesReport.foodSN }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhrApp.foodSalesReport.foodName" [ngbTooltip]="'jhrApp.foodSalesReport.help.foodName' | translate">Food Name</span></dt>
+                <dd>
+                    <span>{{ foodSalesReport.foodName }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhrApp.foodSalesReport.cost" [ngbTooltip]="'jhrApp.foodSalesReport.help.cost' | translate">Cost</span></dt>
+                <dd>
+                    <span>{{ foodSalesReport.cost }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhrApp.foodSalesReport.price" [ngbTooltip]="'jhrApp.foodSalesReport.help.price' | translate">Price</span></dt>
+                <dd>
+                    <span>{{ foodSalesReport.price }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhrApp.foodSalesReport.originalPrice" [ngbTooltip]="'jhrApp.foodSalesReport.help.originalPrice' | translate">Original Price</span></dt>
+                <dd>
+                    <span>{{ foodSalesReport.originalPrice }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhrApp.foodSalesReport.salesQuantity" [ngbTooltip]="'jhrApp.foodSalesReport.help.salesQuantity' | translate">Sales Quantity</span></dt>
+                <dd>
+                    <span>{{ foodSalesReport.salesQuantity }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhrApp.foodSalesReport.salesAmount" [ngbTooltip]="'jhrApp.foodSalesReport.help.salesAmount' | translate">Sales Amount</span></dt>
+                <dd>
+                    <span>{{ foodSalesReport.salesAmount }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhrApp.foodSalesReport.refundOrders" [ngbTooltip]="'jhrApp.foodSalesReport.help.refundOrders' | translate">Refund Orders</span></dt>
+                <dd>
+                    <span>{{ foodSalesReport.refundOrders }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhrApp.foodSalesReport.refundAmount" [ngbTooltip]="'jhrApp.foodSalesReport.help.refundAmount' | translate">Refund Amount</span></dt>
+                <dd>
+                    <span>{{ foodSalesReport.refundAmount }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhrApp.foodSalesReport.grossProfit" [ngbTooltip]="'jhrApp.foodSalesReport.help.grossProfit' | translate">Gross Profit</span></dt>
+                <dd>
+                    <span>{{ foodSalesReport.grossProfit }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhrApp.foodSalesReport.initQuantity" [ngbTooltip]="'jhrApp.foodSalesReport.help.initQuantity' | translate">Init Quantity</span></dt>
+                <dd>
+                    <span>{{ foodSalesReport.initQuantity }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhrApp.foodSalesReport.remainder" [ngbTooltip]="'jhrApp.foodSalesReport.help.remainder' | translate">Remainder</span></dt>
+                <dd>
+                    <span>{{ foodSalesReport.remainder }}</span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/food-sales-report', foodSalesReport.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,54 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="carousel">
+            <h2><span jhiTranslate="jhrApp.carousel.detail.title">Carousel</span> {{ carousel.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="jhrApp.carousel.picture" [ngbTooltip]="'jhrApp.carousel.help.picture' | translate">Picture</span></dt>
+                <dd>
+                    <span>{{ carousel.picture }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhrApp.carousel.sort" [ngbTooltip]="'jhrApp.carousel.help.sort' | translate">Sort</span></dt>
+                <dd>
+                    <span>{{ carousel.sort }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhrApp.carousel.status">Status</span></dt>
+                <dd>
+                    <span jhiTranslate="{{ 'jhrApp.CarouselStatus.' + carousel.status }}">{{ carousel.status }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhrApp.carousel.createdBy">Created By</span></dt>
+                <dd>
+                    <span>{{ carousel.createdBy }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhrApp.carousel.createdDate">Created Date</span></dt>
+                <dd>
+                    <span>{{ carousel.createdDate }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhrApp.carousel.lastModifiedDate">Last Modified Date</span></dt>
+                <dd>
+                    <span>{{ carousel.lastModifiedDate }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhrApp.carousel.lastModifiedBy">Last Modified By</span></dt>
+                <dd>
+                    <span>{{ carousel.lastModifiedBy }}</span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/carousel', carousel.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

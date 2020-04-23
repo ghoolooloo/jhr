@@ -1,0 +1,100 @@
+{
+    "name": "Merchant",
+    "fields": [
+        {
+            "fieldName": "name",
+            "javadoc": "商户名称",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required",
+                "maxlength"
+            ],
+            "fieldValidateRulesMaxlength": "20"
+        },
+        {
+            "fieldName": "logo",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "maxlength"
+            ],
+            "fieldValidateRulesMaxlength": "200"
+        },
+        {
+            "fieldName": "tel",
+            "javadoc": "客服电话",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "maxlength"
+            ],
+            "fieldValidateRulesMaxlength": "13"
+        },
+        {
+            "fieldName": "email",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "maxlength",
+                "pattern"
+            ],
+            "fieldValidateRulesMaxlength": "40",
+            "fieldValidateRulesPattern": "^[\\w-]+@[\\w-]+(\\.[\\w-]+)+$"
+        },
+        {
+            "fieldName": "website",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "maxlength"
+            ],
+            "fieldValidateRulesMaxlength": "200"
+        },
+        {
+            "fieldName": "icp",
+            "javadoc": "ICP许可证",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "maxlength"
+            ],
+            "fieldValidateRulesMaxlength": "20"
+        },
+        {
+            "fieldName": "createdBy",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required",
+                "maxlength"
+            ],
+            "fieldValidateRulesMaxlength": "20"
+        },
+        {
+            "fieldName": "createdDate",
+            "fieldType": "Instant",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "lastModifiedDate",
+            "fieldType": "Instant"
+        },
+        {
+            "fieldName": "lastModifiedBy",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "maxlength"
+            ],
+            "fieldValidateRulesMaxlength": "20"
+        }
+    ],
+    "relationships": [],
+    "changelogDate": "20200423070600",
+    "javadoc": "商户\\n@author Jo",
+    "entityTableName": "merchant",
+    "dto": "mapstruct",
+    "pagination": "no",
+    "service": "serviceClass",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "readOnly": false,
+    "embedded": false,
+    "clientRootFolder": "",
+    "applications": "*"
+}

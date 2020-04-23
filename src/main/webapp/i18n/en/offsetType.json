@@ -1,0 +1,13 @@
+{
+  "jhrApp": {
+    "OffsetType": {
+      "null": "",
+      "MARS": "MARS",
+      "SOGOU": "SOGOU",
+      "BAIDU": "BAIDU",
+      "MAPBAR": "MAPBAR",
+      "GPS": "GPS",
+      "MERCATOR": "MERCATOR"
+    }
+  }
+}

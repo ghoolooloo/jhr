@@ -1,0 +1,51 @@
+{
+    "name": "RewardPointsRecord",
+    "fields": [
+        {
+            "fieldName": "amount",
+            "javadoc": "积分数额",
+            "fieldType": "Integer",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "remark",
+            "javadoc": "备注。要记录所对应的订单号",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "maxlength"
+            ],
+            "fieldValidateRulesMaxlength": "100"
+        },
+        {
+            "fieldName": "createdDate",
+            "javadoc": "发生时间",
+            "fieldType": "Instant",
+            "fieldValidateRules": [
+                "required"
+            ]
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "rewardPoints",
+            "otherEntityRelationshipName": "records",
+            "relationshipName": "rewardPoints",
+            "otherEntityField": "id"
+        }
+    ],
+    "changelogDate": "20200423071800",
+    "javadoc": "积分明细\\n@author Jo",
+    "entityTableName": "reward_points_record",
+    "dto": "mapstruct",
+    "pagination": "pagination",
+    "service": "serviceClass",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "readOnly": false,
+    "embedded": false,
+    "clientRootFolder": "",
+    "applications": "*"
+}

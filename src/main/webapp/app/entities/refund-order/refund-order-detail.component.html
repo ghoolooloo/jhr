@@ -1,0 +1,226 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="refundOrder">
+            <h2><span jhiTranslate="jhrApp.refundOrder.detail.title">Refund Order</span> {{ refundOrder.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="jhrApp.refundOrder.sn" [ngbTooltip]="'jhrApp.refundOrder.help.sn' | translate">Sn</span></dt>
+                <dd>
+                    <span>{{ refundOrder.sn }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhrApp.refundOrder.memberName" [ngbTooltip]="'jhrApp.refundOrder.help.memberName' | translate">Member Name</span></dt>
+                <dd>
+                    <span>{{ refundOrder.memberName }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhrApp.refundOrder.memberSN" [ngbTooltip]="'jhrApp.refundOrder.help.memberSN' | translate">Member SN</span></dt>
+                <dd>
+                    <span>{{ refundOrder.memberSN }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhrApp.refundOrder.orderType" [ngbTooltip]="'jhrApp.refundOrder.help.orderType' | translate">Order Type</span></dt>
+                <dd>
+                    <span jhiTranslate="{{ 'jhrApp.OrderType.' + refundOrder.orderType }}">{{ refundOrder.orderType }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhrApp.refundOrder.shopSN" [ngbTooltip]="'jhrApp.refundOrder.help.shopSN' | translate">Shop SN</span></dt>
+                <dd>
+                    <span>{{ refundOrder.shopSN }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhrApp.refundOrder.shopName" [ngbTooltip]="'jhrApp.refundOrder.help.shopName' | translate">Shop Name</span></dt>
+                <dd>
+                    <span>{{ refundOrder.shopName }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhrApp.refundOrder.priceTotal" [ngbTooltip]="'jhrApp.refundOrder.help.priceTotal' | translate">Price Total</span></dt>
+                <dd>
+                    <span>{{ refundOrder.priceTotal }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhrApp.refundOrder.cardReduce" [ngbTooltip]="'jhrApp.refundOrder.help.cardReduce' | translate">Card Reduce</span></dt>
+                <dd>
+                    <span>{{ refundOrder.cardReduce }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhrApp.refundOrder.cards" [ngbTooltip]="'jhrApp.refundOrder.help.cards' | translate">Cards</span></dt>
+                <dd>
+                    <span>{{ refundOrder.cards }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhrApp.refundOrder.rewardPointsReduce" [ngbTooltip]="'jhrApp.refundOrder.help.rewardPointsReduce' | translate">Reward Points Reduce</span></dt>
+                <dd>
+                    <span>{{ refundOrder.rewardPointsReduce }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhrApp.refundOrder.paymentTotal" [ngbTooltip]="'jhrApp.refundOrder.help.paymentTotal' | translate">Payment Total</span></dt>
+                <dd>
+                    <span>{{ refundOrder.paymentTotal }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhrApp.refundOrder.distributionPlatform" [ngbTooltip]="'jhrApp.refundOrder.help.distributionPlatform' | translate">Distribution Platform</span></dt>
+                <dd>
+                    <span jhiTranslate="{{ 'jhrApp.DistributionPlatform.' + refundOrder.distributionPlatform }}">{{ refundOrder.distributionPlatform }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhrApp.refundOrder.deliveryNo" [ngbTooltip]="'jhrApp.refundOrder.help.deliveryNo' | translate">Delivery No</span></dt>
+                <dd>
+                    <span>{{ refundOrder.deliveryNo }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhrApp.refundOrder.deliveryStatus" [ngbTooltip]="'jhrApp.refundOrder.help.deliveryStatus' | translate">Delivery Status</span></dt>
+                <dd>
+                    <span>{{ refundOrder.deliveryStatus }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhrApp.refundOrder.deliveryDesc" [ngbTooltip]="'jhrApp.refundOrder.help.deliveryDesc' | translate">Delivery Desc</span></dt>
+                <dd>
+                    <span>{{ refundOrder.deliveryDesc }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhrApp.refundOrder.deliverier" [ngbTooltip]="'jhrApp.refundOrder.help.deliverier' | translate">Deliverier</span></dt>
+                <dd>
+                    <span>{{ refundOrder.deliverier }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhrApp.refundOrder.deliverierMobile" [ngbTooltip]="'jhrApp.refundOrder.help.deliverierMobile' | translate">Deliverier Mobile</span></dt>
+                <dd>
+                    <span>{{ refundOrder.deliverierMobile }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhrApp.refundOrder.deliveryDeductFee" [ngbTooltip]="'jhrApp.refundOrder.help.deliveryDeductFee' | translate">Delivery Deduct Fee</span></dt>
+                <dd>
+                    <span>{{ refundOrder.deliveryDeductFee }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhrApp.refundOrder.deliveryFee" [ngbTooltip]="'jhrApp.refundOrder.help.deliveryFee' | translate">Delivery Fee</span></dt>
+                <dd>
+                    <span>{{ refundOrder.deliveryFee }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhrApp.refundOrder.contact" [ngbTooltip]="'jhrApp.refundOrder.help.contact' | translate">Contact</span></dt>
+                <dd>
+                    <span>{{ refundOrder.contact }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhrApp.refundOrder.sex" [ngbTooltip]="'jhrApp.refundOrder.help.sex' | translate">Sex</span></dt>
+                <dd>
+                    <span jhiTranslate="{{ 'jhrApp.Sex.' + refundOrder.sex }}">{{ refundOrder.sex }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhrApp.refundOrder.mobile" [ngbTooltip]="'jhrApp.refundOrder.help.mobile' | translate">Mobile</span></dt>
+                <dd>
+                    <span>{{ refundOrder.mobile }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhrApp.refundOrder.country" [ngbTooltip]="'jhrApp.refundOrder.help.country' | translate">Country</span></dt>
+                <dd>
+                    <span>{{ refundOrder.country }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhrApp.refundOrder.province" [ngbTooltip]="'jhrApp.refundOrder.help.province' | translate">Province</span></dt>
+                <dd>
+                    <span>{{ refundOrder.province }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhrApp.refundOrder.city" [ngbTooltip]="'jhrApp.refundOrder.help.city' | translate">City</span></dt>
+                <dd>
+                    <span>{{ refundOrder.city }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhrApp.refundOrder.district" [ngbTooltip]="'jhrApp.refundOrder.help.district' | translate">District</span></dt>
+                <dd>
+                    <span>{{ refundOrder.district }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhrApp.refundOrder.offsetType" [ngbTooltip]="'jhrApp.refundOrder.help.offsetType' | translate">Offset Type</span></dt>
+                <dd>
+                    <span jhiTranslate="{{ 'jhrApp.OffsetType.' + refundOrder.offsetType }}">{{ refundOrder.offsetType }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhrApp.refundOrder.longitude" [ngbTooltip]="'jhrApp.refundOrder.help.longitude' | translate">Longitude</span></dt>
+                <dd>
+                    <span>{{ refundOrder.longitude }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhrApp.refundOrder.latitude" [ngbTooltip]="'jhrApp.refundOrder.help.latitude' | translate">Latitude</span></dt>
+                <dd>
+                    <span>{{ refundOrder.latitude }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhrApp.refundOrder.address" [ngbTooltip]="'jhrApp.refundOrder.help.address' | translate">Address</span></dt>
+                <dd>
+                    <span>{{ refundOrder.address }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhrApp.refundOrder.packingFee" [ngbTooltip]="'jhrApp.refundOrder.help.packingFee' | translate">Packing Fee</span></dt>
+                <dd>
+                    <span>{{ refundOrder.packingFee }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhrApp.refundOrder.paymentMode" [ngbTooltip]="'jhrApp.refundOrder.help.paymentMode' | translate">Payment Mode</span></dt>
+                <dd>
+                    <span jhiTranslate="{{ 'jhrApp.PaymentMethod.' + refundOrder.paymentMode }}">{{ refundOrder.paymentMode }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhrApp.refundOrder.diningDate" [ngbTooltip]="'jhrApp.refundOrder.help.diningDate' | translate">Dining Date</span></dt>
+                <dd>
+                    <span>{{ refundOrder.diningDate }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhrApp.refundOrder.remark" [ngbTooltip]="'jhrApp.refundOrder.help.remark' | translate">Remark</span></dt>
+                <dd>
+                    <span>{{ refundOrder.remark }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhrApp.refundOrder.status" [ngbTooltip]="'jhrApp.refundOrder.help.status' | translate">Status</span></dt>
+                <dd>
+                    <span jhiTranslate="{{ 'jhrApp.OrderStatus.' + refundOrder.status }}">{{ refundOrder.status }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhrApp.refundOrder.createdDate" [ngbTooltip]="'jhrApp.refundOrder.help.createdDate' | translate">Created Date</span></dt>
+                <dd>
+                    <span>{{ refundOrder.createdDate }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhrApp.refundOrder.paidDate" [ngbTooltip]="'jhrApp.refundOrder.help.paidDate' | translate">Paid Date</span></dt>
+                <dd>
+                    <span>{{ refundOrder.paidDate }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhrApp.refundOrder.completedDate" [ngbTooltip]="'jhrApp.refundOrder.help.completedDate' | translate">Completed Date</span></dt>
+                <dd>
+                    <span>{{ refundOrder.completedDate }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhrApp.refundOrder.exceptionDate" [ngbTooltip]="'jhrApp.refundOrder.help.exceptionDate' | translate">Exception Date</span></dt>
+                <dd>
+                    <span>{{ refundOrder.exceptionDate }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhrApp.refundOrder.handler" [ngbTooltip]="'jhrApp.refundOrder.help.handler' | translate">Handler</span></dt>
+                <dd>
+                    <span>{{ refundOrder.handler }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhrApp.refundOrder.handledDate" [ngbTooltip]="'jhrApp.refundOrder.help.handledDate' | translate">Handled Date</span></dt>
+                <dd>
+                    <span>{{ refundOrder.handledDate }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhrApp.refundOrder.handledDesc" [ngbTooltip]="'jhrApp.refundOrder.help.handledDesc' | translate">Handled Desc</span></dt>
+                <dd>
+                    <span>{{ refundOrder.handledDesc }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhrApp.refundOrder.applicant" [ngbTooltip]="'jhrApp.refundOrder.help.applicant' | translate">Applicant</span></dt>
+                <dd>
+                    <span>{{ refundOrder.applicant }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhrApp.refundOrder.appliedDate" [ngbTooltip]="'jhrApp.refundOrder.help.appliedDate' | translate">Applied Date</span></dt>
+                <dd>
+                    <span>{{ refundOrder.appliedDate }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhrApp.refundOrder.refundDesc" [ngbTooltip]="'jhrApp.refundOrder.help.refundDesc' | translate">Refund Desc</span></dt>
+                <dd>
+                    <span>{{ refundOrder.refundDesc }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhrApp.refundOrder.refundedBy" [ngbTooltip]="'jhrApp.refundOrder.help.refundedBy' | translate">Refunded By</span></dt>
+                <dd>
+                    <span>{{ refundOrder.refundedBy }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhrApp.refundOrder.refundedDate" [ngbTooltip]="'jhrApp.refundOrder.help.refundedDate' | translate">Refunded Date</span></dt>
+                <dd>
+                    <span>{{ refundOrder.refundedDate }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhrApp.refundOrder.refundAmount" [ngbTooltip]="'jhrApp.refundOrder.help.refundAmount' | translate">Refund Amount</span></dt>
+                <dd>
+                    <span>{{ refundOrder.refundAmount }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhrApp.refundOrder.reply" [ngbTooltip]="'jhrApp.refundOrder.help.reply' | translate">Reply</span></dt>
+                <dd>
+                    <span>{{ refundOrder.reply }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhrApp.refundOrder.passed" [ngbTooltip]="'jhrApp.refundOrder.help.passed' | translate">Passed</span></dt>
+                <dd>
+                    <span>{{ refundOrder.passed }}</span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/refund-order', refundOrder.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

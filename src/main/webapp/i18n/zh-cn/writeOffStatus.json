@@ -1,0 +1,9 @@
+{
+  "jhrApp": {
+    "WriteOffStatus": {
+      "null": "",
+      "CONSUMED": "CONSUMED",
+      "EXPIRED": "EXPIRED"
+    }
+  }
+}

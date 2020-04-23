@@ -1,0 +1,10 @@
+{
+  "jhrApp": {
+    "Sex": {
+      "null": "",
+      "UNKNOWN": "UNKNOWN",
+      "MAN": "MAN",
+      "WOMAN": "WOMAN"
+    }
+  }
+}

@@ -1,0 +1,78 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="deliveryAddress">
+            <h2><span jhiTranslate="jhrApp.deliveryAddress.detail.title">Delivery Address</span> {{ deliveryAddress.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="jhrApp.deliveryAddress.memberName" [ngbTooltip]="'jhrApp.deliveryAddress.help.memberName' | translate">Member Name</span></dt>
+                <dd>
+                    <span>{{ deliveryAddress.memberName }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhrApp.deliveryAddress.memberSN" [ngbTooltip]="'jhrApp.deliveryAddress.help.memberSN' | translate">Member SN</span></dt>
+                <dd>
+                    <span>{{ deliveryAddress.memberSN }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhrApp.deliveryAddress.contact" [ngbTooltip]="'jhrApp.deliveryAddress.help.contact' | translate">Contact</span></dt>
+                <dd>
+                    <span>{{ deliveryAddress.contact }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhrApp.deliveryAddress.sex" [ngbTooltip]="'jhrApp.deliveryAddress.help.sex' | translate">Sex</span></dt>
+                <dd>
+                    <span jhiTranslate="{{ 'jhrApp.Sex.' + deliveryAddress.sex }}">{{ deliveryAddress.sex }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhrApp.deliveryAddress.mobile" [ngbTooltip]="'jhrApp.deliveryAddress.help.mobile' | translate">Mobile</span></dt>
+                <dd>
+                    <span>{{ deliveryAddress.mobile }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhrApp.deliveryAddress.country" [ngbTooltip]="'jhrApp.deliveryAddress.help.country' | translate">Country</span></dt>
+                <dd>
+                    <span>{{ deliveryAddress.country }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhrApp.deliveryAddress.province" [ngbTooltip]="'jhrApp.deliveryAddress.help.province' | translate">Province</span></dt>
+                <dd>
+                    <span>{{ deliveryAddress.province }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhrApp.deliveryAddress.city" [ngbTooltip]="'jhrApp.deliveryAddress.help.city' | translate">City</span></dt>
+                <dd>
+                    <span>{{ deliveryAddress.city }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhrApp.deliveryAddress.district" [ngbTooltip]="'jhrApp.deliveryAddress.help.district' | translate">District</span></dt>
+                <dd>
+                    <span>{{ deliveryAddress.district }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhrApp.deliveryAddress.offsetType" [ngbTooltip]="'jhrApp.deliveryAddress.help.offsetType' | translate">Offset Type</span></dt>
+                <dd>
+                    <span jhiTranslate="{{ 'jhrApp.OffsetType.' + deliveryAddress.offsetType }}">{{ deliveryAddress.offsetType }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhrApp.deliveryAddress.longitude" [ngbTooltip]="'jhrApp.deliveryAddress.help.longitude' | translate">Longitude</span></dt>
+                <dd>
+                    <span>{{ deliveryAddress.longitude }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhrApp.deliveryAddress.latitude" [ngbTooltip]="'jhrApp.deliveryAddress.help.latitude' | translate">Latitude</span></dt>
+                <dd>
+                    <span>{{ deliveryAddress.latitude }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhrApp.deliveryAddress.address" [ngbTooltip]="'jhrApp.deliveryAddress.help.address' | translate">Address</span></dt>
+                <dd>
+                    <span>{{ deliveryAddress.address }}</span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/delivery-address', deliveryAddress.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

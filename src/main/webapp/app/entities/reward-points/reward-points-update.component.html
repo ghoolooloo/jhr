@@ -1,0 +1,95 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+            <h2 id="jhi-reward-points-heading" jhiTranslate="jhrApp.rewardPoints.home.createOrEditLabel">Create or edit a Reward Points</h2>
+
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+
+                <div class="form-group" [hidden]="!editForm.get('id')!.value">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id" formControlName="id" readonly />
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="jhrApp.rewardPoints.memberName" for="field_memberName" [ngbTooltip]="'jhrApp.rewardPoints.help.memberName' | translate">Member Name</label>
+                    <input type="text" class="form-control" name="memberName" id="field_memberName"
+                           formControlName="memberName"/>
+                    <div *ngIf="editForm.get('memberName')!.invalid && (editForm.get('memberName')!.dirty || editForm.get('memberName')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('memberName')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('memberName')?.errors?.maxlength" jhiTranslate="entity.validation.maxlength" [translateValues]="{ max: 20 }">
+                        This field cannot be longer than 20 characters.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="jhrApp.rewardPoints.memberSN" for="field_memberSN" [ngbTooltip]="'jhrApp.rewardPoints.help.memberSN' | translate">Member SN</label>
+                    <input type="text" class="form-control" name="memberSN" id="field_memberSN"
+                           formControlName="memberSN"/>
+                    <div *ngIf="editForm.get('memberSN')!.invalid && (editForm.get('memberSN')!.dirty || editForm.get('memberSN')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('memberSN')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('memberSN')?.errors?.maxlength" jhiTranslate="entity.validation.maxlength" [translateValues]="{ max: 20 }">
+                        This field cannot be longer than 20 characters.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="jhrApp.rewardPoints.balance" for="field_balance" [ngbTooltip]="'jhrApp.rewardPoints.help.balance' | translate">Balance</label>
+                    <input type="number" class="form-control" name="balance" id="field_balance"
+                           formControlName="balance"/>
+                    <div *ngIf="editForm.get('balance')!.invalid && (editForm.get('balance')!.dirty || editForm.get('balance')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('balance')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('balance')?.errors?.min" jhiTranslate="entity.validation.min" [translateValues]="{ min: 0 }">
+                            This field should be at least 0.
+                        </small>
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.get('balance')?.errors?.number" jhiTranslate="entity.validation.number">
+                            This field should be a number.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="jhrApp.rewardPoints.lastModifiedDate" for="field_lastModifiedDate" [ngbTooltip]="'jhrApp.rewardPoints.help.lastModifiedDate' | translate">Last Modified Date</label>
+                    <div class="d-flex">
+                        <input id="field_lastModifiedDate" type="datetime-local" class="form-control" name="lastModifiedDate" formControlName="lastModifiedDate" placeholder="YYYY-MM-DD HH:mm"/>
+                    </div>
+                    <div *ngIf="editForm.get('lastModifiedDate')!.invalid && (editForm.get('lastModifiedDate')!.dirty || editForm.get('lastModifiedDate')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('lastModifiedDate')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.get('lastModifiedDate')?.errors?.ZonedDateTimelocal" jhiTranslate="entity.validation.ZonedDateTimelocal">
+                            This field should be a date and time.
+                        </small>
+                    </div>
+                </div>
+            </div>
+
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary" (click)="previousState()">
+                    <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+
+                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

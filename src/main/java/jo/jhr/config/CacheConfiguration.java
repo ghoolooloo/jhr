@@ -50,6 +50,32 @@ public class CacheConfiguration {
             createCache(cm, jo.jhr.domain.User.class.getName(), jcacheConfiguration);
             createCache(cm, jo.jhr.domain.Authority.class.getName(), jcacheConfiguration);
             createCache(cm, jo.jhr.domain.User.class.getName() + ".authorities", jcacheConfiguration);
+            createCache(cm, jo.jhr.domain.FoodCategory.class.getName(), jcacheConfiguration);
+            createCache(cm, jo.jhr.domain.Food.class.getName(), jcacheConfiguration);
+            createCache(cm, jo.jhr.domain.WeekMenu.class.getName(), jcacheConfiguration);
+            createCache(cm, jo.jhr.domain.WeekMenu.class.getName() + ".weekStocks", jcacheConfiguration);
+            createCache(cm, jo.jhr.domain.WeekStock.class.getName(), jcacheConfiguration);
+            createCache(cm, jo.jhr.domain.Shop.class.getName(), jcacheConfiguration);
+            createCache(cm, jo.jhr.domain.Merchant.class.getName(), jcacheConfiguration);
+            createCache(cm, jo.jhr.domain.Member.class.getName(), jcacheConfiguration);
+            createCache(cm, jo.jhr.domain.DeliveryAddress.class.getName(), jcacheConfiguration);
+            createCache(cm, jo.jhr.domain.Order.class.getName(), jcacheConfiguration);
+            createCache(cm, jo.jhr.domain.OrderItem.class.getName(), jcacheConfiguration);
+            createCache(cm, jo.jhr.domain.DeliveryOrder.class.getName(), jcacheConfiguration);
+            createCache(cm, jo.jhr.domain.ExceptionOrder.class.getName(), jcacheConfiguration);
+            createCache(cm, jo.jhr.domain.RefundOrder.class.getName(), jcacheConfiguration);
+            createCache(cm, jo.jhr.domain.ClosedOrder.class.getName(), jcacheConfiguration);
+            createCache(cm, jo.jhr.domain.Sales.class.getName(), jcacheConfiguration);
+            createCache(cm, jo.jhr.domain.FoodSalesReport.class.getName(), jcacheConfiguration);
+            createCache(cm, jo.jhr.domain.RewardPoints.class.getName(), jcacheConfiguration);
+            createCache(cm, jo.jhr.domain.RewardPoints.class.getName() + ".records", jcacheConfiguration);
+            createCache(cm, jo.jhr.domain.RewardPointsRecord.class.getName(), jcacheConfiguration);
+            createCache(cm, jo.jhr.domain.Card.class.getName(), jcacheConfiguration);
+            createCache(cm, jo.jhr.domain.FinalCard.class.getName(), jcacheConfiguration);
+            createCache(cm, jo.jhr.domain.CardHolder.class.getName(), jcacheConfiguration);
+            createCache(cm, jo.jhr.domain.WriteOffCard.class.getName(), jcacheConfiguration);
+            createCache(cm, jo.jhr.domain.Carousel.class.getName(), jcacheConfiguration);
+            createCache(cm, jo.jhr.domain.Notice.class.getName(), jcacheConfiguration);
             // jhipster-needle-redis-add-entry
         };
     }

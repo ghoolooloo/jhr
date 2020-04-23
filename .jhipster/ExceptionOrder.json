@@ -1,0 +1,340 @@
+{
+    "name": "ExceptionOrder",
+    "fields": [
+        {
+            "fieldName": "sn",
+            "javadoc": "订单编号",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required",
+                "maxlength"
+            ],
+            "fieldValidateRulesMaxlength": "20"
+        },
+        {
+            "fieldName": "memberName",
+            "javadoc": "会员名称",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required",
+                "maxlength"
+            ],
+            "fieldValidateRulesMaxlength": "20"
+        },
+        {
+            "fieldName": "memberSN",
+            "javadoc": "会员编号",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required",
+                "maxlength"
+            ],
+            "fieldValidateRulesMaxlength": "20"
+        },
+        {
+            "fieldName": "orderType",
+            "javadoc": "订单类型",
+            "fieldType": "OrderType",
+            "fieldValues": "TOGO,PACK,FORHERE",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "shopSN",
+            "javadoc": "门店编号",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required",
+                "maxlength"
+            ],
+            "fieldValidateRulesMaxlength": "30"
+        },
+        {
+            "fieldName": "shopName",
+            "javadoc": "门店名称",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required",
+                "maxlength"
+            ],
+            "fieldValidateRulesMaxlength": "20"
+        },
+        {
+            "fieldName": "priceTotal",
+            "javadoc": "菜品总金额（折扣前），单位：分",
+            "fieldType": "Integer",
+            "fieldValidateRules": [
+                "required",
+                "min"
+            ],
+            "fieldValidateRulesMin": "0"
+        },
+        {
+            "fieldName": "cardReduce",
+            "javadoc": "代金券或折扣券减免或折扣的金额，单位：分",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "cards",
+            "javadoc": "该订单使用的卡券code列表，code之间用逗号分隔",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "maxlength"
+            ],
+            "fieldValidateRulesMaxlength": "300"
+        },
+        {
+            "fieldName": "rewardPointsReduce",
+            "javadoc": "积分抵扣金额，单位：分",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "paymentTotal",
+            "javadoc": "支付总金额（包含打折后的实际金额和各种费用），单位：分",
+            "fieldType": "Integer",
+            "fieldValidateRules": [
+                "required",
+                "min"
+            ],
+            "fieldValidateRulesMin": "0"
+        },
+        {
+            "fieldName": "distributionPlatform",
+            "javadoc": "配送平台",
+            "fieldType": "DistributionPlatform",
+            "fieldValues": "MERCHANT,DADA"
+        },
+        {
+            "fieldName": "deliveryNo",
+            "javadoc": "配送单号",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "maxlength"
+            ],
+            "fieldValidateRulesMaxlength": "32"
+        },
+        {
+            "fieldName": "deliveryStatus",
+            "javadoc": "配送状态（由配送平台提供，以达达为例）：5、7、9、10、1000",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "deliveryDesc",
+            "javadoc": "配送说明",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "maxlength"
+            ],
+            "fieldValidateRulesMaxlength": "50"
+        },
+        {
+            "fieldName": "deliverier",
+            "javadoc": "配送员",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "maxlength"
+            ],
+            "fieldValidateRulesMaxlength": "20"
+        },
+        {
+            "fieldName": "deliverierMobile",
+            "javadoc": "配送员手机",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "maxlength"
+            ],
+            "fieldValidateRulesMaxlength": "11"
+        },
+        {
+            "fieldName": "deliveryDeductFee",
+            "javadoc": "配送违约金，单位：分",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "deliveryFee",
+            "javadoc": "外送费",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "contact",
+            "javadoc": "联系人",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "maxlength"
+            ],
+            "fieldValidateRulesMaxlength": "20"
+        },
+        {
+            "fieldName": "sex",
+            "javadoc": "联系人性别",
+            "fieldType": "Sex",
+            "fieldValues": "UNKNOWN,MAN,WOMAN"
+        },
+        {
+            "fieldName": "mobile",
+            "javadoc": "联系人手机，也是自助中的预留手机",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "maxlength"
+            ],
+            "fieldValidateRulesMaxlength": "11"
+        },
+        {
+            "fieldName": "country",
+            "javadoc": "国家",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "maxlength"
+            ],
+            "fieldValidateRulesMaxlength": "20"
+        },
+        {
+            "fieldName": "province",
+            "javadoc": "省、直辖市、自治区",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "maxlength"
+            ],
+            "fieldValidateRulesMaxlength": "20"
+        },
+        {
+            "fieldName": "city",
+            "javadoc": "城市",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "maxlength"
+            ],
+            "fieldValidateRulesMaxlength": "20"
+        },
+        {
+            "fieldName": "district",
+            "javadoc": "地区",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "maxlength"
+            ],
+            "fieldValidateRulesMaxlength": "20"
+        },
+        {
+            "fieldName": "offsetType",
+            "javadoc": "坐标类型",
+            "fieldType": "OffsetType",
+            "fieldValues": "MARS,SOGOU,BAIDU,MAPBAR,GPS,MERCATOR"
+        },
+        {
+            "fieldName": "longitude",
+            "javadoc": "经度",
+            "fieldType": "Double"
+        },
+        {
+            "fieldName": "latitude",
+            "javadoc": "纬度",
+            "fieldType": "Double"
+        },
+        {
+            "fieldName": "address",
+            "javadoc": "详细地址（不含省市信息）",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "maxlength"
+            ],
+            "fieldValidateRulesMaxlength": "50"
+        },
+        {
+            "fieldName": "packingFee",
+            "javadoc": "包装费",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "paymentMode",
+            "javadoc": "支付方式",
+            "fieldType": "PaymentMethod",
+            "fieldValues": "WX,ALIPAY",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "diningDate",
+            "javadoc": "预计送达时间或自取时间",
+            "fieldType": "Instant",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "remark",
+            "javadoc": "备注",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "maxlength"
+            ],
+            "fieldValidateRulesMaxlength": "30"
+        },
+        {
+            "fieldName": "status",
+            "javadoc": "订单状态：DELIVERING（配送中）",
+            "fieldType": "OrderStatus",
+            "fieldValues": "NEW,PAID,EXPIRED,DELIVERING,COMPLETED,REFUNDING,REFUNDED,CLOSED",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "createdDate",
+            "javadoc": "订单创建时间",
+            "fieldType": "Instant",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "paidDate",
+            "javadoc": "支付时间",
+            "fieldType": "Instant"
+        },
+        {
+            "fieldName": "exceptionDate",
+            "javadoc": "异常时间",
+            "fieldType": "Instant"
+        },
+        {
+            "fieldName": "handler",
+            "javadoc": "处理人",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required",
+                "maxlength"
+            ],
+            "fieldValidateRulesMaxlength": "20"
+        },
+        {
+            "fieldName": "handledDate",
+            "javadoc": "处理时间",
+            "fieldType": "Instant"
+        },
+        {
+            "fieldName": "handledDesc",
+            "javadoc": "处理描述",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "maxlength"
+            ],
+            "fieldValidateRulesMaxlength": "100"
+        }
+    ],
+    "relationships": [],
+    "changelogDate": "20200423071200",
+    "javadoc": "异常订单\\n配送状态：待接单＝1 待取货＝2 配送中＝3 已完成＝4 配送员取消＝51 商户取消=52 配送平台系统或客服取消=53 其他取消=50 已过期＝7 指派单=8 妥投异常之物品返回中=9 妥投异常之物品返回完成=10 骑士到店=100 系统故障订单发布失败=1000\\n@author Jo",
+    "entityTableName": "exception_order",
+    "dto": "mapstruct",
+    "pagination": "pagination",
+    "service": "serviceClass",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "readOnly": false,
+    "embedded": false,
+    "clientRootFolder": "",
+    "applications": "*"
+}

@@ -1,0 +1,65 @@
+{
+  "jhrApp": {
+    "writeOffCard": {
+      "home": {
+        "title": "Write Off Cards",
+        "createLabel": "Create a new Write Off Card",
+        "createOrEditLabel": "Create or edit a Write Off Card",
+        "notFound": "No Write Off Cards found"
+      },
+      "created": "A new Write Off Card is created with identifier {{ param }}",
+      "updated": "A Write Off Card is updated with identifier {{ param }}",
+      "deleted": "A Write Off Card is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Write Off Card {{ id }}?"
+      },
+      "detail": {
+        "title": "Write Off Card"
+      },
+      "code": "Code",
+      "cardSN": "Card SN",
+      "cardType": "Card Type",
+      "title": "Title",
+      "thumbnail": "Thumbnail",
+      "details": "Details",
+      "validPeriodBeginAt": "Valid Period Begin At",
+      "validPeriodEndAt": "Valid Period End At",
+      "canUseWithOtherCard": "Can Use With Other Card",
+      "acceptCategories": "Accept Categories",
+      "acceptShops": "Accept Shops",
+      "leastCost": "Least Cost",
+      "reduceCost": "Reduce Cost",
+      "discount": "Discount",
+      "gift": "Gift",
+      "giftQuantity": "Gift Quantity",
+      "receivedBy": "Received By",
+      "receivedDate": "Received Date",
+      "orderSN": "Order SN",
+      "status": "Status",
+      "writeOffDate": "Write Off Date",
+      "help": {
+        "code": "优惠码，在领取时自动生成",
+        "cardSN": "卡券编号",
+        "cardType": "卡券类型",
+        "title": "标题",
+        "thumbnail": "缩略图",
+        "details": "优惠说明（兑换券的兑换内容也是写在这里）",
+        "validPeriodBeginAt": "有效期开始时间",
+        "validPeriodEndAt": "有效期截止时间",
+        "canUseWithOtherCard": "能否与其他卡券同时使用",
+        "acceptCategories": "适用的菜品分类。分类编号之间由逗号分隔，值为空时表示不限定分类",
+        "acceptShops": "适用的门店。门店编号之间由逗号分隔，值为空时表示不限定门店",
+        "leastCost": "起用金额，单位为分。如果无起用门槛则填0",
+        "reduceCost": "减免金额，单位为分（代金券专用）",
+        "discount": "打折额度（百分比，例如：30就是七折）（折扣券专用）",
+        "gift": "兑换的菜品（兑换券专用）",
+        "giftQuantity": "兑换菜品数量（兑换券专用）",
+        "receivedBy": "领取者",
+        "receivedDate": "领取时间",
+        "orderSN": "订单编号",
+        "status": "核销状态",
+        "writeOffDate": "核销时间"
+      }
+    }
+  }
+}

@@ -1,0 +1,192 @@
+{
+    "name": "CardHolder",
+    "fields": [
+        {
+            "fieldName": "code",
+            "javadoc": "优惠码，在领取时自动生成",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required",
+                "unique",
+                "maxlength"
+            ],
+            "fieldValidateRulesMaxlength": "40"
+        },
+        {
+            "fieldName": "cardSN",
+            "javadoc": "卡券编号",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required",
+                "maxlength"
+            ],
+            "fieldValidateRulesMaxlength": "20"
+        },
+        {
+            "fieldName": "cardType",
+            "javadoc": "卡券类型",
+            "fieldType": "CardType",
+            "fieldValues": "CASH,DISCOUNT,GIFT,BUY_ONE_GET_ONE",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "title",
+            "javadoc": "标题",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required",
+                "maxlength"
+            ],
+            "fieldValidateRulesMaxlength": "100"
+        },
+        {
+            "fieldName": "thumbnail",
+            "javadoc": "缩略图",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "maxlength"
+            ],
+            "fieldValidateRulesMaxlength": "200"
+        },
+        {
+            "fieldName": "details",
+            "javadoc": "优惠说明（兑换券的兑换内容也是写在这里）",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "maxlength"
+            ],
+            "fieldValidateRulesMaxlength": "300"
+        },
+        {
+            "fieldName": "validPeriodBeginAt",
+            "javadoc": "有效期开始时间",
+            "fieldType": "Instant"
+        },
+        {
+            "fieldName": "validPeriodEndAt",
+            "javadoc": "有效期截止时间",
+            "fieldType": "Instant"
+        },
+        {
+            "fieldName": "canUseWithOtherCard",
+            "javadoc": "能否与其他卡券同时使用",
+            "fieldType": "Boolean",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "acceptCategories",
+            "javadoc": "适用的菜品分类。分类编号之间由逗号分隔，值为空时表示不限定分类",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "maxlength"
+            ],
+            "fieldValidateRulesMaxlength": "500"
+        },
+        {
+            "fieldName": "acceptShops",
+            "javadoc": "适用的门店。门店编号之间由逗号分隔，值为空时表示不限定门店",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "maxlength"
+            ],
+            "fieldValidateRulesMaxlength": "500"
+        },
+        {
+            "fieldName": "leastCost",
+            "javadoc": "起用金额，单位为分。如果无起用门槛则填0",
+            "fieldType": "Integer",
+            "fieldValidateRules": [
+                "min",
+                "max"
+            ],
+            "fieldValidateRulesMin": "0",
+            "fieldValidateRulesMax": "99999"
+        },
+        {
+            "fieldName": "reduceCost",
+            "javadoc": "减免金额，单位为分（代金券专用）",
+            "fieldType": "Integer",
+            "fieldValidateRules": [
+                "min",
+                "max"
+            ],
+            "fieldValidateRulesMin": "0",
+            "fieldValidateRulesMax": "99999"
+        },
+        {
+            "fieldName": "discount",
+            "javadoc": "打折额度（百分比，例如：30就是七折）（折扣券专用）",
+            "fieldType": "Integer",
+            "fieldValidateRules": [
+                "min",
+                "max"
+            ],
+            "fieldValidateRulesMin": "0",
+            "fieldValidateRulesMax": "100"
+        },
+        {
+            "fieldName": "gift",
+            "javadoc": "兑换的菜品（兑换券专用）",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "maxlength"
+            ],
+            "fieldValidateRulesMaxlength": "10"
+        },
+        {
+            "fieldName": "giftQuantity",
+            "javadoc": "兑换菜品数量（兑换券专用）",
+            "fieldType": "Integer",
+            "fieldValidateRules": [
+                "min",
+                "max"
+            ],
+            "fieldValidateRulesMin": "0",
+            "fieldValidateRulesMax": "99999"
+        },
+        {
+            "fieldName": "receivedBy",
+            "javadoc": "领取者",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required",
+                "maxlength"
+            ],
+            "fieldValidateRulesMaxlength": "20"
+        },
+        {
+            "fieldName": "receivedDate",
+            "javadoc": "领取时间",
+            "fieldType": "Instant",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "held",
+            "javadoc": "表示是否被占用，非空时是占用它的订单编号。该字段只有是空时才能被设置新值，否则只能执行清空操作。",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "maxlength"
+            ],
+            "fieldValidateRulesMaxlength": "20"
+        }
+    ],
+    "relationships": [],
+    "changelogDate": "20200423072100",
+    "javadoc": "卡包，即已被用户领取的卡券\\n卡券核销（已消费或过期）后，将转变为WriteOffCard中。\\n订单取消，如果卡券没有失效，则相应已核销的卡券应该重新恢复未使用状态，即从WriteOffCard表移回本表，并且是未占用状态。\\n部分退款的订单，不退还卡券；全额退款的订单，要退还卡券。\\n卡券被订单选用，即使该订单尚未支付，则该卡券处于占用状态，不能被其他订单使用，除非它恢复可用状态。\\n@author Jo",
+    "entityTableName": "card_holder",
+    "dto": "mapstruct",
+    "pagination": "pagination",
+    "service": "serviceClass",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "readOnly": false,
+    "embedded": false,
+    "clientRootFolder": "",
+    "applications": "*"
+}

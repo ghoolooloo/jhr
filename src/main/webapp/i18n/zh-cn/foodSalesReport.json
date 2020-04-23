@@ -1,0 +1,57 @@
+{
+  "jhrApp": {
+    "foodSalesReport": {
+      "home": {
+        "title": "Food Sales Reports",
+        "createLabel": "创建新 Food Sales Report",
+        "createOrEditLabel": "创建或编辑 Food Sales Report",
+        "notFound": "No Food Sales Reports found"
+      },
+      "created": "Food Sales Report {{ param }} 创建成功",
+      "updated": "Food Sales Report {{ param }} 更新成功",
+      "deleted": "Food Sales Report {{ param }} 删除成功",
+      "delete": {
+        "question": "你确定要删除 Food Sales Report {{ id }} 吗？"
+      },
+      "detail": {
+        "title": "Food Sales Report"
+      },
+      "day": "Day",
+      "shopSN": "Shop SN",
+      "shopName": "Shop Name",
+      "categorySN": "Category SN",
+      "categoryName": "Category Name",
+      "foodSN": "Food SN",
+      "foodName": "Food Name",
+      "cost": "Cost",
+      "price": "Price",
+      "originalPrice": "Original Price",
+      "salesQuantity": "Sales Quantity",
+      "salesAmount": "Sales Amount",
+      "refundOrders": "Refund Orders",
+      "refundAmount": "Refund Amount",
+      "grossProfit": "Gross Profit",
+      "initQuantity": "Init Quantity",
+      "remainder": "Remainder",
+      "help": {
+        "day": "营业日（只有日期，不需要时间）",
+        "shopSN": "门店编号",
+        "shopName": "门店名称",
+        "categorySN": "分类编号",
+        "categoryName": "分类名称",
+        "foodSN": "菜品编号",
+        "foodName": "菜品名称",
+        "cost": "成本（单位：分）",
+        "price": "售价（单位：分）",
+        "originalPrice": "原价（单位：分）",
+        "salesQuantity": "销售数量",
+        "salesAmount": "销售金额（单位：分）= 售价 * 销售数量",
+        "refundOrders": "退款单数",
+        "refundAmount": "退款金额",
+        "grossProfit": "毛利（单位：分）= (售价 - 成本) * 销售数量",
+        "initQuantity": "初始库存",
+        "remainder": "剩余库存"
+      }
+    }
+  }
+}

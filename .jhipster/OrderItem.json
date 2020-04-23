@@ -1,0 +1,160 @@
+{
+    "name": "OrderItem",
+    "fields": [
+        {
+            "fieldName": "orderSN",
+            "javadoc": "订单编号",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required",
+                "unique",
+                "maxlength"
+            ],
+            "fieldValidateRulesMaxlength": "20"
+        },
+        {
+            "fieldName": "foodCategoryName",
+            "javadoc": "菜品分类名称",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required",
+                "maxlength"
+            ],
+            "fieldValidateRulesMaxlength": "10"
+        },
+        {
+            "fieldName": "foodCategorySN",
+            "javadoc": "菜品分类编号",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required",
+                "maxlength"
+            ],
+            "fieldValidateRulesMaxlength": "5"
+        },
+        {
+            "fieldName": "foodName",
+            "javadoc": "菜品名称",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required",
+                "maxlength"
+            ],
+            "fieldValidateRulesMaxlength": "20"
+        },
+        {
+            "fieldName": "foodSN",
+            "javadoc": "菜品编号",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required",
+                "maxlength"
+            ],
+            "fieldValidateRulesMaxlength": "10"
+        },
+        {
+            "fieldName": "foodThumbnail",
+            "javadoc": "菜品缩略图",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "maxlength"
+            ],
+            "fieldValidateRulesMaxlength": "200"
+        },
+        {
+            "fieldName": "foodPicture",
+            "javadoc": "菜品大图",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "maxlength"
+            ],
+            "fieldValidateRulesMaxlength": "200"
+        },
+        {
+            "fieldName": "price",
+            "javadoc": "售价（单位：分）",
+            "fieldType": "Integer",
+            "fieldValidateRules": [
+                "required",
+                "min",
+                "max"
+            ],
+            "fieldValidateRulesMin": "0",
+            "fieldValidateRulesMax": "99999"
+        },
+        {
+            "fieldName": "originalPrice",
+            "javadoc": "原价（单位：分）。原价要么为空，要么大于等于售价。原价为空或等于售价时，是普通菜品；原价不为空且原价大于售价时，是特惠菜品",
+            "fieldType": "Integer",
+            "fieldValidateRules": [
+                "min",
+                "max"
+            ],
+            "fieldValidateRulesMin": "0",
+            "fieldValidateRulesMax": "99999"
+        },
+        {
+            "fieldName": "cost",
+            "javadoc": "成本（单位：分）",
+            "fieldType": "Integer",
+            "fieldValidateRules": [
+                "min",
+                "max"
+            ],
+            "fieldValidateRulesMin": "0",
+            "fieldValidateRulesMax": "99999"
+        },
+        {
+            "fieldName": "packingFee",
+            "javadoc": "包装费（单位：分）",
+            "fieldType": "Integer",
+            "fieldValidateRules": [
+                "min",
+                "max"
+            ],
+            "fieldValidateRulesMin": "0",
+            "fieldValidateRulesMax": "99999"
+        },
+        {
+            "fieldName": "desc",
+            "javadoc": "描述",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "maxlength"
+            ],
+            "fieldValidateRulesMaxlength": "100"
+        },
+        {
+            "fieldName": "quantity",
+            "javadoc": "数量",
+            "fieldType": "Integer",
+            "fieldValidateRules": [
+                "required",
+                "min"
+            ],
+            "fieldValidateRulesMin": "1"
+        },
+        {
+            "fieldName": "coupon",
+            "javadoc": "兑换券的code。该字段不为空，表示这是一个兑换商品",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "maxlength"
+            ],
+            "fieldValidateRulesMaxlength": "32"
+        }
+    ],
+    "relationships": [],
+    "changelogDate": "20200423071000",
+    "javadoc": "订单项\\n要对该表做分区处理。\\n@author Jo",
+    "entityTableName": "order_item",
+    "dto": "mapstruct",
+    "pagination": "pagination",
+    "service": "serviceClass",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "readOnly": false,
+    "embedded": false,
+    "clientRootFolder": "",
+    "applications": "*"
+}

@@ -1,0 +1,147 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="jhrApp.deliveryOrder.home.title">Delivery Orders</span>
+
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-delivery-order" [routerLink]="['/delivery-order/new']">
+            <fa-icon icon="plus"></fa-icon>
+            <span  jhiTranslate="jhrApp.deliveryOrder.home.createLabel">
+            Create a new Delivery Order
+            </span>
+        </button>
+    </h2>
+
+    <jhi-alert-error></jhi-alert-error>
+
+    <jhi-alert></jhi-alert>
+
+    <div class="alert alert-warning" id="no-result" *ngIf="deliveryOrders?.length === 0">
+        <span jhiTranslate="jhrApp.deliveryOrder.home.notFound">No deliveryOrders found</span>
+    </div>
+
+    <div class="table-responsive" id="entities" *ngIf="deliveryOrders?.length > 0">
+        <table class="table table-striped" aria-describedby="page-heading">
+            <thead>
+                <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" [callback]="loadPage.bind(this)">
+                    <th scope="col"  jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="sn"><span jhiTranslate="jhrApp.deliveryOrder.sn">Sn</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="memberName"><span jhiTranslate="jhrApp.deliveryOrder.memberName">Member Name</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="memberSN"><span jhiTranslate="jhrApp.deliveryOrder.memberSN">Member SN</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="orderType"><span jhiTranslate="jhrApp.deliveryOrder.orderType">Order Type</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="shopSN"><span jhiTranslate="jhrApp.deliveryOrder.shopSN">Shop SN</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="shopName"><span jhiTranslate="jhrApp.deliveryOrder.shopName">Shop Name</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="priceTotal"><span jhiTranslate="jhrApp.deliveryOrder.priceTotal">Price Total</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="cardReduce"><span jhiTranslate="jhrApp.deliveryOrder.cardReduce">Card Reduce</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="cards"><span jhiTranslate="jhrApp.deliveryOrder.cards">Cards</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="rewardPointsReduce"><span jhiTranslate="jhrApp.deliveryOrder.rewardPointsReduce">Reward Points Reduce</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="paymentTotal"><span jhiTranslate="jhrApp.deliveryOrder.paymentTotal">Payment Total</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="distributionPlatform"><span jhiTranslate="jhrApp.deliveryOrder.distributionPlatform">Distribution Platform</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="deliveryNo"><span jhiTranslate="jhrApp.deliveryOrder.deliveryNo">Delivery No</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="deliveryStatus"><span jhiTranslate="jhrApp.deliveryOrder.deliveryStatus">Delivery Status</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="deliveryDesc"><span jhiTranslate="jhrApp.deliveryOrder.deliveryDesc">Delivery Desc</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="deliverier"><span jhiTranslate="jhrApp.deliveryOrder.deliverier">Deliverier</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="deliverierMobile"><span jhiTranslate="jhrApp.deliveryOrder.deliverierMobile">Deliverier Mobile</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="deliveryDeductFee"><span jhiTranslate="jhrApp.deliveryOrder.deliveryDeductFee">Delivery Deduct Fee</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="deliveryFee"><span jhiTranslate="jhrApp.deliveryOrder.deliveryFee">Delivery Fee</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="contact"><span jhiTranslate="jhrApp.deliveryOrder.contact">Contact</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="sex"><span jhiTranslate="jhrApp.deliveryOrder.sex">Sex</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="mobile"><span jhiTranslate="jhrApp.deliveryOrder.mobile">Mobile</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="country"><span jhiTranslate="jhrApp.deliveryOrder.country">Country</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="province"><span jhiTranslate="jhrApp.deliveryOrder.province">Province</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="city"><span jhiTranslate="jhrApp.deliveryOrder.city">City</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="district"><span jhiTranslate="jhrApp.deliveryOrder.district">District</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="offsetType"><span jhiTranslate="jhrApp.deliveryOrder.offsetType">Offset Type</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="longitude"><span jhiTranslate="jhrApp.deliveryOrder.longitude">Longitude</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="latitude"><span jhiTranslate="jhrApp.deliveryOrder.latitude">Latitude</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="address"><span jhiTranslate="jhrApp.deliveryOrder.address">Address</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="packingFee"><span jhiTranslate="jhrApp.deliveryOrder.packingFee">Packing Fee</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="paymentMode"><span jhiTranslate="jhrApp.deliveryOrder.paymentMode">Payment Mode</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="diningDate"><span jhiTranslate="jhrApp.deliveryOrder.diningDate">Dining Date</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="remark"><span jhiTranslate="jhrApp.deliveryOrder.remark">Remark</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="status"><span jhiTranslate="jhrApp.deliveryOrder.status">Status</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="createdDate"><span jhiTranslate="jhrApp.deliveryOrder.createdDate">Created Date</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="paidDate"><span jhiTranslate="jhrApp.deliveryOrder.paidDate">Paid Date</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="completedDate"><span jhiTranslate="jhrApp.deliveryOrder.completedDate">Completed Date</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="lastModifiedDate"><span jhiTranslate="jhrApp.deliveryOrder.lastModifiedDate">Last Modified Date</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let deliveryOrder of deliveryOrders ;trackBy: trackId">
+                    <td><a [routerLink]="['/delivery-order', deliveryOrder.id, 'view']">{{ deliveryOrder.id }}</a></td>
+                    <td>{{ deliveryOrder.sn }}</td>
+                    <td>{{ deliveryOrder.memberName }}</td>
+                    <td>{{ deliveryOrder.memberSN }}</td>
+                    <td jhiTranslate="{{ 'jhrApp.OrderType.' + deliveryOrder.orderType }}">{{ deliveryOrder.orderType }}</td>
+                    <td>{{ deliveryOrder.shopSN }}</td>
+                    <td>{{ deliveryOrder.shopName }}</td>
+                    <td>{{ deliveryOrder.priceTotal }}</td>
+                    <td>{{ deliveryOrder.cardReduce }}</td>
+                    <td>{{ deliveryOrder.cards }}</td>
+                    <td>{{ deliveryOrder.rewardPointsReduce }}</td>
+                    <td>{{ deliveryOrder.paymentTotal }}</td>
+                    <td jhiTranslate="{{ 'jhrApp.DistributionPlatform.' + deliveryOrder.distributionPlatform }}">{{ deliveryOrder.distributionPlatform }}</td>
+                    <td>{{ deliveryOrder.deliveryNo }}</td>
+                    <td>{{ deliveryOrder.deliveryStatus }}</td>
+                    <td>{{ deliveryOrder.deliveryDesc }}</td>
+                    <td>{{ deliveryOrder.deliverier }}</td>
+                    <td>{{ deliveryOrder.deliverierMobile }}</td>
+                    <td>{{ deliveryOrder.deliveryDeductFee }}</td>
+                    <td>{{ deliveryOrder.deliveryFee }}</td>
+                    <td>{{ deliveryOrder.contact }}</td>
+                    <td jhiTranslate="{{ 'jhrApp.Sex.' + deliveryOrder.sex }}">{{ deliveryOrder.sex }}</td>
+                    <td>{{ deliveryOrder.mobile }}</td>
+                    <td>{{ deliveryOrder.country }}</td>
+                    <td>{{ deliveryOrder.province }}</td>
+                    <td>{{ deliveryOrder.city }}</td>
+                    <td>{{ deliveryOrder.district }}</td>
+                    <td jhiTranslate="{{ 'jhrApp.OffsetType.' + deliveryOrder.offsetType }}">{{ deliveryOrder.offsetType }}</td>
+                    <td>{{ deliveryOrder.longitude }}</td>
+                    <td>{{ deliveryOrder.latitude }}</td>
+                    <td>{{ deliveryOrder.address }}</td>
+                    <td>{{ deliveryOrder.packingFee }}</td>
+                    <td jhiTranslate="{{ 'jhrApp.PaymentMethod.' + deliveryOrder.paymentMode }}">{{ deliveryOrder.paymentMode }}</td>
+                    <td>{{ deliveryOrder.diningDate | date:'medium' }}</td>
+                    <td>{{ deliveryOrder.remark }}</td>
+                    <td jhiTranslate="{{ 'jhrApp.OrderStatus.' + deliveryOrder.status }}">{{ deliveryOrder.status }}</td>
+                    <td>{{ deliveryOrder.createdDate | date:'medium' }}</td>
+                    <td>{{ deliveryOrder.paidDate | date:'medium' }}</td>
+                    <td>{{ deliveryOrder.completedDate | date:'medium' }}</td>
+                    <td>{{ deliveryOrder.lastModifiedDate | date:'medium' }}</td>
+                    <td class="text-right">
+                        <div class="btn-group">
+                            <button type="submit"
+                                    [routerLink]="['/delivery-order', deliveryOrder.id, 'view']"
+                                    class="btn btn-info btn-sm">
+                                <fa-icon icon="eye"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                            </button>
+
+                            <button type="submit"
+                                    [routerLink]="['/delivery-order', deliveryOrder.id, 'edit']"
+                                    class="btn btn-primary btn-sm">
+                                <fa-icon icon="pencil-alt"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                            </button>
+
+                            <button type="submit" (click)="delete(deliveryOrder)"
+                                    class="btn btn-danger btn-sm">
+                                <fa-icon icon="times"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div *ngIf="deliveryOrders?.length > 0">
+        <div class="row justify-content-center">
+            <jhi-item-count [page]="page" [total]="totalItems" [itemsPerPage]="itemsPerPage"></jhi-item-count>
+        </div>
+
+        <div class="row justify-content-center">
+            <ngb-pagination [collectionSize]="totalItems" [(page)]="ngbPaginationPage" [pageSize]="itemsPerPage" [maxSize]="5" [rotate]="true" [boundaryLinks]="true" (pageChange)="loadPage($event)"></ngb-pagination>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,107 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="jhrApp.cardHolder.home.title">Card Holders</span>
+
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-card-holder" [routerLink]="['/card-holder/new']">
+            <fa-icon icon="plus"></fa-icon>
+            <span  jhiTranslate="jhrApp.cardHolder.home.createLabel">
+            Create a new Card Holder
+            </span>
+        </button>
+    </h2>
+
+    <jhi-alert-error></jhi-alert-error>
+
+    <jhi-alert></jhi-alert>
+
+    <div class="alert alert-warning" id="no-result" *ngIf="cardHolders?.length === 0">
+        <span jhiTranslate="jhrApp.cardHolder.home.notFound">No cardHolders found</span>
+    </div>
+
+    <div class="table-responsive" id="entities" *ngIf="cardHolders?.length > 0">
+        <table class="table table-striped" aria-describedby="page-heading">
+            <thead>
+                <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" [callback]="loadPage.bind(this)">
+                    <th scope="col"  jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="code"><span jhiTranslate="jhrApp.cardHolder.code">Code</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="cardSN"><span jhiTranslate="jhrApp.cardHolder.cardSN">Card SN</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="cardType"><span jhiTranslate="jhrApp.cardHolder.cardType">Card Type</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="title"><span jhiTranslate="jhrApp.cardHolder.title">Title</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="thumbnail"><span jhiTranslate="jhrApp.cardHolder.thumbnail">Thumbnail</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="details"><span jhiTranslate="jhrApp.cardHolder.details">Details</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="validPeriodBeginAt"><span jhiTranslate="jhrApp.cardHolder.validPeriodBeginAt">Valid Period Begin At</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="validPeriodEndAt"><span jhiTranslate="jhrApp.cardHolder.validPeriodEndAt">Valid Period End At</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="canUseWithOtherCard"><span jhiTranslate="jhrApp.cardHolder.canUseWithOtherCard">Can Use With Other Card</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="acceptCategories"><span jhiTranslate="jhrApp.cardHolder.acceptCategories">Accept Categories</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="acceptShops"><span jhiTranslate="jhrApp.cardHolder.acceptShops">Accept Shops</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="leastCost"><span jhiTranslate="jhrApp.cardHolder.leastCost">Least Cost</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="reduceCost"><span jhiTranslate="jhrApp.cardHolder.reduceCost">Reduce Cost</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="discount"><span jhiTranslate="jhrApp.cardHolder.discount">Discount</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="gift"><span jhiTranslate="jhrApp.cardHolder.gift">Gift</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="giftQuantity"><span jhiTranslate="jhrApp.cardHolder.giftQuantity">Gift Quantity</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="receivedBy"><span jhiTranslate="jhrApp.cardHolder.receivedBy">Received By</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="receivedDate"><span jhiTranslate="jhrApp.cardHolder.receivedDate">Received Date</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="held"><span jhiTranslate="jhrApp.cardHolder.held">Held</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let cardHolder of cardHolders ;trackBy: trackId">
+                    <td><a [routerLink]="['/card-holder', cardHolder.id, 'view']">{{ cardHolder.id }}</a></td>
+                    <td>{{ cardHolder.code }}</td>
+                    <td>{{ cardHolder.cardSN }}</td>
+                    <td jhiTranslate="{{ 'jhrApp.CardType.' + cardHolder.cardType }}">{{ cardHolder.cardType }}</td>
+                    <td>{{ cardHolder.title }}</td>
+                    <td>{{ cardHolder.thumbnail }}</td>
+                    <td>{{ cardHolder.details }}</td>
+                    <td>{{ cardHolder.validPeriodBeginAt | date:'medium' }}</td>
+                    <td>{{ cardHolder.validPeriodEndAt | date:'medium' }}</td>
+                    <td>{{ cardHolder.canUseWithOtherCard }}</td>
+                    <td>{{ cardHolder.acceptCategories }}</td>
+                    <td>{{ cardHolder.acceptShops }}</td>
+                    <td>{{ cardHolder.leastCost }}</td>
+                    <td>{{ cardHolder.reduceCost }}</td>
+                    <td>{{ cardHolder.discount }}</td>
+                    <td>{{ cardHolder.gift }}</td>
+                    <td>{{ cardHolder.giftQuantity }}</td>
+                    <td>{{ cardHolder.receivedBy }}</td>
+                    <td>{{ cardHolder.receivedDate | date:'medium' }}</td>
+                    <td>{{ cardHolder.held }}</td>
+                    <td class="text-right">
+                        <div class="btn-group">
+                            <button type="submit"
+                                    [routerLink]="['/card-holder', cardHolder.id, 'view']"
+                                    class="btn btn-info btn-sm">
+                                <fa-icon icon="eye"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                            </button>
+
+                            <button type="submit"
+                                    [routerLink]="['/card-holder', cardHolder.id, 'edit']"
+                                    class="btn btn-primary btn-sm">
+                                <fa-icon icon="pencil-alt"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                            </button>
+
+                            <button type="submit" (click)="delete(cardHolder)"
+                                    class="btn btn-danger btn-sm">
+                                <fa-icon icon="times"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div *ngIf="cardHolders?.length > 0">
+        <div class="row justify-content-center">
+            <jhi-item-count [page]="page" [total]="totalItems" [itemsPerPage]="itemsPerPage"></jhi-item-count>
+        </div>
+
+        <div class="row justify-content-center">
+            <ngb-pagination [collectionSize]="totalItems" [(page)]="ngbPaginationPage" [pageSize]="itemsPerPage" [maxSize]="5" [rotate]="true" [boundaryLinks]="true" (pageChange)="loadPage($event)"></ngb-pagination>
+        </div>
+    </div>
+</div>

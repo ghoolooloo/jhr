@@ -1,0 +1,10 @@
+export const enum OrderStatus {
+  NEW = 'NEW',
+  PAID = 'PAID',
+  EXPIRED = 'EXPIRED',
+  DELIVERING = 'DELIVERING',
+  COMPLETED = 'COMPLETED',
+  REFUNDING = 'REFUNDING',
+  REFUNDED = 'REFUNDED',
+  CLOSED = 'CLOSED'
+}

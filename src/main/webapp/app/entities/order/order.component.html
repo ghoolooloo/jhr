@@ -1,0 +1,135 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="jhrApp.order.home.title">Orders</span>
+
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-order" [routerLink]="['/order/new']">
+            <fa-icon icon="plus"></fa-icon>
+            <span  jhiTranslate="jhrApp.order.home.createLabel">
+            Create a new Order
+            </span>
+        </button>
+    </h2>
+
+    <jhi-alert-error></jhi-alert-error>
+
+    <jhi-alert></jhi-alert>
+
+    <div class="alert alert-warning" id="no-result" *ngIf="orders?.length === 0">
+        <span jhiTranslate="jhrApp.order.home.notFound">No orders found</span>
+    </div>
+
+    <div class="table-responsive" id="entities" *ngIf="orders?.length > 0">
+        <table class="table table-striped" aria-describedby="page-heading">
+            <thead>
+                <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" [callback]="loadPage.bind(this)">
+                    <th scope="col"  jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="sn"><span jhiTranslate="jhrApp.order.sn">Sn</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="memberName"><span jhiTranslate="jhrApp.order.memberName">Member Name</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="memberSN"><span jhiTranslate="jhrApp.order.memberSN">Member SN</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="orderType"><span jhiTranslate="jhrApp.order.orderType">Order Type</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="shopSN"><span jhiTranslate="jhrApp.order.shopSN">Shop SN</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="shopName"><span jhiTranslate="jhrApp.order.shopName">Shop Name</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="priceTotal"><span jhiTranslate="jhrApp.order.priceTotal">Price Total</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="cardReduce"><span jhiTranslate="jhrApp.order.cardReduce">Card Reduce</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="cards"><span jhiTranslate="jhrApp.order.cards">Cards</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="rewardPointsReduce"><span jhiTranslate="jhrApp.order.rewardPointsReduce">Reward Points Reduce</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="paymentTotal"><span jhiTranslate="jhrApp.order.paymentTotal">Payment Total</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="distributionPlatform"><span jhiTranslate="jhrApp.order.distributionPlatform">Distribution Platform</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="deliveryNo"><span jhiTranslate="jhrApp.order.deliveryNo">Delivery No</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="deliveryFee"><span jhiTranslate="jhrApp.order.deliveryFee">Delivery Fee</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="contact"><span jhiTranslate="jhrApp.order.contact">Contact</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="sex"><span jhiTranslate="jhrApp.order.sex">Sex</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="mobile"><span jhiTranslate="jhrApp.order.mobile">Mobile</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="country"><span jhiTranslate="jhrApp.order.country">Country</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="province"><span jhiTranslate="jhrApp.order.province">Province</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="city"><span jhiTranslate="jhrApp.order.city">City</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="district"><span jhiTranslate="jhrApp.order.district">District</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="offsetType"><span jhiTranslate="jhrApp.order.offsetType">Offset Type</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="longitude"><span jhiTranslate="jhrApp.order.longitude">Longitude</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="latitude"><span jhiTranslate="jhrApp.order.latitude">Latitude</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="address"><span jhiTranslate="jhrApp.order.address">Address</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="packingFee"><span jhiTranslate="jhrApp.order.packingFee">Packing Fee</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="paymentMode"><span jhiTranslate="jhrApp.order.paymentMode">Payment Mode</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="diningDate"><span jhiTranslate="jhrApp.order.diningDate">Dining Date</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="remark"><span jhiTranslate="jhrApp.order.remark">Remark</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="status"><span jhiTranslate="jhrApp.order.status">Status</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="createdDate"><span jhiTranslate="jhrApp.order.createdDate">Created Date</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="paidDate"><span jhiTranslate="jhrApp.order.paidDate">Paid Date</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="expiredDate"><span jhiTranslate="jhrApp.order.expiredDate">Expired Date</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let order of orders ;trackBy: trackId">
+                    <td><a [routerLink]="['/order', order.id, 'view']">{{ order.id }}</a></td>
+                    <td>{{ order.sn }}</td>
+                    <td>{{ order.memberName }}</td>
+                    <td>{{ order.memberSN }}</td>
+                    <td jhiTranslate="{{ 'jhrApp.OrderType.' + order.orderType }}">{{ order.orderType }}</td>
+                    <td>{{ order.shopSN }}</td>
+                    <td>{{ order.shopName }}</td>
+                    <td>{{ order.priceTotal }}</td>
+                    <td>{{ order.cardReduce }}</td>
+                    <td>{{ order.cards }}</td>
+                    <td>{{ order.rewardPointsReduce }}</td>
+                    <td>{{ order.paymentTotal }}</td>
+                    <td jhiTranslate="{{ 'jhrApp.DistributionPlatform.' + order.distributionPlatform }}">{{ order.distributionPlatform }}</td>
+                    <td>{{ order.deliveryNo }}</td>
+                    <td>{{ order.deliveryFee }}</td>
+                    <td>{{ order.contact }}</td>
+                    <td jhiTranslate="{{ 'jhrApp.Sex.' + order.sex }}">{{ order.sex }}</td>
+                    <td>{{ order.mobile }}</td>
+                    <td>{{ order.country }}</td>
+                    <td>{{ order.province }}</td>
+                    <td>{{ order.city }}</td>
+                    <td>{{ order.district }}</td>
+                    <td jhiTranslate="{{ 'jhrApp.OffsetType.' + order.offsetType }}">{{ order.offsetType }}</td>
+                    <td>{{ order.longitude }}</td>
+                    <td>{{ order.latitude }}</td>
+                    <td>{{ order.address }}</td>
+                    <td>{{ order.packingFee }}</td>
+                    <td jhiTranslate="{{ 'jhrApp.PaymentMethod.' + order.paymentMode }}">{{ order.paymentMode }}</td>
+                    <td>{{ order.diningDate | date:'medium' }}</td>
+                    <td>{{ order.remark }}</td>
+                    <td jhiTranslate="{{ 'jhrApp.OrderStatus.' + order.status }}">{{ order.status }}</td>
+                    <td>{{ order.createdDate | date:'medium' }}</td>
+                    <td>{{ order.paidDate | date:'medium' }}</td>
+                    <td>{{ order.expiredDate | date:'medium' }}</td>
+                    <td class="text-right">
+                        <div class="btn-group">
+                            <button type="submit"
+                                    [routerLink]="['/order', order.id, 'view']"
+                                    class="btn btn-info btn-sm">
+                                <fa-icon icon="eye"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                            </button>
+
+                            <button type="submit"
+                                    [routerLink]="['/order', order.id, 'edit']"
+                                    class="btn btn-primary btn-sm">
+                                <fa-icon icon="pencil-alt"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                            </button>
+
+                            <button type="submit" (click)="delete(order)"
+                                    class="btn btn-danger btn-sm">
+                                <fa-icon icon="times"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div *ngIf="orders?.length > 0">
+        <div class="row justify-content-center">
+            <jhi-item-count [page]="page" [total]="totalItems" [itemsPerPage]="itemsPerPage"></jhi-item-count>
+        </div>
+
+        <div class="row justify-content-center">
+            <ngb-pagination [collectionSize]="totalItems" [(page)]="ngbPaginationPage" [pageSize]="itemsPerPage" [maxSize]="5" [rotate]="true" [boundaryLinks]="true" (pageChange)="loadPage($event)"></ngb-pagination>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,190 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="exceptionOrder">
+            <h2><span jhiTranslate="jhrApp.exceptionOrder.detail.title">Exception Order</span> {{ exceptionOrder.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="jhrApp.exceptionOrder.sn" [ngbTooltip]="'jhrApp.exceptionOrder.help.sn' | translate">Sn</span></dt>
+                <dd>
+                    <span>{{ exceptionOrder.sn }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhrApp.exceptionOrder.memberName" [ngbTooltip]="'jhrApp.exceptionOrder.help.memberName' | translate">Member Name</span></dt>
+                <dd>
+                    <span>{{ exceptionOrder.memberName }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhrApp.exceptionOrder.memberSN" [ngbTooltip]="'jhrApp.exceptionOrder.help.memberSN' | translate">Member SN</span></dt>
+                <dd>
+                    <span>{{ exceptionOrder.memberSN }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhrApp.exceptionOrder.orderType" [ngbTooltip]="'jhrApp.exceptionOrder.help.orderType' | translate">Order Type</span></dt>
+                <dd>
+                    <span jhiTranslate="{{ 'jhrApp.OrderType.' + exceptionOrder.orderType }}">{{ exceptionOrder.orderType }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhrApp.exceptionOrder.shopSN" [ngbTooltip]="'jhrApp.exceptionOrder.help.shopSN' | translate">Shop SN</span></dt>
+                <dd>
+                    <span>{{ exceptionOrder.shopSN }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhrApp.exceptionOrder.shopName" [ngbTooltip]="'jhrApp.exceptionOrder.help.shopName' | translate">Shop Name</span></dt>
+                <dd>
+                    <span>{{ exceptionOrder.shopName }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhrApp.exceptionOrder.priceTotal" [ngbTooltip]="'jhrApp.exceptionOrder.help.priceTotal' | translate">Price Total</span></dt>
+                <dd>
+                    <span>{{ exceptionOrder.priceTotal }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhrApp.exceptionOrder.cardReduce" [ngbTooltip]="'jhrApp.exceptionOrder.help.cardReduce' | translate">Card Reduce</span></dt>
+                <dd>
+                    <span>{{ exceptionOrder.cardReduce }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhrApp.exceptionOrder.cards" [ngbTooltip]="'jhrApp.exceptionOrder.help.cards' | translate">Cards</span></dt>
+                <dd>
+                    <span>{{ exceptionOrder.cards }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhrApp.exceptionOrder.rewardPointsReduce" [ngbTooltip]="'jhrApp.exceptionOrder.help.rewardPointsReduce' | translate">Reward Points Reduce</span></dt>
+                <dd>
+                    <span>{{ exceptionOrder.rewardPointsReduce }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhrApp.exceptionOrder.paymentTotal" [ngbTooltip]="'jhrApp.exceptionOrder.help.paymentTotal' | translate">Payment Total</span></dt>
+                <dd>
+                    <span>{{ exceptionOrder.paymentTotal }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhrApp.exceptionOrder.distributionPlatform" [ngbTooltip]="'jhrApp.exceptionOrder.help.distributionPlatform' | translate">Distribution Platform</span></dt>
+                <dd>
+                    <span jhiTranslate="{{ 'jhrApp.DistributionPlatform.' + exceptionOrder.distributionPlatform }}">{{ exceptionOrder.distributionPlatform }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhrApp.exceptionOrder.deliveryNo" [ngbTooltip]="'jhrApp.exceptionOrder.help.deliveryNo' | translate">Delivery No</span></dt>
+                <dd>
+                    <span>{{ exceptionOrder.deliveryNo }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhrApp.exceptionOrder.deliveryStatus" [ngbTooltip]="'jhrApp.exceptionOrder.help.deliveryStatus' | translate">Delivery Status</span></dt>
+                <dd>
+                    <span>{{ exceptionOrder.deliveryStatus }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhrApp.exceptionOrder.deliveryDesc" [ngbTooltip]="'jhrApp.exceptionOrder.help.deliveryDesc' | translate">Delivery Desc</span></dt>
+                <dd>
+                    <span>{{ exceptionOrder.deliveryDesc }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhrApp.exceptionOrder.deliverier" [ngbTooltip]="'jhrApp.exceptionOrder.help.deliverier' | translate">Deliverier</span></dt>
+                <dd>
+                    <span>{{ exceptionOrder.deliverier }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhrApp.exceptionOrder.deliverierMobile" [ngbTooltip]="'jhrApp.exceptionOrder.help.deliverierMobile' | translate">Deliverier Mobile</span></dt>
+                <dd>
+                    <span>{{ exceptionOrder.deliverierMobile }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhrApp.exceptionOrder.deliveryDeductFee" [ngbTooltip]="'jhrApp.exceptionOrder.help.deliveryDeductFee' | translate">Delivery Deduct Fee</span></dt>
+                <dd>
+                    <span>{{ exceptionOrder.deliveryDeductFee }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhrApp.exceptionOrder.deliveryFee" [ngbTooltip]="'jhrApp.exceptionOrder.help.deliveryFee' | translate">Delivery Fee</span></dt>
+                <dd>
+                    <span>{{ exceptionOrder.deliveryFee }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhrApp.exceptionOrder.contact" [ngbTooltip]="'jhrApp.exceptionOrder.help.contact' | translate">Contact</span></dt>
+                <dd>
+                    <span>{{ exceptionOrder.contact }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhrApp.exceptionOrder.sex" [ngbTooltip]="'jhrApp.exceptionOrder.help.sex' | translate">Sex</span></dt>
+                <dd>
+                    <span jhiTranslate="{{ 'jhrApp.Sex.' + exceptionOrder.sex }}">{{ exceptionOrder.sex }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhrApp.exceptionOrder.mobile" [ngbTooltip]="'jhrApp.exceptionOrder.help.mobile' | translate">Mobile</span></dt>
+                <dd>
+                    <span>{{ exceptionOrder.mobile }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhrApp.exceptionOrder.country" [ngbTooltip]="'jhrApp.exceptionOrder.help.country' | translate">Country</span></dt>
+                <dd>
+                    <span>{{ exceptionOrder.country }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhrApp.exceptionOrder.province" [ngbTooltip]="'jhrApp.exceptionOrder.help.province' | translate">Province</span></dt>
+                <dd>
+                    <span>{{ exceptionOrder.province }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhrApp.exceptionOrder.city" [ngbTooltip]="'jhrApp.exceptionOrder.help.city' | translate">City</span></dt>
+                <dd>
+                    <span>{{ exceptionOrder.city }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhrApp.exceptionOrder.district" [ngbTooltip]="'jhrApp.exceptionOrder.help.district' | translate">District</span></dt>
+                <dd>
+                    <span>{{ exceptionOrder.district }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhrApp.exceptionOrder.offsetType" [ngbTooltip]="'jhrApp.exceptionOrder.help.offsetType' | translate">Offset Type</span></dt>
+                <dd>
+                    <span jhiTranslate="{{ 'jhrApp.OffsetType.' + exceptionOrder.offsetType }}">{{ exceptionOrder.offsetType }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhrApp.exceptionOrder.longitude" [ngbTooltip]="'jhrApp.exceptionOrder.help.longitude' | translate">Longitude</span></dt>
+                <dd>
+                    <span>{{ exceptionOrder.longitude }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhrApp.exceptionOrder.latitude" [ngbTooltip]="'jhrApp.exceptionOrder.help.latitude' | translate">Latitude</span></dt>
+                <dd>
+                    <span>{{ exceptionOrder.latitude }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhrApp.exceptionOrder.address" [ngbTooltip]="'jhrApp.exceptionOrder.help.address' | translate">Address</span></dt>
+                <dd>
+                    <span>{{ exceptionOrder.address }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhrApp.exceptionOrder.packingFee" [ngbTooltip]="'jhrApp.exceptionOrder.help.packingFee' | translate">Packing Fee</span></dt>
+                <dd>
+                    <span>{{ exceptionOrder.packingFee }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhrApp.exceptionOrder.paymentMode" [ngbTooltip]="'jhrApp.exceptionOrder.help.paymentMode' | translate">Payment Mode</span></dt>
+                <dd>
+                    <span jhiTranslate="{{ 'jhrApp.PaymentMethod.' + exceptionOrder.paymentMode }}">{{ exceptionOrder.paymentMode }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhrApp.exceptionOrder.diningDate" [ngbTooltip]="'jhrApp.exceptionOrder.help.diningDate' | translate">Dining Date</span></dt>
+                <dd>
+                    <span>{{ exceptionOrder.diningDate }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhrApp.exceptionOrder.remark" [ngbTooltip]="'jhrApp.exceptionOrder.help.remark' | translate">Remark</span></dt>
+                <dd>
+                    <span>{{ exceptionOrder.remark }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhrApp.exceptionOrder.status" [ngbTooltip]="'jhrApp.exceptionOrder.help.status' | translate">Status</span></dt>
+                <dd>
+                    <span jhiTranslate="{{ 'jhrApp.OrderStatus.' + exceptionOrder.status }}">{{ exceptionOrder.status }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhrApp.exceptionOrder.createdDate" [ngbTooltip]="'jhrApp.exceptionOrder.help.createdDate' | translate">Created Date</span></dt>
+                <dd>
+                    <span>{{ exceptionOrder.createdDate }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhrApp.exceptionOrder.paidDate" [ngbTooltip]="'jhrApp.exceptionOrder.help.paidDate' | translate">Paid Date</span></dt>
+                <dd>
+                    <span>{{ exceptionOrder.paidDate }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhrApp.exceptionOrder.exceptionDate" [ngbTooltip]="'jhrApp.exceptionOrder.help.exceptionDate' | translate">Exception Date</span></dt>
+                <dd>
+                    <span>{{ exceptionOrder.exceptionDate }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhrApp.exceptionOrder.handler" [ngbTooltip]="'jhrApp.exceptionOrder.help.handler' | translate">Handler</span></dt>
+                <dd>
+                    <span>{{ exceptionOrder.handler }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhrApp.exceptionOrder.handledDate" [ngbTooltip]="'jhrApp.exceptionOrder.help.handledDate' | translate">Handled Date</span></dt>
+                <dd>
+                    <span>{{ exceptionOrder.handledDate }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhrApp.exceptionOrder.handledDesc" [ngbTooltip]="'jhrApp.exceptionOrder.help.handledDesc' | translate">Handled Desc</span></dt>
+                <dd>
+                    <span>{{ exceptionOrder.handledDesc }}</span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/exception-order', exceptionOrder.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

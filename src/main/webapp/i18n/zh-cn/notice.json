@@ -1,0 +1,32 @@
+{
+  "jhrApp": {
+    "notice": {
+      "home": {
+        "title": "Notices",
+        "createLabel": "创建新 Notice",
+        "createOrEditLabel": "创建或编辑 Notice",
+        "notFound": "No Notices found"
+      },
+      "created": "Notice {{ param }} 创建成功",
+      "updated": "Notice {{ param }} 更新成功",
+      "deleted": "Notice {{ param }} 删除成功",
+      "delete": {
+        "question": "你确定要删除 Notice {{ id }} 吗？"
+      },
+      "detail": {
+        "title": "Notice"
+      },
+      "content": "Content",
+      "sort": "Sort",
+      "status": "Status",
+      "createdBy": "Created By",
+      "createdDate": "Created Date",
+      "lastModifiedDate": "Last Modified Date",
+      "lastModifiedBy": "Last Modified By",
+      "help": {
+        "content": "公告内容",
+        "sort": "公告的顺序"
+      }
+    }
+  }
+}

@@ -1,0 +1,163 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+            <h2 id="jhi-member-heading" jhiTranslate="jhrApp.member.home.createOrEditLabel">Create or edit a Member</h2>
+
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+
+                <div class="form-group" [hidden]="!editForm.get('id')!.value">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id" formControlName="id" readonly />
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="jhrApp.member.name" for="field_name" [ngbTooltip]="'jhrApp.member.help.name' | translate">Name</label>
+                    <input type="text" class="form-control" name="name" id="field_name"
+                           formControlName="name"/>
+                    <div *ngIf="editForm.get('name')!.invalid && (editForm.get('name')!.dirty || editForm.get('name')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('name')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('name')?.errors?.maxlength" jhiTranslate="entity.validation.maxlength" [translateValues]="{ max: 20 }">
+                        This field cannot be longer than 20 characters.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="jhrApp.member.sn" for="field_sn" [ngbTooltip]="'jhrApp.member.help.sn' | translate">Sn</label>
+                    <input type="text" class="form-control" name="sn" id="field_sn"
+                           formControlName="sn"/>
+                    <div *ngIf="editForm.get('sn')!.invalid && (editForm.get('sn')!.dirty || editForm.get('sn')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('sn')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('sn')?.errors?.maxlength" jhiTranslate="entity.validation.maxlength" [translateValues]="{ max: 20 }">
+                        This field cannot be longer than 20 characters.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="jhrApp.member.openID" for="field_openID" [ngbTooltip]="'jhrApp.member.help.openID' | translate">Open ID</label>
+                    <input type="text" class="form-control" name="openID" id="field_openID"
+                           formControlName="openID"/>
+                    <div *ngIf="editForm.get('openID')!.invalid && (editForm.get('openID')!.dirty || editForm.get('openID')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('openID')?.errors?.maxlength" jhiTranslate="entity.validation.maxlength" [translateValues]="{ max: 32 }">
+                        This field cannot be longer than 32 characters.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="jhrApp.member.unionID" for="field_unionID" [ngbTooltip]="'jhrApp.member.help.unionID' | translate">Union ID</label>
+                    <input type="text" class="form-control" name="unionID" id="field_unionID"
+                           formControlName="unionID"/>
+                    <div *ngIf="editForm.get('unionID')!.invalid && (editForm.get('unionID')!.dirty || editForm.get('unionID')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('unionID')?.errors?.maxlength" jhiTranslate="entity.validation.maxlength" [translateValues]="{ max: 32 }">
+                        This field cannot be longer than 32 characters.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="jhrApp.member.profilePicture" for="field_profilePicture" [ngbTooltip]="'jhrApp.member.help.profilePicture' | translate">Profile Picture</label>
+                    <input type="text" class="form-control" name="profilePicture" id="field_profilePicture"
+                           formControlName="profilePicture"/>
+                    <div *ngIf="editForm.get('profilePicture')!.invalid && (editForm.get('profilePicture')!.dirty || editForm.get('profilePicture')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('profilePicture')?.errors?.maxlength" jhiTranslate="entity.validation.maxlength" [translateValues]="{ max: 200 }">
+                        This field cannot be longer than 200 characters.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="jhrApp.member.sex" for="field_sex" [ngbTooltip]="'jhrApp.member.help.sex' | translate">Sex</label>
+                    <select class="form-control" name="sex" formControlName="sex" id="field_sex">
+                        <option value="UNKNOWN">{{ 'jhrApp.Sex.UNKNOWN' | translate }}</option>
+                        <option value="MAN">{{ 'jhrApp.Sex.MAN' | translate }}</option>
+                        <option value="WOMAN">{{ 'jhrApp.Sex.WOMAN' | translate }}</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="jhrApp.member.country" for="field_country" [ngbTooltip]="'jhrApp.member.help.country' | translate">Country</label>
+                    <input type="text" class="form-control" name="country" id="field_country"
+                           formControlName="country"/>
+                    <div *ngIf="editForm.get('country')!.invalid && (editForm.get('country')!.dirty || editForm.get('country')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('country')?.errors?.maxlength" jhiTranslate="entity.validation.maxlength" [translateValues]="{ max: 20 }">
+                        This field cannot be longer than 20 characters.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="jhrApp.member.province" for="field_province" [ngbTooltip]="'jhrApp.member.help.province' | translate">Province</label>
+                    <input type="text" class="form-control" name="province" id="field_province"
+                           formControlName="province"/>
+                    <div *ngIf="editForm.get('province')!.invalid && (editForm.get('province')!.dirty || editForm.get('province')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('province')?.errors?.maxlength" jhiTranslate="entity.validation.maxlength" [translateValues]="{ max: 20 }">
+                        This field cannot be longer than 20 characters.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="jhrApp.member.city" for="field_city" [ngbTooltip]="'jhrApp.member.help.city' | translate">City</label>
+                    <input type="text" class="form-control" name="city" id="field_city"
+                           formControlName="city"/>
+                    <div *ngIf="editForm.get('city')!.invalid && (editForm.get('city')!.dirty || editForm.get('city')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('city')?.errors?.maxlength" jhiTranslate="entity.validation.maxlength" [translateValues]="{ max: 20 }">
+                        This field cannot be longer than 20 characters.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="jhrApp.member.joinDate" for="field_joinDate" [ngbTooltip]="'jhrApp.member.help.joinDate' | translate">Join Date</label>
+                    <div class="d-flex">
+                        <input id="field_joinDate" type="datetime-local" class="form-control" name="joinDate" formControlName="joinDate" placeholder="YYYY-MM-DD HH:mm"/>
+                    </div>
+                    <div *ngIf="editForm.get('joinDate')!.invalid && (editForm.get('joinDate')!.dirty || editForm.get('joinDate')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('joinDate')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.get('joinDate')?.errors?.ZonedDateTimelocal" jhiTranslate="entity.validation.ZonedDateTimelocal">
+                            This field should be a date and time.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="jhrApp.member.lastLoginDate" for="field_lastLoginDate" [ngbTooltip]="'jhrApp.member.help.lastLoginDate' | translate">Last Login Date</label>
+                    <div class="d-flex">
+                        <input id="field_lastLoginDate" type="datetime-local" class="form-control" name="lastLoginDate" formControlName="lastLoginDate" placeholder="YYYY-MM-DD HH:mm"/>
+                    </div>
+                </div>
+            </div>
+
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary" (click)="previousState()">
+                    <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+
+                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

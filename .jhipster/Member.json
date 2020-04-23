@@ -1,0 +1,112 @@
+{
+    "name": "Member",
+    "fields": [
+        {
+            "fieldName": "name",
+            "javadoc": "会员名称",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required",
+                "maxlength"
+            ],
+            "fieldValidateRulesMaxlength": "20"
+        },
+        {
+            "fieldName": "sn",
+            "javadoc": "会员编号。会员编号取自入会时间，生成格式：四位年数字+两位月份数字+两位日数字+两位小时数（24小时制）+两位分钟数+两位秒数+三位毫秒数",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required",
+                "unique",
+                "maxlength"
+            ],
+            "fieldValidateRulesMaxlength": "20"
+        },
+        {
+            "fieldName": "openID",
+            "javadoc": "微信会员Openid",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "maxlength"
+            ],
+            "fieldValidateRulesMaxlength": "32"
+        },
+        {
+            "fieldName": "unionID",
+            "javadoc": "微信会员Unionid",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "maxlength"
+            ],
+            "fieldValidateRulesMaxlength": "32"
+        },
+        {
+            "fieldName": "profilePicture",
+            "javadoc": "头像",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "maxlength"
+            ],
+            "fieldValidateRulesMaxlength": "200"
+        },
+        {
+            "fieldName": "sex",
+            "javadoc": "会员性别",
+            "fieldType": "Sex",
+            "fieldValues": "UNKNOWN,MAN,WOMAN"
+        },
+        {
+            "fieldName": "country",
+            "javadoc": "国家",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "maxlength"
+            ],
+            "fieldValidateRulesMaxlength": "20"
+        },
+        {
+            "fieldName": "province",
+            "javadoc": "省、直辖市、自治区",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "maxlength"
+            ],
+            "fieldValidateRulesMaxlength": "20"
+        },
+        {
+            "fieldName": "city",
+            "javadoc": "城市",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "maxlength"
+            ],
+            "fieldValidateRulesMaxlength": "20"
+        },
+        {
+            "fieldName": "joinDate",
+            "javadoc": "入会时间",
+            "fieldType": "Instant",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "lastLoginDate",
+            "javadoc": "最近登入时间",
+            "fieldType": "Instant"
+        }
+    ],
+    "relationships": [],
+    "changelogDate": "20200423070700",
+    "javadoc": "会员\\n@author Jo",
+    "entityTableName": "member",
+    "dto": "mapstruct",
+    "pagination": "pagination",
+    "service": "serviceClass",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "readOnly": false,
+    "embedded": false,
+    "clientRootFolder": "",
+    "applications": "*"
+}

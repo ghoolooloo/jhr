@@ -1,0 +1,96 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="food">
+            <h2><span jhiTranslate="jhrApp.food.detail.title">Food</span> {{ food.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="jhrApp.food.name">Name</span></dt>
+                <dd>
+                    <span>{{ food.name }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhrApp.food.sn" [ngbTooltip]="'jhrApp.food.help.sn' | translate">Sn</span></dt>
+                <dd>
+                    <span>{{ food.sn }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhrApp.food.thumbnail" [ngbTooltip]="'jhrApp.food.help.thumbnail' | translate">Thumbnail</span></dt>
+                <dd>
+                    <span>{{ food.thumbnail }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhrApp.food.picture" [ngbTooltip]="'jhrApp.food.help.picture' | translate">Picture</span></dt>
+                <dd>
+                    <span>{{ food.picture }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhrApp.food.price" [ngbTooltip]="'jhrApp.food.help.price' | translate">Price</span></dt>
+                <dd>
+                    <span>{{ food.price }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhrApp.food.originalPrice" [ngbTooltip]="'jhrApp.food.help.originalPrice' | translate">Original Price</span></dt>
+                <dd>
+                    <span>{{ food.originalPrice }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhrApp.food.cost" [ngbTooltip]="'jhrApp.food.help.cost' | translate">Cost</span></dt>
+                <dd>
+                    <span>{{ food.cost }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhrApp.food.packingFee" [ngbTooltip]="'jhrApp.food.help.packingFee' | translate">Packing Fee</span></dt>
+                <dd>
+                    <span>{{ food.packingFee }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhrApp.food.desc" [ngbTooltip]="'jhrApp.food.help.desc' | translate">Desc</span></dt>
+                <dd>
+                    <span>{{ food.desc }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhrApp.food.sort" [ngbTooltip]="'jhrApp.food.help.sort' | translate">Sort</span></dt>
+                <dd>
+                    <span>{{ food.sort }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhrApp.food.feedingMode" [ngbTooltip]="'jhrApp.food.help.feedingMode' | translate">Feeding Mode</span></dt>
+                <dd>
+                    <span jhiTranslate="{{ 'jhrApp.FeedingMode.' + food.feedingMode }}">{{ food.feedingMode }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhrApp.food.disabled" [ngbTooltip]="'jhrApp.food.help.disabled' | translate">Disabled</span></dt>
+                <dd>
+                    <span>{{ food.disabled }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhrApp.food.createdBy">Created By</span></dt>
+                <dd>
+                    <span>{{ food.createdBy }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhrApp.food.createdDate">Created Date</span></dt>
+                <dd>
+                    <span>{{ food.createdDate }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhrApp.food.lastModifiedDate">Last Modified Date</span></dt>
+                <dd>
+                    <span>{{ food.lastModifiedDate }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhrApp.food.lastModifiedBy">Last Modified By</span></dt>
+                <dd>
+                    <span>{{ food.lastModifiedBy }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhrApp.food.category">Category</span></dt>
+                <dd>
+                    <div *ngIf="food.categoryId">
+                        <a [routerLink]="['/food-category', food.categoryId, 'view']">{{ food.categoryId }}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/food', food.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

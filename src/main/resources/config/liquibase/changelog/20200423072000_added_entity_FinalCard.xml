@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.8.xsd
+                        http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
+
+        <property name="autoIncrement" value="true"/>
+
+    <!--
+        Added the entity FinalCard.
+    -->
+    <changeSet id="20200423072000-1" author="jhipster">
+        <createTable tableName="final_card" remarks="已完结卡券\n已经过期或中止的卡券将被移到这里。\n@author Jo">
+            <column name="id" type="bigint" autoIncrement="${autoIncrement}">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="sn" type="varchar(20)" remarks="卡券编号">
+                <constraints nullable="false" unique="true" uniqueConstraintName="ux_final_card_sn" />
+            </column>
+            <column name="card_type" type="varchar(255)" remarks="卡券类型">
+                <constraints nullable="false" />
+            </column>
+            <column name="title" type="varchar(100)" remarks="标题">
+                <constraints nullable="false" />
+            </column>
+            <column name="thumbnail" type="varchar(200)" remarks="缩略图">
+                <constraints nullable="true" />
+            </column>
+            <column name="details" type="varchar(300)" remarks="优惠说明（兑换券的兑换内容也是写在这里）">
+                <constraints nullable="true" />
+            </column>
+            <column name="valid_period_begin_at" type="datetime" remarks="有效期开始时间">
+                <constraints nullable="true" />
+            </column>
+            <column name="valid_period_end_at" type="datetime" remarks="有效期截止时间">
+                <constraints nullable="true" />
+            </column>
+            <column name="quantity" type="integer" remarks="投放数量">
+                <constraints nullable="true" />
+            </column>
+            <column name="received_quantity" type="integer" remarks="已领取数量">
+                <constraints nullable="true" />
+            </column>
+            <column name="can_use_with_other_card" type="boolean" remarks="能否与其他卡券同时使用">
+                <constraints nullable="false" />
+            </column>
+            <column name="accept_categories" type="varchar(500)" remarks="适用的菜品分类。分类编号之间由逗号分隔，值为空时表示不限定分类">
+                <constraints nullable="true" />
+            </column>
+            <column name="accept_shops" type="varchar(500)" remarks="适用的门店。门店编号之间由逗号分隔，值为空时表示不限定门店">
+                <constraints nullable="true" />
+            </column>
+            <column name="least_cost" type="integer" remarks="起用金额，单位为分。如果无起用门槛则填0">
+                <constraints nullable="true" />
+            </column>
+            <column name="reduce_cost" type="integer" remarks="减免金额，单位为分（代金券专用）">
+                <constraints nullable="true" />
+            </column>
+            <column name="discount" type="integer" remarks="打折额度（百分比，例如：30就是七折）（折扣券专用）">
+                <constraints nullable="true" />
+            </column>
+            <column name="gift" type="varchar(10)" remarks="兑换的菜品（兑换券专用）">
+                <constraints nullable="true" />
+            </column>
+            <column name="gift_quantity" type="integer" remarks="兑换菜品数量（兑换券专用）">
+                <constraints nullable="true" />
+            </column>
+            <column name="status" type="varchar(255)" remarks="卡券状态。这里只可能取 DISCONTINUE 和 EXPIRED 两种值">
+                <constraints nullable="false" />
+            </column>
+            <column name="created_by" type="varchar(20)">
+                <constraints nullable="false" />
+            </column>
+            <column name="created_date" type="datetime">
+                <constraints nullable="false" />
+            </column>
+            <column name="deliveried_by" type="varchar(20)" remarks="投放人">
+                <constraints nullable="true" />
+            </column>
+            <column name="deliveried_date" type="datetime" remarks="投放时间">
+                <constraints nullable="true" />
+            </column>
+            <column name="discontinue_by" type="varchar(20)" remarks="中止人">
+                <constraints nullable="true" />
+            </column>
+            <column name="discontinue_date" type="datetime" remarks="中止时间">
+                <constraints nullable="true" />
+            </column>
+            <column name="last_modified_date" type="datetime">
+                <constraints nullable="true" />
+            </column>
+            <column name="last_modified_by" type="varchar(20)">
+                <constraints nullable="true" />
+            </column>
+            <!-- jhipster-needle-liquibase-add-column - JHipster will add columns here, do not remove-->
+        </createTable>
+        <dropDefaultValue tableName="final_card" columnName="valid_period_begin_at" columnDataType="datetime"/>
+        <dropDefaultValue tableName="final_card" columnName="valid_period_end_at" columnDataType="datetime"/>
+        <dropDefaultValue tableName="final_card" columnName="created_date" columnDataType="datetime"/>
+        <dropDefaultValue tableName="final_card" columnName="deliveried_date" columnDataType="datetime"/>
+        <dropDefaultValue tableName="final_card" columnName="discontinue_date" columnDataType="datetime"/>
+        <dropDefaultValue tableName="final_card" columnName="last_modified_date" columnDataType="datetime"/>
+    </changeSet>
+
+    <changeSet id="20200423072000-1-relations" author="jhipster">
+
+    </changeSet>
+    <!-- jhipster-needle-liquibase-add-changeset - JHipster will add changesets here, do not remove-->
+
+    <!--
+        Load sample data generated with Faker.js
+        - This data can be easily edited using a CSV editor (or even MS Excel) and
+          is located in the 'src/main/resources/config/liquibase/fake-data' directory
+        - By default this data is applied when running with the JHipster 'dev' profile.
+          This can be customized by adding or removing 'faker' in the 'spring.liquibase.contexts'
+          Spring Boot configuration key.
+    -->
+    <changeSet id="20200423072000-1-data" author="jhipster" context="faker">
+        <loadData
+                  file="config/liquibase/fake-data/final_card.csv"
+                  separator=";"
+                  tableName="final_card">
+            <column name="id" type="numeric"/>
+            <column name="sn" type="string"/>
+            <column name="card_type" type="string"/>
+            <column name="title" type="string"/>
+            <column name="thumbnail" type="string"/>
+            <column name="details" type="string"/>
+            <column name="valid_period_begin_at" type="datetime"/>
+            <column name="valid_period_end_at" type="datetime"/>
+            <column name="quantity" type="numeric"/>
+            <column name="received_quantity" type="numeric"/>
+            <column name="can_use_with_other_card" type="boolean"/>
+            <column name="accept_categories" type="string"/>
+            <column name="accept_shops" type="string"/>
+            <column name="least_cost" type="numeric"/>
+            <column name="reduce_cost" type="numeric"/>
+            <column name="discount" type="numeric"/>
+            <column name="gift" type="string"/>
+            <column name="gift_quantity" type="numeric"/>
+            <column name="status" type="string"/>
+            <column name="created_by" type="string"/>
+            <column name="created_date" type="datetime"/>
+            <column name="deliveried_by" type="string"/>
+            <column name="deliveried_date" type="datetime"/>
+            <column name="discontinue_by" type="string"/>
+            <column name="discontinue_date" type="datetime"/>
+            <column name="last_modified_date" type="datetime"/>
+            <column name="last_modified_by" type="string"/>
+            <!-- jhipster-needle-liquibase-add-loadcolumn - JHipster (and/or extensions) can add load columns here, do not remove-->
+        </loadData>
+    </changeSet>
+
+</databaseChangeLog>

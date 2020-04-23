@@ -1,0 +1,111 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="jhrApp.writeOffCard.home.title">Write Off Cards</span>
+
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-write-off-card" [routerLink]="['/write-off-card/new']">
+            <fa-icon icon="plus"></fa-icon>
+            <span  jhiTranslate="jhrApp.writeOffCard.home.createLabel">
+            Create a new Write Off Card
+            </span>
+        </button>
+    </h2>
+
+    <jhi-alert-error></jhi-alert-error>
+
+    <jhi-alert></jhi-alert>
+
+    <div class="alert alert-warning" id="no-result" *ngIf="writeOffCards?.length === 0">
+        <span jhiTranslate="jhrApp.writeOffCard.home.notFound">No writeOffCards found</span>
+    </div>
+
+    <div class="table-responsive" id="entities" *ngIf="writeOffCards?.length > 0">
+        <table class="table table-striped" aria-describedby="page-heading">
+            <thead>
+                <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" [callback]="loadPage.bind(this)">
+                    <th scope="col"  jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="code"><span jhiTranslate="jhrApp.writeOffCard.code">Code</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="cardSN"><span jhiTranslate="jhrApp.writeOffCard.cardSN">Card SN</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="cardType"><span jhiTranslate="jhrApp.writeOffCard.cardType">Card Type</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="title"><span jhiTranslate="jhrApp.writeOffCard.title">Title</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="thumbnail"><span jhiTranslate="jhrApp.writeOffCard.thumbnail">Thumbnail</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="details"><span jhiTranslate="jhrApp.writeOffCard.details">Details</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="validPeriodBeginAt"><span jhiTranslate="jhrApp.writeOffCard.validPeriodBeginAt">Valid Period Begin At</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="validPeriodEndAt"><span jhiTranslate="jhrApp.writeOffCard.validPeriodEndAt">Valid Period End At</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="canUseWithOtherCard"><span jhiTranslate="jhrApp.writeOffCard.canUseWithOtherCard">Can Use With Other Card</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="acceptCategories"><span jhiTranslate="jhrApp.writeOffCard.acceptCategories">Accept Categories</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="acceptShops"><span jhiTranslate="jhrApp.writeOffCard.acceptShops">Accept Shops</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="leastCost"><span jhiTranslate="jhrApp.writeOffCard.leastCost">Least Cost</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="reduceCost"><span jhiTranslate="jhrApp.writeOffCard.reduceCost">Reduce Cost</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="discount"><span jhiTranslate="jhrApp.writeOffCard.discount">Discount</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="gift"><span jhiTranslate="jhrApp.writeOffCard.gift">Gift</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="giftQuantity"><span jhiTranslate="jhrApp.writeOffCard.giftQuantity">Gift Quantity</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="receivedBy"><span jhiTranslate="jhrApp.writeOffCard.receivedBy">Received By</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="receivedDate"><span jhiTranslate="jhrApp.writeOffCard.receivedDate">Received Date</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="orderSN"><span jhiTranslate="jhrApp.writeOffCard.orderSN">Order SN</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="status"><span jhiTranslate="jhrApp.writeOffCard.status">Status</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="writeOffDate"><span jhiTranslate="jhrApp.writeOffCard.writeOffDate">Write Off Date</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let writeOffCard of writeOffCards ;trackBy: trackId">
+                    <td><a [routerLink]="['/write-off-card', writeOffCard.id, 'view']">{{ writeOffCard.id }}</a></td>
+                    <td>{{ writeOffCard.code }}</td>
+                    <td>{{ writeOffCard.cardSN }}</td>
+                    <td jhiTranslate="{{ 'jhrApp.CardType.' + writeOffCard.cardType }}">{{ writeOffCard.cardType }}</td>
+                    <td>{{ writeOffCard.title }}</td>
+                    <td>{{ writeOffCard.thumbnail }}</td>
+                    <td>{{ writeOffCard.details }}</td>
+                    <td>{{ writeOffCard.validPeriodBeginAt | date:'medium' }}</td>
+                    <td>{{ writeOffCard.validPeriodEndAt | date:'medium' }}</td>
+                    <td>{{ writeOffCard.canUseWithOtherCard }}</td>
+                    <td>{{ writeOffCard.acceptCategories }}</td>
+                    <td>{{ writeOffCard.acceptShops }}</td>
+                    <td>{{ writeOffCard.leastCost }}</td>
+                    <td>{{ writeOffCard.reduceCost }}</td>
+                    <td>{{ writeOffCard.discount }}</td>
+                    <td>{{ writeOffCard.gift }}</td>
+                    <td>{{ writeOffCard.giftQuantity }}</td>
+                    <td>{{ writeOffCard.receivedBy }}</td>
+                    <td>{{ writeOffCard.receivedDate | date:'medium' }}</td>
+                    <td>{{ writeOffCard.orderSN }}</td>
+                    <td jhiTranslate="{{ 'jhrApp.WriteOffStatus.' + writeOffCard.status }}">{{ writeOffCard.status }}</td>
+                    <td>{{ writeOffCard.writeOffDate | date:'medium' }}</td>
+                    <td class="text-right">
+                        <div class="btn-group">
+                            <button type="submit"
+                                    [routerLink]="['/write-off-card', writeOffCard.id, 'view']"
+                                    class="btn btn-info btn-sm">
+                                <fa-icon icon="eye"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                            </button>
+
+                            <button type="submit"
+                                    [routerLink]="['/write-off-card', writeOffCard.id, 'edit']"
+                                    class="btn btn-primary btn-sm">
+                                <fa-icon icon="pencil-alt"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                            </button>
+
+                            <button type="submit" (click)="delete(writeOffCard)"
+                                    class="btn btn-danger btn-sm">
+                                <fa-icon icon="times"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div *ngIf="writeOffCards?.length > 0">
+        <div class="row justify-content-center">
+            <jhi-item-count [page]="page" [total]="totalItems" [itemsPerPage]="itemsPerPage"></jhi-item-count>
+        </div>
+
+        <div class="row justify-content-center">
+            <ngb-pagination [collectionSize]="totalItems" [(page)]="ngbPaginationPage" [pageSize]="itemsPerPage" [maxSize]="5" [rotate]="true" [boundaryLinks]="true" (pageChange)="loadPage($event)"></ngb-pagination>
+        </div>
+    </div>
+</div>

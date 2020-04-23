@@ -1,0 +1,135 @@
+{
+    "name": "DeliveryAddress",
+    "fields": [
+        {
+            "fieldName": "memberName",
+            "javadoc": "会员名称",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required",
+                "maxlength"
+            ],
+            "fieldValidateRulesMaxlength": "20"
+        },
+        {
+            "fieldName": "memberSN",
+            "javadoc": "会员编号",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required",
+                "maxlength"
+            ],
+            "fieldValidateRulesMaxlength": "20"
+        },
+        {
+            "fieldName": "contact",
+            "javadoc": "联系人",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required",
+                "maxlength"
+            ],
+            "fieldValidateRulesMaxlength": "20"
+        },
+        {
+            "fieldName": "sex",
+            "javadoc": "性别",
+            "fieldType": "Sex",
+            "fieldValues": "UNKNOWN,MAN,WOMAN"
+        },
+        {
+            "fieldName": "mobile",
+            "javadoc": "手机",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "maxlength"
+            ],
+            "fieldValidateRulesMaxlength": "11"
+        },
+        {
+            "fieldName": "country",
+            "javadoc": "国家",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "maxlength"
+            ],
+            "fieldValidateRulesMaxlength": "20"
+        },
+        {
+            "fieldName": "province",
+            "javadoc": "省、直辖市、自治区",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required",
+                "maxlength"
+            ],
+            "fieldValidateRulesMaxlength": "20"
+        },
+        {
+            "fieldName": "city",
+            "javadoc": "城市",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required",
+                "maxlength"
+            ],
+            "fieldValidateRulesMaxlength": "20"
+        },
+        {
+            "fieldName": "district",
+            "javadoc": "地区",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "maxlength"
+            ],
+            "fieldValidateRulesMaxlength": "20"
+        },
+        {
+            "fieldName": "offsetType",
+            "javadoc": "坐标类型",
+            "fieldType": "OffsetType",
+            "fieldValues": "MARS,SOGOU,BAIDU,MAPBAR,GPS,MERCATOR",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "longitude",
+            "javadoc": "经度",
+            "fieldType": "Double",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "latitude",
+            "javadoc": "纬度",
+            "fieldType": "Double",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "address",
+            "javadoc": "详细地址（不含省市信息）",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "maxlength"
+            ],
+            "fieldValidateRulesMaxlength": "50"
+        }
+    ],
+    "relationships": [],
+    "changelogDate": "20200423070800",
+    "javadoc": "送餐地址\\n@author Jo",
+    "entityTableName": "delivery_address",
+    "dto": "mapstruct",
+    "pagination": "no",
+    "service": "serviceClass",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "readOnly": false,
+    "embedded": false,
+    "clientRootFolder": "",
+    "applications": "*"
+}

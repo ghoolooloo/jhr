@@ -1,0 +1,38 @@
+{
+  "jhrApp": {
+    "foodCategory": {
+      "home": {
+        "title": "Food Categories",
+        "createLabel": "创建新 Food Category",
+        "createOrEditLabel": "创建或编辑 Food Category",
+        "notFound": "No Food Categories found"
+      },
+      "created": "Food Category {{ param }} 创建成功",
+      "updated": "Food Category {{ param }} 更新成功",
+      "deleted": "Food Category {{ param }} 删除成功",
+      "delete": {
+        "question": "你确定要删除 Food Category {{ id }} 吗？"
+      },
+      "detail": {
+        "title": "Food Category"
+      },
+      "name": "Name",
+      "sn": "Sn",
+      "icon": "Icon",
+      "sort": "Sort",
+      "disabled": "Disabled",
+      "createdBy": "Created By",
+      "createdDate": "Created Date",
+      "lastModifiedDate": "Last Modified Date",
+      "lastModifiedBy": "Last Modified By",
+      "help": {
+        "sn": "编号",
+        "icon": "图标",
+        "sort": "序号",
+        "disabled": "是否禁用。禁用分类会禁用所属的菜品，启用分类也会启用所属的菜品",
+        "createdBy": "创建者登录账号",
+        "lastModifiedBy": "最后修改者登录账号"
+      }
+    }
+  }
+}

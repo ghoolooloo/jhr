@@ -1,0 +1,49 @@
+{
+  "jhrApp": {
+    "deliveryAddress": {
+      "home": {
+        "title": "Delivery Addresses",
+        "createLabel": "Create a new Delivery Address",
+        "createOrEditLabel": "Create or edit a Delivery Address",
+        "notFound": "No Delivery Addresses found"
+      },
+      "created": "A new Delivery Address is created with identifier {{ param }}",
+      "updated": "A Delivery Address is updated with identifier {{ param }}",
+      "deleted": "A Delivery Address is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Delivery Address {{ id }}?"
+      },
+      "detail": {
+        "title": "Delivery Address"
+      },
+      "memberName": "Member Name",
+      "memberSN": "Member SN",
+      "contact": "Contact",
+      "sex": "Sex",
+      "mobile": "Mobile",
+      "country": "Country",
+      "province": "Province",
+      "city": "City",
+      "district": "District",
+      "offsetType": "Offset Type",
+      "longitude": "Longitude",
+      "latitude": "Latitude",
+      "address": "Address",
+      "help": {
+        "memberName": "会员名称",
+        "memberSN": "会员编号",
+        "contact": "联系人",
+        "sex": "性别",
+        "mobile": "手机",
+        "country": "国家",
+        "province": "省、直辖市、自治区",
+        "city": "城市",
+        "district": "地区",
+        "offsetType": "坐标类型",
+        "longitude": "经度",
+        "latitude": "纬度",
+        "address": "详细地址（不含省市信息）"
+      }
+    }
+  }
+}

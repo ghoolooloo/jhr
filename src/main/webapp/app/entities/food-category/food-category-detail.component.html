@@ -1,0 +1,62 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="foodCategory">
+            <h2><span jhiTranslate="jhrApp.foodCategory.detail.title">Food Category</span> {{ foodCategory.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="jhrApp.foodCategory.name">Name</span></dt>
+                <dd>
+                    <span>{{ foodCategory.name }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhrApp.foodCategory.sn" [ngbTooltip]="'jhrApp.foodCategory.help.sn' | translate">Sn</span></dt>
+                <dd>
+                    <span>{{ foodCategory.sn }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhrApp.foodCategory.icon" [ngbTooltip]="'jhrApp.foodCategory.help.icon' | translate">Icon</span></dt>
+                <dd>
+                    <span>{{ foodCategory.icon }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhrApp.foodCategory.sort" [ngbTooltip]="'jhrApp.foodCategory.help.sort' | translate">Sort</span></dt>
+                <dd>
+                    <span>{{ foodCategory.sort }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhrApp.foodCategory.disabled" [ngbTooltip]="'jhrApp.foodCategory.help.disabled' | translate">Disabled</span></dt>
+                <dd>
+                    <span>{{ foodCategory.disabled }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhrApp.foodCategory.createdBy" [ngbTooltip]="'jhrApp.foodCategory.help.createdBy' | translate">Created By</span></dt>
+                <dd>
+                    <span>{{ foodCategory.createdBy }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhrApp.foodCategory.createdDate">Created Date</span></dt>
+                <dd>
+                    <span>{{ foodCategory.createdDate }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhrApp.foodCategory.lastModifiedDate">Last Modified Date</span></dt>
+                <dd>
+                    <span>{{ foodCategory.lastModifiedDate }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhrApp.foodCategory.lastModifiedBy" [ngbTooltip]="'jhrApp.foodCategory.help.lastModifiedBy' | translate">Last Modified By</span></dt>
+                <dd>
+                    <span>{{ foodCategory.lastModifiedBy }}</span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/food-category', foodCategory.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

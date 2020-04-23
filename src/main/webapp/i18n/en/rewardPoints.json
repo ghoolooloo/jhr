@@ -1,0 +1,32 @@
+{
+  "jhrApp": {
+    "rewardPoints": {
+      "home": {
+        "title": "Reward Points",
+        "createLabel": "Create a new Reward Points",
+        "createOrEditLabel": "Create or edit a Reward Points",
+        "notFound": "No Reward Points found"
+      },
+      "created": "A new Reward Points is created with identifier {{ param }}",
+      "updated": "A Reward Points is updated with identifier {{ param }}",
+      "deleted": "A Reward Points is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Reward Points {{ id }}?"
+      },
+      "detail": {
+        "title": "Reward Points"
+      },
+      "memberName": "Member Name",
+      "memberSN": "Member SN",
+      "balance": "Balance",
+      "lastModifiedDate": "Last Modified Date",
+      "records": "Records",
+      "help": {
+        "memberName": "会员名称",
+        "memberSN": "会员编号",
+        "balance": "积分余额",
+        "lastModifiedDate": "最后统计时间"
+      }
+    }
+  }
+}

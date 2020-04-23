@@ -14,6 +14,35 @@
     <property name="uuidType" value="varchar(36)" dbms="h2, mysql, mariadb"/>
 
     <include file="config/liquibase/changelog/00000000000000_initial_schema.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20200423070100_added_entity_FoodCategory.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20200423070200_added_entity_Food.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20200423070300_added_entity_WeekMenu.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20200423070400_added_entity_WeekStock.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20200423070500_added_entity_Shop.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20200423070600_added_entity_Merchant.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20200423070700_added_entity_Member.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20200423070800_added_entity_DeliveryAddress.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20200423070900_added_entity_Order.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20200423071000_added_entity_OrderItem.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20200423071100_added_entity_DeliveryOrder.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20200423071200_added_entity_ExceptionOrder.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20200423071300_added_entity_RefundOrder.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20200423071400_added_entity_ClosedOrder.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20200423071500_added_entity_Sales.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20200423071600_added_entity_FoodSalesReport.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20200423071700_added_entity_RewardPoints.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20200423071800_added_entity_RewardPointsRecord.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20200423071900_added_entity_Card.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20200423072000_added_entity_FinalCard.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20200423072100_added_entity_CardHolder.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20200423072200_added_entity_WriteOffCard.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20200423072300_added_entity_Carousel.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20200423072400_added_entity_Notice.xml" relativeToChangelogFile="false"/>
     <!-- jhipster-needle-liquibase-add-changelog - JHipster will add liquibase changelogs here -->
+    <include file="config/liquibase/changelog/20200423070200_added_entity_constraints_Food.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20200423070300_added_entity_constraints_WeekMenu.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20200423070400_added_entity_constraints_WeekStock.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20200423070500_added_entity_constraints_Shop.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20200423071800_added_entity_constraints_RewardPointsRecord.xml" relativeToChangelogFile="false"/>
     <!-- jhipster-needle-liquibase-add-constraints-changelog - JHipster will add liquibase constraints changelogs here -->
 </databaseChangeLog>

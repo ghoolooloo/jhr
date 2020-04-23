@@ -1,0 +1,45 @@
+{
+  "jhrApp": {
+    "sales": {
+      "home": {
+        "title": "Sales",
+        "createLabel": "Create a new Sales",
+        "createOrEditLabel": "Create or edit a Sales",
+        "notFound": "No Sales found"
+      },
+      "created": "A new Sales is created with identifier {{ param }}",
+      "updated": "A Sales is updated with identifier {{ param }}",
+      "deleted": "A Sales is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Sales {{ id }}?"
+      },
+      "detail": {
+        "title": "Sales"
+      },
+      "day": "Day",
+      "shopSN": "Shop SN",
+      "shopName": "Shop Name",
+      "categorySN": "Category SN",
+      "categoryName": "Category Name",
+      "foodSN": "Food SN",
+      "foodName": "Food Name",
+      "foodOriginalPrice": "Food Original Price",
+      "initQuantity": "Init Quantity",
+      "salesQuantity": "Sales Quantity",
+      "lastModifiedDate": "Last Modified Date",
+      "help": {
+        "day": "营业日（只有日期，不需要时间）",
+        "shopSN": "门店编号",
+        "shopName": "门店名称",
+        "categorySN": "分类编号",
+        "categoryName": "分类名称",
+        "foodSN": "菜品编号",
+        "foodName": "菜品名称",
+        "foodOriginalPrice": "菜品原价（单位：分）",
+        "initQuantity": "初始库存",
+        "salesQuantity": "菜品销售数量",
+        "lastModifiedDate": "最后统计时间"
+      }
+    }
+  }
+}

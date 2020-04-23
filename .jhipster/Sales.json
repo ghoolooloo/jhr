@@ -1,0 +1,129 @@
+{
+    "name": "Sales",
+    "fields": [
+        {
+            "fieldName": "day",
+            "javadoc": "营业日（只有日期，不需要时间）",
+            "fieldType": "Instant",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "shopSN",
+            "javadoc": "门店编号",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required",
+                "maxlength"
+            ],
+            "fieldValidateRulesMaxlength": "30"
+        },
+        {
+            "fieldName": "shopName",
+            "javadoc": "门店名称",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required",
+                "maxlength"
+            ],
+            "fieldValidateRulesMaxlength": "20"
+        },
+        {
+            "fieldName": "categorySN",
+            "javadoc": "分类编号",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required",
+                "maxlength"
+            ],
+            "fieldValidateRulesMaxlength": "5"
+        },
+        {
+            "fieldName": "categoryName",
+            "javadoc": "分类名称",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required",
+                "maxlength"
+            ],
+            "fieldValidateRulesMaxlength": "10"
+        },
+        {
+            "fieldName": "foodSN",
+            "javadoc": "菜品编号",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required",
+                "maxlength"
+            ],
+            "fieldValidateRulesMaxlength": "10"
+        },
+        {
+            "fieldName": "foodName",
+            "javadoc": "菜品名称",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required",
+                "maxlength"
+            ],
+            "fieldValidateRulesMaxlength": "20"
+        },
+        {
+            "fieldName": "foodOriginalPrice",
+            "javadoc": "菜品原价（单位：分）",
+            "fieldType": "Integer",
+            "fieldValidateRules": [
+                "min",
+                "max"
+            ],
+            "fieldValidateRulesMin": "0",
+            "fieldValidateRulesMax": "99999"
+        },
+        {
+            "fieldName": "initQuantity",
+            "javadoc": "初始库存",
+            "fieldType": "Integer",
+            "fieldValidateRules": [
+                "required",
+                "min",
+                "max"
+            ],
+            "fieldValidateRulesMin": "0",
+            "fieldValidateRulesMax": "99999"
+        },
+        {
+            "fieldName": "salesQuantity",
+            "javadoc": "菜品销售数量",
+            "fieldType": "Integer",
+            "fieldValidateRules": [
+                "required",
+                "min",
+                "max"
+            ],
+            "fieldValidateRulesMin": "0",
+            "fieldValidateRulesMax": "99999"
+        },
+        {
+            "fieldName": "lastModifiedDate",
+            "javadoc": "最后统计时间",
+            "fieldType": "Instant",
+            "fieldValidateRules": [
+                "required"
+            ]
+        }
+    ],
+    "relationships": [],
+    "changelogDate": "20200423071500",
+    "javadoc": "菜品销量\\n@author Jo",
+    "entityTableName": "sales",
+    "dto": "mapstruct",
+    "pagination": "pagination",
+    "service": "serviceClass",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "readOnly": false,
+    "embedded": false,
+    "clientRootFolder": "",
+    "applications": "*"
+}

@@ -1,0 +1,124 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="shop">
+            <h2><span jhiTranslate="jhrApp.shop.detail.title">Shop</span> {{ shop.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="jhrApp.shop.name" [ngbTooltip]="'jhrApp.shop.help.name' | translate">Name</span></dt>
+                <dd>
+                    <span>{{ shop.name }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhrApp.shop.sn" [ngbTooltip]="'jhrApp.shop.help.sn' | translate">Sn</span></dt>
+                <dd>
+                    <span>{{ shop.sn }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhrApp.shop.tel" [ngbTooltip]="'jhrApp.shop.help.tel' | translate">Tel</span></dt>
+                <dd>
+                    <span>{{ shop.tel }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhrApp.shop.address" [ngbTooltip]="'jhrApp.shop.help.address' | translate">Address</span></dt>
+                <dd>
+                    <span>{{ shop.address }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhrApp.shop.country" [ngbTooltip]="'jhrApp.shop.help.country' | translate">Country</span></dt>
+                <dd>
+                    <span>{{ shop.country }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhrApp.shop.province" [ngbTooltip]="'jhrApp.shop.help.province' | translate">Province</span></dt>
+                <dd>
+                    <span>{{ shop.province }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhrApp.shop.city" [ngbTooltip]="'jhrApp.shop.help.city' | translate">City</span></dt>
+                <dd>
+                    <span>{{ shop.city }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhrApp.shop.district" [ngbTooltip]="'jhrApp.shop.help.district' | translate">District</span></dt>
+                <dd>
+                    <span>{{ shop.district }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhrApp.shop.offsetType" [ngbTooltip]="'jhrApp.shop.help.offsetType' | translate">Offset Type</span></dt>
+                <dd>
+                    <span jhiTranslate="{{ 'jhrApp.OffsetType.' + shop.offsetType }}">{{ shop.offsetType }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhrApp.shop.longitude" [ngbTooltip]="'jhrApp.shop.help.longitude' | translate">Longitude</span></dt>
+                <dd>
+                    <span>{{ shop.longitude }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhrApp.shop.latitude" [ngbTooltip]="'jhrApp.shop.help.latitude' | translate">Latitude</span></dt>
+                <dd>
+                    <span>{{ shop.latitude }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhrApp.shop.shopOpen" [ngbTooltip]="'jhrApp.shop.help.shopOpen' | translate">Shop Open</span></dt>
+                <dd>
+                    <span>{{ shop.shopOpen }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhrApp.shop.shopClose" [ngbTooltip]="'jhrApp.shop.help.shopClose' | translate">Shop Close</span></dt>
+                <dd>
+                    <span>{{ shop.shopClose }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhrApp.shop.maxDeliveryDistance" [ngbTooltip]="'jhrApp.shop.help.maxDeliveryDistance' | translate">Max Delivery Distance</span></dt>
+                <dd>
+                    <span>{{ shop.maxDeliveryDistance }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhrApp.shop.minDeliveryAmount" [ngbTooltip]="'jhrApp.shop.help.minDeliveryAmount' | translate">Min Delivery Amount</span></dt>
+                <dd>
+                    <span>{{ shop.minDeliveryAmount }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhrApp.shop.lunchServeStartingAt" [ngbTooltip]="'jhrApp.shop.help.lunchServeStartingAt' | translate">Lunch Serve Starting At</span></dt>
+                <dd>
+                    <span>{{ shop.lunchServeStartingAt }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhrApp.shop.lunchServeEndAt" [ngbTooltip]="'jhrApp.shop.help.lunchServeEndAt' | translate">Lunch Serve End At</span></dt>
+                <dd>
+                    <span>{{ shop.lunchServeEndAt }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhrApp.shop.supperServeStartingAt" [ngbTooltip]="'jhrApp.shop.help.supperServeStartingAt' | translate">Supper Serve Starting At</span></dt>
+                <dd>
+                    <span>{{ shop.supperServeStartingAt }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhrApp.shop.supperServeEndAt" [ngbTooltip]="'jhrApp.shop.help.supperServeEndAt' | translate">Supper Serve End At</span></dt>
+                <dd>
+                    <span>{{ shop.supperServeEndAt }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhrApp.shop.createdBy">Created By</span></dt>
+                <dd>
+                    <span>{{ shop.createdBy }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhrApp.shop.createdDate">Created Date</span></dt>
+                <dd>
+                    <span>{{ shop.createdDate }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhrApp.shop.lastModifiedDate">Last Modified Date</span></dt>
+                <dd>
+                    <span>{{ shop.lastModifiedDate }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhrApp.shop.lastModifiedBy">Last Modified By</span></dt>
+                <dd>
+                    <span>{{ shop.lastModifiedBy }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhrApp.shop.merchant">Merchant</span></dt>
+                <dd>
+                    <div *ngIf="shop.merchantId">
+                        <a [routerLink]="['/merchant', shop.merchantId, 'view']">{{ shop.merchantId }}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/shop', shop.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

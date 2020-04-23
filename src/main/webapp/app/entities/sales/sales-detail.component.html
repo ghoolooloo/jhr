@@ -1,0 +1,70 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="sales">
+            <h2><span jhiTranslate="jhrApp.sales.detail.title">Sales</span> {{ sales.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="jhrApp.sales.day" [ngbTooltip]="'jhrApp.sales.help.day' | translate">Day</span></dt>
+                <dd>
+                    <span>{{ sales.day }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhrApp.sales.shopSN" [ngbTooltip]="'jhrApp.sales.help.shopSN' | translate">Shop SN</span></dt>
+                <dd>
+                    <span>{{ sales.shopSN }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhrApp.sales.shopName" [ngbTooltip]="'jhrApp.sales.help.shopName' | translate">Shop Name</span></dt>
+                <dd>
+                    <span>{{ sales.shopName }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhrApp.sales.categorySN" [ngbTooltip]="'jhrApp.sales.help.categorySN' | translate">Category SN</span></dt>
+                <dd>
+                    <span>{{ sales.categorySN }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhrApp.sales.categoryName" [ngbTooltip]="'jhrApp.sales.help.categoryName' | translate">Category Name</span></dt>
+                <dd>
+                    <span>{{ sales.categoryName }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhrApp.sales.foodSN" [ngbTooltip]="'jhrApp.sales.help.foodSN' | translate">Food SN</span></dt>
+                <dd>
+                    <span>{{ sales.foodSN }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhrApp.sales.foodName" [ngbTooltip]="'jhrApp.sales.help.foodName' | translate">Food Name</span></dt>
+                <dd>
+                    <span>{{ sales.foodName }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhrApp.sales.foodOriginalPrice" [ngbTooltip]="'jhrApp.sales.help.foodOriginalPrice' | translate">Food Original Price</span></dt>
+                <dd>
+                    <span>{{ sales.foodOriginalPrice }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhrApp.sales.initQuantity" [ngbTooltip]="'jhrApp.sales.help.initQuantity' | translate">Init Quantity</span></dt>
+                <dd>
+                    <span>{{ sales.initQuantity }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhrApp.sales.salesQuantity" [ngbTooltip]="'jhrApp.sales.help.salesQuantity' | translate">Sales Quantity</span></dt>
+                <dd>
+                    <span>{{ sales.salesQuantity }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhrApp.sales.lastModifiedDate" [ngbTooltip]="'jhrApp.sales.help.lastModifiedDate' | translate">Last Modified Date</span></dt>
+                <dd>
+                    <span>{{ sales.lastModifiedDate }}</span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/sales', sales.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

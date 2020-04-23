@@ -1,0 +1,70 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="member">
+            <h2><span jhiTranslate="jhrApp.member.detail.title">Member</span> {{ member.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="jhrApp.member.name" [ngbTooltip]="'jhrApp.member.help.name' | translate">Name</span></dt>
+                <dd>
+                    <span>{{ member.name }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhrApp.member.sn" [ngbTooltip]="'jhrApp.member.help.sn' | translate">Sn</span></dt>
+                <dd>
+                    <span>{{ member.sn }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhrApp.member.openID" [ngbTooltip]="'jhrApp.member.help.openID' | translate">Open ID</span></dt>
+                <dd>
+                    <span>{{ member.openID }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhrApp.member.unionID" [ngbTooltip]="'jhrApp.member.help.unionID' | translate">Union ID</span></dt>
+                <dd>
+                    <span>{{ member.unionID }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhrApp.member.profilePicture" [ngbTooltip]="'jhrApp.member.help.profilePicture' | translate">Profile Picture</span></dt>
+                <dd>
+                    <span>{{ member.profilePicture }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhrApp.member.sex" [ngbTooltip]="'jhrApp.member.help.sex' | translate">Sex</span></dt>
+                <dd>
+                    <span jhiTranslate="{{ 'jhrApp.Sex.' + member.sex }}">{{ member.sex }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhrApp.member.country" [ngbTooltip]="'jhrApp.member.help.country' | translate">Country</span></dt>
+                <dd>
+                    <span>{{ member.country }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhrApp.member.province" [ngbTooltip]="'jhrApp.member.help.province' | translate">Province</span></dt>
+                <dd>
+                    <span>{{ member.province }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhrApp.member.city" [ngbTooltip]="'jhrApp.member.help.city' | translate">City</span></dt>
+                <dd>
+                    <span>{{ member.city }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhrApp.member.joinDate" [ngbTooltip]="'jhrApp.member.help.joinDate' | translate">Join Date</span></dt>
+                <dd>
+                    <span>{{ member.joinDate }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhrApp.member.lastLoginDate" [ngbTooltip]="'jhrApp.member.help.lastLoginDate' | translate">Last Login Date</span></dt>
+                <dd>
+                    <span>{{ member.lastLoginDate }}</span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/member', member.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

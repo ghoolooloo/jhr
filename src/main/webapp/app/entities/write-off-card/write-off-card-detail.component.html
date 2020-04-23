@@ -1,0 +1,110 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="writeOffCard">
+            <h2><span jhiTranslate="jhrApp.writeOffCard.detail.title">Write Off Card</span> {{ writeOffCard.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="jhrApp.writeOffCard.code" [ngbTooltip]="'jhrApp.writeOffCard.help.code' | translate">Code</span></dt>
+                <dd>
+                    <span>{{ writeOffCard.code }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhrApp.writeOffCard.cardSN" [ngbTooltip]="'jhrApp.writeOffCard.help.cardSN' | translate">Card SN</span></dt>
+                <dd>
+                    <span>{{ writeOffCard.cardSN }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhrApp.writeOffCard.cardType" [ngbTooltip]="'jhrApp.writeOffCard.help.cardType' | translate">Card Type</span></dt>
+                <dd>
+                    <span jhiTranslate="{{ 'jhrApp.CardType.' + writeOffCard.cardType }}">{{ writeOffCard.cardType }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhrApp.writeOffCard.title" [ngbTooltip]="'jhrApp.writeOffCard.help.title' | translate">Title</span></dt>
+                <dd>
+                    <span>{{ writeOffCard.title }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhrApp.writeOffCard.thumbnail" [ngbTooltip]="'jhrApp.writeOffCard.help.thumbnail' | translate">Thumbnail</span></dt>
+                <dd>
+                    <span>{{ writeOffCard.thumbnail }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhrApp.writeOffCard.details" [ngbTooltip]="'jhrApp.writeOffCard.help.details' | translate">Details</span></dt>
+                <dd>
+                    <span>{{ writeOffCard.details }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhrApp.writeOffCard.validPeriodBeginAt" [ngbTooltip]="'jhrApp.writeOffCard.help.validPeriodBeginAt' | translate">Valid Period Begin At</span></dt>
+                <dd>
+                    <span>{{ writeOffCard.validPeriodBeginAt }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhrApp.writeOffCard.validPeriodEndAt" [ngbTooltip]="'jhrApp.writeOffCard.help.validPeriodEndAt' | translate">Valid Period End At</span></dt>
+                <dd>
+                    <span>{{ writeOffCard.validPeriodEndAt }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhrApp.writeOffCard.canUseWithOtherCard" [ngbTooltip]="'jhrApp.writeOffCard.help.canUseWithOtherCard' | translate">Can Use With Other Card</span></dt>
+                <dd>
+                    <span>{{ writeOffCard.canUseWithOtherCard }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhrApp.writeOffCard.acceptCategories" [ngbTooltip]="'jhrApp.writeOffCard.help.acceptCategories' | translate">Accept Categories</span></dt>
+                <dd>
+                    <span>{{ writeOffCard.acceptCategories }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhrApp.writeOffCard.acceptShops" [ngbTooltip]="'jhrApp.writeOffCard.help.acceptShops' | translate">Accept Shops</span></dt>
+                <dd>
+                    <span>{{ writeOffCard.acceptShops }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhrApp.writeOffCard.leastCost" [ngbTooltip]="'jhrApp.writeOffCard.help.leastCost' | translate">Least Cost</span></dt>
+                <dd>
+                    <span>{{ writeOffCard.leastCost }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhrApp.writeOffCard.reduceCost" [ngbTooltip]="'jhrApp.writeOffCard.help.reduceCost' | translate">Reduce Cost</span></dt>
+                <dd>
+                    <span>{{ writeOffCard.reduceCost }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhrApp.writeOffCard.discount" [ngbTooltip]="'jhrApp.writeOffCard.help.discount' | translate">Discount</span></dt>
+                <dd>
+                    <span>{{ writeOffCard.discount }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhrApp.writeOffCard.gift" [ngbTooltip]="'jhrApp.writeOffCard.help.gift' | translate">Gift</span></dt>
+                <dd>
+                    <span>{{ writeOffCard.gift }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhrApp.writeOffCard.giftQuantity" [ngbTooltip]="'jhrApp.writeOffCard.help.giftQuantity' | translate">Gift Quantity</span></dt>
+                <dd>
+                    <span>{{ writeOffCard.giftQuantity }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhrApp.writeOffCard.receivedBy" [ngbTooltip]="'jhrApp.writeOffCard.help.receivedBy' | translate">Received By</span></dt>
+                <dd>
+                    <span>{{ writeOffCard.receivedBy }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhrApp.writeOffCard.receivedDate" [ngbTooltip]="'jhrApp.writeOffCard.help.receivedDate' | translate">Received Date</span></dt>
+                <dd>
+                    <span>{{ writeOffCard.receivedDate }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhrApp.writeOffCard.orderSN" [ngbTooltip]="'jhrApp.writeOffCard.help.orderSN' | translate">Order SN</span></dt>
+                <dd>
+                    <span>{{ writeOffCard.orderSN }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhrApp.writeOffCard.status" [ngbTooltip]="'jhrApp.writeOffCard.help.status' | translate">Status</span></dt>
+                <dd>
+                    <span jhiTranslate="{{ 'jhrApp.WriteOffStatus.' + writeOffCard.status }}">{{ writeOffCard.status }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhrApp.writeOffCard.writeOffDate" [ngbTooltip]="'jhrApp.writeOffCard.help.writeOffDate' | translate">Write Off Date</span></dt>
+                <dd>
+                    <span>{{ writeOffCard.writeOffDate }}</span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/write-off-card', writeOffCard.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

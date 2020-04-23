@@ -1,0 +1,151 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="jhrApp.exceptionOrder.home.title">Exception Orders</span>
+
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-exception-order" [routerLink]="['/exception-order/new']">
+            <fa-icon icon="plus"></fa-icon>
+            <span  jhiTranslate="jhrApp.exceptionOrder.home.createLabel">
+            Create a new Exception Order
+            </span>
+        </button>
+    </h2>
+
+    <jhi-alert-error></jhi-alert-error>
+
+    <jhi-alert></jhi-alert>
+
+    <div class="alert alert-warning" id="no-result" *ngIf="exceptionOrders?.length === 0">
+        <span jhiTranslate="jhrApp.exceptionOrder.home.notFound">No exceptionOrders found</span>
+    </div>
+
+    <div class="table-responsive" id="entities" *ngIf="exceptionOrders?.length > 0">
+        <table class="table table-striped" aria-describedby="page-heading">
+            <thead>
+                <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" [callback]="loadPage.bind(this)">
+                    <th scope="col"  jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="sn"><span jhiTranslate="jhrApp.exceptionOrder.sn">Sn</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="memberName"><span jhiTranslate="jhrApp.exceptionOrder.memberName">Member Name</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="memberSN"><span jhiTranslate="jhrApp.exceptionOrder.memberSN">Member SN</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="orderType"><span jhiTranslate="jhrApp.exceptionOrder.orderType">Order Type</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="shopSN"><span jhiTranslate="jhrApp.exceptionOrder.shopSN">Shop SN</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="shopName"><span jhiTranslate="jhrApp.exceptionOrder.shopName">Shop Name</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="priceTotal"><span jhiTranslate="jhrApp.exceptionOrder.priceTotal">Price Total</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="cardReduce"><span jhiTranslate="jhrApp.exceptionOrder.cardReduce">Card Reduce</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="cards"><span jhiTranslate="jhrApp.exceptionOrder.cards">Cards</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="rewardPointsReduce"><span jhiTranslate="jhrApp.exceptionOrder.rewardPointsReduce">Reward Points Reduce</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="paymentTotal"><span jhiTranslate="jhrApp.exceptionOrder.paymentTotal">Payment Total</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="distributionPlatform"><span jhiTranslate="jhrApp.exceptionOrder.distributionPlatform">Distribution Platform</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="deliveryNo"><span jhiTranslate="jhrApp.exceptionOrder.deliveryNo">Delivery No</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="deliveryStatus"><span jhiTranslate="jhrApp.exceptionOrder.deliveryStatus">Delivery Status</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="deliveryDesc"><span jhiTranslate="jhrApp.exceptionOrder.deliveryDesc">Delivery Desc</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="deliverier"><span jhiTranslate="jhrApp.exceptionOrder.deliverier">Deliverier</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="deliverierMobile"><span jhiTranslate="jhrApp.exceptionOrder.deliverierMobile">Deliverier Mobile</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="deliveryDeductFee"><span jhiTranslate="jhrApp.exceptionOrder.deliveryDeductFee">Delivery Deduct Fee</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="deliveryFee"><span jhiTranslate="jhrApp.exceptionOrder.deliveryFee">Delivery Fee</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="contact"><span jhiTranslate="jhrApp.exceptionOrder.contact">Contact</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="sex"><span jhiTranslate="jhrApp.exceptionOrder.sex">Sex</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="mobile"><span jhiTranslate="jhrApp.exceptionOrder.mobile">Mobile</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="country"><span jhiTranslate="jhrApp.exceptionOrder.country">Country</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="province"><span jhiTranslate="jhrApp.exceptionOrder.province">Province</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="city"><span jhiTranslate="jhrApp.exceptionOrder.city">City</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="district"><span jhiTranslate="jhrApp.exceptionOrder.district">District</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="offsetType"><span jhiTranslate="jhrApp.exceptionOrder.offsetType">Offset Type</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="longitude"><span jhiTranslate="jhrApp.exceptionOrder.longitude">Longitude</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="latitude"><span jhiTranslate="jhrApp.exceptionOrder.latitude">Latitude</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="address"><span jhiTranslate="jhrApp.exceptionOrder.address">Address</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="packingFee"><span jhiTranslate="jhrApp.exceptionOrder.packingFee">Packing Fee</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="paymentMode"><span jhiTranslate="jhrApp.exceptionOrder.paymentMode">Payment Mode</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="diningDate"><span jhiTranslate="jhrApp.exceptionOrder.diningDate">Dining Date</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="remark"><span jhiTranslate="jhrApp.exceptionOrder.remark">Remark</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="status"><span jhiTranslate="jhrApp.exceptionOrder.status">Status</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="createdDate"><span jhiTranslate="jhrApp.exceptionOrder.createdDate">Created Date</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="paidDate"><span jhiTranslate="jhrApp.exceptionOrder.paidDate">Paid Date</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="exceptionDate"><span jhiTranslate="jhrApp.exceptionOrder.exceptionDate">Exception Date</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="handler"><span jhiTranslate="jhrApp.exceptionOrder.handler">Handler</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="handledDate"><span jhiTranslate="jhrApp.exceptionOrder.handledDate">Handled Date</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="handledDesc"><span jhiTranslate="jhrApp.exceptionOrder.handledDesc">Handled Desc</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let exceptionOrder of exceptionOrders ;trackBy: trackId">
+                    <td><a [routerLink]="['/exception-order', exceptionOrder.id, 'view']">{{ exceptionOrder.id }}</a></td>
+                    <td>{{ exceptionOrder.sn }}</td>
+                    <td>{{ exceptionOrder.memberName }}</td>
+                    <td>{{ exceptionOrder.memberSN }}</td>
+                    <td jhiTranslate="{{ 'jhrApp.OrderType.' + exceptionOrder.orderType }}">{{ exceptionOrder.orderType }}</td>
+                    <td>{{ exceptionOrder.shopSN }}</td>
+                    <td>{{ exceptionOrder.shopName }}</td>
+                    <td>{{ exceptionOrder.priceTotal }}</td>
+                    <td>{{ exceptionOrder.cardReduce }}</td>
+                    <td>{{ exceptionOrder.cards }}</td>
+                    <td>{{ exceptionOrder.rewardPointsReduce }}</td>
+                    <td>{{ exceptionOrder.paymentTotal }}</td>
+                    <td jhiTranslate="{{ 'jhrApp.DistributionPlatform.' + exceptionOrder.distributionPlatform }}">{{ exceptionOrder.distributionPlatform }}</td>
+                    <td>{{ exceptionOrder.deliveryNo }}</td>
+                    <td>{{ exceptionOrder.deliveryStatus }}</td>
+                    <td>{{ exceptionOrder.deliveryDesc }}</td>
+                    <td>{{ exceptionOrder.deliverier }}</td>
+                    <td>{{ exceptionOrder.deliverierMobile }}</td>
+                    <td>{{ exceptionOrder.deliveryDeductFee }}</td>
+                    <td>{{ exceptionOrder.deliveryFee }}</td>
+                    <td>{{ exceptionOrder.contact }}</td>
+                    <td jhiTranslate="{{ 'jhrApp.Sex.' + exceptionOrder.sex }}">{{ exceptionOrder.sex }}</td>
+                    <td>{{ exceptionOrder.mobile }}</td>
+                    <td>{{ exceptionOrder.country }}</td>
+                    <td>{{ exceptionOrder.province }}</td>
+                    <td>{{ exceptionOrder.city }}</td>
+                    <td>{{ exceptionOrder.district }}</td>
+                    <td jhiTranslate="{{ 'jhrApp.OffsetType.' + exceptionOrder.offsetType }}">{{ exceptionOrder.offsetType }}</td>
+                    <td>{{ exceptionOrder.longitude }}</td>
+                    <td>{{ exceptionOrder.latitude }}</td>
+                    <td>{{ exceptionOrder.address }}</td>
+                    <td>{{ exceptionOrder.packingFee }}</td>
+                    <td jhiTranslate="{{ 'jhrApp.PaymentMethod.' + exceptionOrder.paymentMode }}">{{ exceptionOrder.paymentMode }}</td>
+                    <td>{{ exceptionOrder.diningDate | date:'medium' }}</td>
+                    <td>{{ exceptionOrder.remark }}</td>
+                    <td jhiTranslate="{{ 'jhrApp.OrderStatus.' + exceptionOrder.status }}">{{ exceptionOrder.status }}</td>
+                    <td>{{ exceptionOrder.createdDate | date:'medium' }}</td>
+                    <td>{{ exceptionOrder.paidDate | date:'medium' }}</td>
+                    <td>{{ exceptionOrder.exceptionDate | date:'medium' }}</td>
+                    <td>{{ exceptionOrder.handler }}</td>
+                    <td>{{ exceptionOrder.handledDate | date:'medium' }}</td>
+                    <td>{{ exceptionOrder.handledDesc }}</td>
+                    <td class="text-right">
+                        <div class="btn-group">
+                            <button type="submit"
+                                    [routerLink]="['/exception-order', exceptionOrder.id, 'view']"
+                                    class="btn btn-info btn-sm">
+                                <fa-icon icon="eye"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                            </button>
+
+                            <button type="submit"
+                                    [routerLink]="['/exception-order', exceptionOrder.id, 'edit']"
+                                    class="btn btn-primary btn-sm">
+                                <fa-icon icon="pencil-alt"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                            </button>
+
+                            <button type="submit" (click)="delete(exceptionOrder)"
+                                    class="btn btn-danger btn-sm">
+                                <fa-icon icon="times"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div *ngIf="exceptionOrders?.length > 0">
+        <div class="row justify-content-center">
+            <jhi-item-count [page]="page" [total]="totalItems" [itemsPerPage]="itemsPerPage"></jhi-item-count>
+        </div>
+
+        <div class="row justify-content-center">
+            <ngb-pagination [collectionSize]="totalItems" [(page)]="ngbPaginationPage" [pageSize]="itemsPerPage" [maxSize]="5" [rotate]="true" [boundaryLinks]="true" (pageChange)="loadPage($event)"></ngb-pagination>
+        </div>
+    </div>
+</div>

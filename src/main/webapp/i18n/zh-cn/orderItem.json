@@ -1,0 +1,51 @@
+{
+  "jhrApp": {
+    "orderItem": {
+      "home": {
+        "title": "Order Items",
+        "createLabel": "创建新 Order Item",
+        "createOrEditLabel": "创建或编辑 Order Item",
+        "notFound": "No Order Items found"
+      },
+      "created": "Order Item {{ param }} 创建成功",
+      "updated": "Order Item {{ param }} 更新成功",
+      "deleted": "Order Item {{ param }} 删除成功",
+      "delete": {
+        "question": "你确定要删除 Order Item {{ id }} 吗？"
+      },
+      "detail": {
+        "title": "Order Item"
+      },
+      "orderSN": "Order SN",
+      "foodCategoryName": "Food Category Name",
+      "foodCategorySN": "Food Category SN",
+      "foodName": "Food Name",
+      "foodSN": "Food SN",
+      "foodThumbnail": "Food Thumbnail",
+      "foodPicture": "Food Picture",
+      "price": "Price",
+      "originalPrice": "Original Price",
+      "cost": "Cost",
+      "packingFee": "Packing Fee",
+      "desc": "Desc",
+      "quantity": "Quantity",
+      "coupon": "Coupon",
+      "help": {
+        "orderSN": "订单编号",
+        "foodCategoryName": "菜品分类名称",
+        "foodCategorySN": "菜品分类编号",
+        "foodName": "菜品名称",
+        "foodSN": "菜品编号",
+        "foodThumbnail": "菜品缩略图",
+        "foodPicture": "菜品大图",
+        "price": "售价（单位：分）",
+        "originalPrice": "原价（单位：分）。原价要么为空，要么大于等于售价。原价为空或等于售价时，是普通菜品；原价不为空且原价大于售价时，是特惠菜品",
+        "cost": "成本（单位：分）",
+        "packingFee": "包装费（单位：分）",
+        "desc": "描述",
+        "quantity": "数量",
+        "coupon": "兑换券的code。该字段不为空，表示这是一个兑换商品"
+      }
+    }
+  }
+}

@@ -1,0 +1,45 @@
+{
+  "jhrApp": {
+    "member": {
+      "home": {
+        "title": "Members",
+        "createLabel": "Create a new Member",
+        "createOrEditLabel": "Create or edit a Member",
+        "notFound": "No Members found"
+      },
+      "created": "A new Member is created with identifier {{ param }}",
+      "updated": "A Member is updated with identifier {{ param }}",
+      "deleted": "A Member is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Member {{ id }}?"
+      },
+      "detail": {
+        "title": "Member"
+      },
+      "name": "Name",
+      "sn": "Sn",
+      "openID": "Open ID",
+      "unionID": "Union ID",
+      "profilePicture": "Profile Picture",
+      "sex": "Sex",
+      "country": "Country",
+      "province": "Province",
+      "city": "City",
+      "joinDate": "Join Date",
+      "lastLoginDate": "Last Login Date",
+      "help": {
+        "name": "会员名称",
+        "sn": "会员编号。会员编号取自入会时间，生成格式：四位年数字+两位月份数字+两位日数字+两位小时数（24小时制）+两位分钟数+两位秒数+三位毫秒数",
+        "openID": "微信会员Openid",
+        "unionID": "微信会员Unionid",
+        "profilePicture": "头像",
+        "sex": "会员性别",
+        "country": "国家",
+        "province": "省、直辖市、自治区",
+        "city": "城市",
+        "joinDate": "入会时间",
+        "lastLoginDate": "最近登入时间"
+      }
+    }
+  }
+}

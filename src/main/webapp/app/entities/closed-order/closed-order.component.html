@@ -1,0 +1,171 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="jhrApp.closedOrder.home.title">Closed Orders</span>
+
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-closed-order" [routerLink]="['/closed-order/new']">
+            <fa-icon icon="plus"></fa-icon>
+            <span  jhiTranslate="jhrApp.closedOrder.home.createLabel">
+            Create a new Closed Order
+            </span>
+        </button>
+    </h2>
+
+    <jhi-alert-error></jhi-alert-error>
+
+    <jhi-alert></jhi-alert>
+
+    <div class="alert alert-warning" id="no-result" *ngIf="closedOrders?.length === 0">
+        <span jhiTranslate="jhrApp.closedOrder.home.notFound">No closedOrders found</span>
+    </div>
+
+    <div class="table-responsive" id="entities" *ngIf="closedOrders?.length > 0">
+        <table class="table table-striped" aria-describedby="page-heading">
+            <thead>
+                <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" [callback]="loadPage.bind(this)">
+                    <th scope="col"  jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="sn"><span jhiTranslate="jhrApp.closedOrder.sn">Sn</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="memberName"><span jhiTranslate="jhrApp.closedOrder.memberName">Member Name</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="memberSN"><span jhiTranslate="jhrApp.closedOrder.memberSN">Member SN</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="orderType"><span jhiTranslate="jhrApp.closedOrder.orderType">Order Type</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="shopSN"><span jhiTranslate="jhrApp.closedOrder.shopSN">Shop SN</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="shopName"><span jhiTranslate="jhrApp.closedOrder.shopName">Shop Name</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="priceTotal"><span jhiTranslate="jhrApp.closedOrder.priceTotal">Price Total</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="cardReduce"><span jhiTranslate="jhrApp.closedOrder.cardReduce">Card Reduce</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="cards"><span jhiTranslate="jhrApp.closedOrder.cards">Cards</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="rewardPointsReduce"><span jhiTranslate="jhrApp.closedOrder.rewardPointsReduce">Reward Points Reduce</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="paymentTotal"><span jhiTranslate="jhrApp.closedOrder.paymentTotal">Payment Total</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="distributionPlatform"><span jhiTranslate="jhrApp.closedOrder.distributionPlatform">Distribution Platform</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="deliveryNo"><span jhiTranslate="jhrApp.closedOrder.deliveryNo">Delivery No</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="deliveryStatus"><span jhiTranslate="jhrApp.closedOrder.deliveryStatus">Delivery Status</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="deliveryDesc"><span jhiTranslate="jhrApp.closedOrder.deliveryDesc">Delivery Desc</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="deliverier"><span jhiTranslate="jhrApp.closedOrder.deliverier">Deliverier</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="deliverierMobile"><span jhiTranslate="jhrApp.closedOrder.deliverierMobile">Deliverier Mobile</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="deliveryDeductFee"><span jhiTranslate="jhrApp.closedOrder.deliveryDeductFee">Delivery Deduct Fee</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="deliveryFee"><span jhiTranslate="jhrApp.closedOrder.deliveryFee">Delivery Fee</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="contact"><span jhiTranslate="jhrApp.closedOrder.contact">Contact</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="sex"><span jhiTranslate="jhrApp.closedOrder.sex">Sex</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="mobile"><span jhiTranslate="jhrApp.closedOrder.mobile">Mobile</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="country"><span jhiTranslate="jhrApp.closedOrder.country">Country</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="province"><span jhiTranslate="jhrApp.closedOrder.province">Province</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="city"><span jhiTranslate="jhrApp.closedOrder.city">City</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="district"><span jhiTranslate="jhrApp.closedOrder.district">District</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="offsetType"><span jhiTranslate="jhrApp.closedOrder.offsetType">Offset Type</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="longitude"><span jhiTranslate="jhrApp.closedOrder.longitude">Longitude</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="latitude"><span jhiTranslate="jhrApp.closedOrder.latitude">Latitude</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="address"><span jhiTranslate="jhrApp.closedOrder.address">Address</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="packingFee"><span jhiTranslate="jhrApp.closedOrder.packingFee">Packing Fee</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="paymentMode"><span jhiTranslate="jhrApp.closedOrder.paymentMode">Payment Mode</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="diningDate"><span jhiTranslate="jhrApp.closedOrder.diningDate">Dining Date</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="remark"><span jhiTranslate="jhrApp.closedOrder.remark">Remark</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="status"><span jhiTranslate="jhrApp.closedOrder.status">Status</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="createdDate"><span jhiTranslate="jhrApp.closedOrder.createdDate">Created Date</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="paidDate"><span jhiTranslate="jhrApp.closedOrder.paidDate">Paid Date</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="expiredDate"><span jhiTranslate="jhrApp.closedOrder.expiredDate">Expired Date</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="completedDate"><span jhiTranslate="jhrApp.closedOrder.completedDate">Completed Date</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="exceptionDate"><span jhiTranslate="jhrApp.closedOrder.exceptionDate">Exception Date</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="handler"><span jhiTranslate="jhrApp.closedOrder.handler">Handler</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="handledDate"><span jhiTranslate="jhrApp.closedOrder.handledDate">Handled Date</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="handledDesc"><span jhiTranslate="jhrApp.closedOrder.handledDesc">Handled Desc</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="applicant"><span jhiTranslate="jhrApp.closedOrder.applicant">Applicant</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="appliedDate"><span jhiTranslate="jhrApp.closedOrder.appliedDate">Applied Date</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="refundDesc"><span jhiTranslate="jhrApp.closedOrder.refundDesc">Refund Desc</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="refundedBy"><span jhiTranslate="jhrApp.closedOrder.refundedBy">Refunded By</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="refundedDate"><span jhiTranslate="jhrApp.closedOrder.refundedDate">Refunded Date</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="refundAmount"><span jhiTranslate="jhrApp.closedOrder.refundAmount">Refund Amount</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="reply"><span jhiTranslate="jhrApp.closedOrder.reply">Reply</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="passed"><span jhiTranslate="jhrApp.closedOrder.passed">Passed</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let closedOrder of closedOrders ;trackBy: trackId">
+                    <td><a [routerLink]="['/closed-order', closedOrder.id, 'view']">{{ closedOrder.id }}</a></td>
+                    <td>{{ closedOrder.sn }}</td>
+                    <td>{{ closedOrder.memberName }}</td>
+                    <td>{{ closedOrder.memberSN }}</td>
+                    <td jhiTranslate="{{ 'jhrApp.OrderType.' + closedOrder.orderType }}">{{ closedOrder.orderType }}</td>
+                    <td>{{ closedOrder.shopSN }}</td>
+                    <td>{{ closedOrder.shopName }}</td>
+                    <td>{{ closedOrder.priceTotal }}</td>
+                    <td>{{ closedOrder.cardReduce }}</td>
+                    <td>{{ closedOrder.cards }}</td>
+                    <td>{{ closedOrder.rewardPointsReduce }}</td>
+                    <td>{{ closedOrder.paymentTotal }}</td>
+                    <td jhiTranslate="{{ 'jhrApp.DistributionPlatform.' + closedOrder.distributionPlatform }}">{{ closedOrder.distributionPlatform }}</td>
+                    <td>{{ closedOrder.deliveryNo }}</td>
+                    <td>{{ closedOrder.deliveryStatus }}</td>
+                    <td>{{ closedOrder.deliveryDesc }}</td>
+                    <td>{{ closedOrder.deliverier }}</td>
+                    <td>{{ closedOrder.deliverierMobile }}</td>
+                    <td>{{ closedOrder.deliveryDeductFee }}</td>
+                    <td>{{ closedOrder.deliveryFee }}</td>
+                    <td>{{ closedOrder.contact }}</td>
+                    <td jhiTranslate="{{ 'jhrApp.Sex.' + closedOrder.sex }}">{{ closedOrder.sex }}</td>
+                    <td>{{ closedOrder.mobile }}</td>
+                    <td>{{ closedOrder.country }}</td>
+                    <td>{{ closedOrder.province }}</td>
+                    <td>{{ closedOrder.city }}</td>
+                    <td>{{ closedOrder.district }}</td>
+                    <td jhiTranslate="{{ 'jhrApp.OffsetType.' + closedOrder.offsetType }}">{{ closedOrder.offsetType }}</td>
+                    <td>{{ closedOrder.longitude }}</td>
+                    <td>{{ closedOrder.latitude }}</td>
+                    <td>{{ closedOrder.address }}</td>
+                    <td>{{ closedOrder.packingFee }}</td>
+                    <td jhiTranslate="{{ 'jhrApp.PaymentMethod.' + closedOrder.paymentMode }}">{{ closedOrder.paymentMode }}</td>
+                    <td>{{ closedOrder.diningDate | date:'medium' }}</td>
+                    <td>{{ closedOrder.remark }}</td>
+                    <td jhiTranslate="{{ 'jhrApp.OrderStatus.' + closedOrder.status }}">{{ closedOrder.status }}</td>
+                    <td>{{ closedOrder.createdDate | date:'medium' }}</td>
+                    <td>{{ closedOrder.paidDate | date:'medium' }}</td>
+                    <td>{{ closedOrder.expiredDate | date:'medium' }}</td>
+                    <td>{{ closedOrder.completedDate | date:'medium' }}</td>
+                    <td>{{ closedOrder.exceptionDate | date:'medium' }}</td>
+                    <td>{{ closedOrder.handler }}</td>
+                    <td>{{ closedOrder.handledDate | date:'medium' }}</td>
+                    <td>{{ closedOrder.handledDesc }}</td>
+                    <td>{{ closedOrder.applicant }}</td>
+                    <td>{{ closedOrder.appliedDate | date:'medium' }}</td>
+                    <td>{{ closedOrder.refundDesc }}</td>
+                    <td>{{ closedOrder.refundedBy }}</td>
+                    <td>{{ closedOrder.refundedDate | date:'medium' }}</td>
+                    <td>{{ closedOrder.refundAmount }}</td>
+                    <td>{{ closedOrder.reply }}</td>
+                    <td>{{ closedOrder.passed }}</td>
+                    <td class="text-right">
+                        <div class="btn-group">
+                            <button type="submit"
+                                    [routerLink]="['/closed-order', closedOrder.id, 'view']"
+                                    class="btn btn-info btn-sm">
+                                <fa-icon icon="eye"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                            </button>
+
+                            <button type="submit"
+                                    [routerLink]="['/closed-order', closedOrder.id, 'edit']"
+                                    class="btn btn-primary btn-sm">
+                                <fa-icon icon="pencil-alt"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                            </button>
+
+                            <button type="submit" (click)="delete(closedOrder)"
+                                    class="btn btn-danger btn-sm">
+                                <fa-icon icon="times"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div *ngIf="closedOrders?.length > 0">
+        <div class="row justify-content-center">
+            <jhi-item-count [page]="page" [total]="totalItems" [itemsPerPage]="itemsPerPage"></jhi-item-count>
+        </div>
+
+        <div class="row justify-content-center">
+            <ngb-pagination [collectionSize]="totalItems" [(page)]="ngbPaginationPage" [pageSize]="itemsPerPage" [maxSize]="5" [rotate]="true" [boundaryLinks]="true" (pageChange)="loadPage($event)"></ngb-pagination>
+        </div>
+    </div>
+</div>

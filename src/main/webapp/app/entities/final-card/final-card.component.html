@@ -1,0 +1,121 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="jhrApp.finalCard.home.title">Final Cards</span>
+
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-final-card" [routerLink]="['/final-card/new']">
+            <fa-icon icon="plus"></fa-icon>
+            <span  jhiTranslate="jhrApp.finalCard.home.createLabel">
+            Create a new Final Card
+            </span>
+        </button>
+    </h2>
+
+    <jhi-alert-error></jhi-alert-error>
+
+    <jhi-alert></jhi-alert>
+
+    <div class="alert alert-warning" id="no-result" *ngIf="finalCards?.length === 0">
+        <span jhiTranslate="jhrApp.finalCard.home.notFound">No finalCards found</span>
+    </div>
+
+    <div class="table-responsive" id="entities" *ngIf="finalCards?.length > 0">
+        <table class="table table-striped" aria-describedby="page-heading">
+            <thead>
+                <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" [callback]="loadPage.bind(this)">
+                    <th scope="col"  jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="sn"><span jhiTranslate="jhrApp.finalCard.sn">Sn</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="cardType"><span jhiTranslate="jhrApp.finalCard.cardType">Card Type</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="title"><span jhiTranslate="jhrApp.finalCard.title">Title</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="thumbnail"><span jhiTranslate="jhrApp.finalCard.thumbnail">Thumbnail</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="details"><span jhiTranslate="jhrApp.finalCard.details">Details</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="validPeriodBeginAt"><span jhiTranslate="jhrApp.finalCard.validPeriodBeginAt">Valid Period Begin At</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="validPeriodEndAt"><span jhiTranslate="jhrApp.finalCard.validPeriodEndAt">Valid Period End At</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="quantity"><span jhiTranslate="jhrApp.finalCard.quantity">Quantity</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="receivedQuantity"><span jhiTranslate="jhrApp.finalCard.receivedQuantity">Received Quantity</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="canUseWithOtherCard"><span jhiTranslate="jhrApp.finalCard.canUseWithOtherCard">Can Use With Other Card</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="acceptCategories"><span jhiTranslate="jhrApp.finalCard.acceptCategories">Accept Categories</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="acceptShops"><span jhiTranslate="jhrApp.finalCard.acceptShops">Accept Shops</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="leastCost"><span jhiTranslate="jhrApp.finalCard.leastCost">Least Cost</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="reduceCost"><span jhiTranslate="jhrApp.finalCard.reduceCost">Reduce Cost</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="discount"><span jhiTranslate="jhrApp.finalCard.discount">Discount</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="gift"><span jhiTranslate="jhrApp.finalCard.gift">Gift</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="giftQuantity"><span jhiTranslate="jhrApp.finalCard.giftQuantity">Gift Quantity</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="status"><span jhiTranslate="jhrApp.finalCard.status">Status</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="createdBy"><span jhiTranslate="jhrApp.finalCard.createdBy">Created By</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="createdDate"><span jhiTranslate="jhrApp.finalCard.createdDate">Created Date</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="deliveriedBy"><span jhiTranslate="jhrApp.finalCard.deliveriedBy">Deliveried By</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="deliveriedDate"><span jhiTranslate="jhrApp.finalCard.deliveriedDate">Deliveried Date</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="discontinueBy"><span jhiTranslate="jhrApp.finalCard.discontinueBy">Discontinue By</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="discontinueDate"><span jhiTranslate="jhrApp.finalCard.discontinueDate">Discontinue Date</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="lastModifiedDate"><span jhiTranslate="jhrApp.finalCard.lastModifiedDate">Last Modified Date</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="lastModifiedBy"><span jhiTranslate="jhrApp.finalCard.lastModifiedBy">Last Modified By</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let finalCard of finalCards ;trackBy: trackId">
+                    <td><a [routerLink]="['/final-card', finalCard.id, 'view']">{{ finalCard.id }}</a></td>
+                    <td>{{ finalCard.sn }}</td>
+                    <td jhiTranslate="{{ 'jhrApp.CardType.' + finalCard.cardType }}">{{ finalCard.cardType }}</td>
+                    <td>{{ finalCard.title }}</td>
+                    <td>{{ finalCard.thumbnail }}</td>
+                    <td>{{ finalCard.details }}</td>
+                    <td>{{ finalCard.validPeriodBeginAt | date:'medium' }}</td>
+                    <td>{{ finalCard.validPeriodEndAt | date:'medium' }}</td>
+                    <td>{{ finalCard.quantity }}</td>
+                    <td>{{ finalCard.receivedQuantity }}</td>
+                    <td>{{ finalCard.canUseWithOtherCard }}</td>
+                    <td>{{ finalCard.acceptCategories }}</td>
+                    <td>{{ finalCard.acceptShops }}</td>
+                    <td>{{ finalCard.leastCost }}</td>
+                    <td>{{ finalCard.reduceCost }}</td>
+                    <td>{{ finalCard.discount }}</td>
+                    <td>{{ finalCard.gift }}</td>
+                    <td>{{ finalCard.giftQuantity }}</td>
+                    <td jhiTranslate="{{ 'jhrApp.CardStatus.' + finalCard.status }}">{{ finalCard.status }}</td>
+                    <td>{{ finalCard.createdBy }}</td>
+                    <td>{{ finalCard.createdDate | date:'medium' }}</td>
+                    <td>{{ finalCard.deliveriedBy }}</td>
+                    <td>{{ finalCard.deliveriedDate | date:'medium' }}</td>
+                    <td>{{ finalCard.discontinueBy }}</td>
+                    <td>{{ finalCard.discontinueDate | date:'medium' }}</td>
+                    <td>{{ finalCard.lastModifiedDate | date:'medium' }}</td>
+                    <td>{{ finalCard.lastModifiedBy }}</td>
+                    <td class="text-right">
+                        <div class="btn-group">
+                            <button type="submit"
+                                    [routerLink]="['/final-card', finalCard.id, 'view']"
+                                    class="btn btn-info btn-sm">
+                                <fa-icon icon="eye"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                            </button>
+
+                            <button type="submit"
+                                    [routerLink]="['/final-card', finalCard.id, 'edit']"
+                                    class="btn btn-primary btn-sm">
+                                <fa-icon icon="pencil-alt"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                            </button>
+
+                            <button type="submit" (click)="delete(finalCard)"
+                                    class="btn btn-danger btn-sm">
+                                <fa-icon icon="times"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div *ngIf="finalCards?.length > 0">
+        <div class="row justify-content-center">
+            <jhi-item-count [page]="page" [total]="totalItems" [itemsPerPage]="itemsPerPage"></jhi-item-count>
+        </div>
+
+        <div class="row justify-content-center">
+            <ngb-pagination [collectionSize]="totalItems" [(page)]="ngbPaginationPage" [pageSize]="itemsPerPage" [maxSize]="5" [rotate]="true" [boundaryLinks]="true" (pageChange)="loadPage($event)"></ngb-pagination>
+        </div>
+    </div>
+</div>

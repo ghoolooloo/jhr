@@ -1,0 +1,30 @@
+{
+  "jhrApp": {
+    "rewardPointsRecord": {
+      "home": {
+        "title": "Reward Points Records",
+        "createLabel": "创建新 Reward Points Record",
+        "createOrEditLabel": "创建或编辑 Reward Points Record",
+        "notFound": "No Reward Points Records found"
+      },
+      "created": "Reward Points Record {{ param }} 创建成功",
+      "updated": "Reward Points Record {{ param }} 更新成功",
+      "deleted": "Reward Points Record {{ param }} 删除成功",
+      "delete": {
+        "question": "你确定要删除 Reward Points Record {{ id }} 吗？"
+      },
+      "detail": {
+        "title": "Reward Points Record"
+      },
+      "amount": "Amount",
+      "remark": "Remark",
+      "createdDate": "Created Date",
+      "rewardPoints": "Reward Points",
+      "help": {
+        "amount": "积分数额",
+        "remark": "备注。要记录所对应的订单号",
+        "createdDate": "发生时间"
+      }
+    }
+  }
+}

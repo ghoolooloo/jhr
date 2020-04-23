@@ -1,0 +1,9 @@
+{
+  "jhrApp": {
+    "PaymentMethod": {
+      "null": "",
+      "WX": "WX",
+      "ALIPAY": "ALIPAY"
+    }
+  }
+}

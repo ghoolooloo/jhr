@@ -1,0 +1,10 @@
+{
+  "jhrApp": {
+    "NoticeStatus": {
+      "null": "",
+      "NEW": "NEW",
+      "PUBLISHED": "PUBLISHED",
+      "RECEDED": "RECEDED"
+    }
+  }
+}

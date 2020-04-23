@@ -1,0 +1,169 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="jhrApp.refundOrder.home.title">Refund Orders</span>
+
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-refund-order" [routerLink]="['/refund-order/new']">
+            <fa-icon icon="plus"></fa-icon>
+            <span  jhiTranslate="jhrApp.refundOrder.home.createLabel">
+            Create a new Refund Order
+            </span>
+        </button>
+    </h2>
+
+    <jhi-alert-error></jhi-alert-error>
+
+    <jhi-alert></jhi-alert>
+
+    <div class="alert alert-warning" id="no-result" *ngIf="refundOrders?.length === 0">
+        <span jhiTranslate="jhrApp.refundOrder.home.notFound">No refundOrders found</span>
+    </div>
+
+    <div class="table-responsive" id="entities" *ngIf="refundOrders?.length > 0">
+        <table class="table table-striped" aria-describedby="page-heading">
+            <thead>
+                <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" [callback]="loadPage.bind(this)">
+                    <th scope="col"  jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="sn"><span jhiTranslate="jhrApp.refundOrder.sn">Sn</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="memberName"><span jhiTranslate="jhrApp.refundOrder.memberName">Member Name</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="memberSN"><span jhiTranslate="jhrApp.refundOrder.memberSN">Member SN</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="orderType"><span jhiTranslate="jhrApp.refundOrder.orderType">Order Type</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="shopSN"><span jhiTranslate="jhrApp.refundOrder.shopSN">Shop SN</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="shopName"><span jhiTranslate="jhrApp.refundOrder.shopName">Shop Name</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="priceTotal"><span jhiTranslate="jhrApp.refundOrder.priceTotal">Price Total</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="cardReduce"><span jhiTranslate="jhrApp.refundOrder.cardReduce">Card Reduce</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="cards"><span jhiTranslate="jhrApp.refundOrder.cards">Cards</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="rewardPointsReduce"><span jhiTranslate="jhrApp.refundOrder.rewardPointsReduce">Reward Points Reduce</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="paymentTotal"><span jhiTranslate="jhrApp.refundOrder.paymentTotal">Payment Total</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="distributionPlatform"><span jhiTranslate="jhrApp.refundOrder.distributionPlatform">Distribution Platform</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="deliveryNo"><span jhiTranslate="jhrApp.refundOrder.deliveryNo">Delivery No</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="deliveryStatus"><span jhiTranslate="jhrApp.refundOrder.deliveryStatus">Delivery Status</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="deliveryDesc"><span jhiTranslate="jhrApp.refundOrder.deliveryDesc">Delivery Desc</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="deliverier"><span jhiTranslate="jhrApp.refundOrder.deliverier">Deliverier</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="deliverierMobile"><span jhiTranslate="jhrApp.refundOrder.deliverierMobile">Deliverier Mobile</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="deliveryDeductFee"><span jhiTranslate="jhrApp.refundOrder.deliveryDeductFee">Delivery Deduct Fee</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="deliveryFee"><span jhiTranslate="jhrApp.refundOrder.deliveryFee">Delivery Fee</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="contact"><span jhiTranslate="jhrApp.refundOrder.contact">Contact</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="sex"><span jhiTranslate="jhrApp.refundOrder.sex">Sex</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="mobile"><span jhiTranslate="jhrApp.refundOrder.mobile">Mobile</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="country"><span jhiTranslate="jhrApp.refundOrder.country">Country</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="province"><span jhiTranslate="jhrApp.refundOrder.province">Province</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="city"><span jhiTranslate="jhrApp.refundOrder.city">City</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="district"><span jhiTranslate="jhrApp.refundOrder.district">District</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="offsetType"><span jhiTranslate="jhrApp.refundOrder.offsetType">Offset Type</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="longitude"><span jhiTranslate="jhrApp.refundOrder.longitude">Longitude</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="latitude"><span jhiTranslate="jhrApp.refundOrder.latitude">Latitude</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="address"><span jhiTranslate="jhrApp.refundOrder.address">Address</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="packingFee"><span jhiTranslate="jhrApp.refundOrder.packingFee">Packing Fee</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="paymentMode"><span jhiTranslate="jhrApp.refundOrder.paymentMode">Payment Mode</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="diningDate"><span jhiTranslate="jhrApp.refundOrder.diningDate">Dining Date</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="remark"><span jhiTranslate="jhrApp.refundOrder.remark">Remark</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="status"><span jhiTranslate="jhrApp.refundOrder.status">Status</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="createdDate"><span jhiTranslate="jhrApp.refundOrder.createdDate">Created Date</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="paidDate"><span jhiTranslate="jhrApp.refundOrder.paidDate">Paid Date</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="completedDate"><span jhiTranslate="jhrApp.refundOrder.completedDate">Completed Date</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="exceptionDate"><span jhiTranslate="jhrApp.refundOrder.exceptionDate">Exception Date</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="handler"><span jhiTranslate="jhrApp.refundOrder.handler">Handler</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="handledDate"><span jhiTranslate="jhrApp.refundOrder.handledDate">Handled Date</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="handledDesc"><span jhiTranslate="jhrApp.refundOrder.handledDesc">Handled Desc</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="applicant"><span jhiTranslate="jhrApp.refundOrder.applicant">Applicant</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="appliedDate"><span jhiTranslate="jhrApp.refundOrder.appliedDate">Applied Date</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="refundDesc"><span jhiTranslate="jhrApp.refundOrder.refundDesc">Refund Desc</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="refundedBy"><span jhiTranslate="jhrApp.refundOrder.refundedBy">Refunded By</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="refundedDate"><span jhiTranslate="jhrApp.refundOrder.refundedDate">Refunded Date</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="refundAmount"><span jhiTranslate="jhrApp.refundOrder.refundAmount">Refund Amount</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="reply"><span jhiTranslate="jhrApp.refundOrder.reply">Reply</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="passed"><span jhiTranslate="jhrApp.refundOrder.passed">Passed</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let refundOrder of refundOrders ;trackBy: trackId">
+                    <td><a [routerLink]="['/refund-order', refundOrder.id, 'view']">{{ refundOrder.id }}</a></td>
+                    <td>{{ refundOrder.sn }}</td>
+                    <td>{{ refundOrder.memberName }}</td>
+                    <td>{{ refundOrder.memberSN }}</td>
+                    <td jhiTranslate="{{ 'jhrApp.OrderType.' + refundOrder.orderType }}">{{ refundOrder.orderType }}</td>
+                    <td>{{ refundOrder.shopSN }}</td>
+                    <td>{{ refundOrder.shopName }}</td>
+                    <td>{{ refundOrder.priceTotal }}</td>
+                    <td>{{ refundOrder.cardReduce }}</td>
+                    <td>{{ refundOrder.cards }}</td>
+                    <td>{{ refundOrder.rewardPointsReduce }}</td>
+                    <td>{{ refundOrder.paymentTotal }}</td>
+                    <td jhiTranslate="{{ 'jhrApp.DistributionPlatform.' + refundOrder.distributionPlatform }}">{{ refundOrder.distributionPlatform }}</td>
+                    <td>{{ refundOrder.deliveryNo }}</td>
+                    <td>{{ refundOrder.deliveryStatus }}</td>
+                    <td>{{ refundOrder.deliveryDesc }}</td>
+                    <td>{{ refundOrder.deliverier }}</td>
+                    <td>{{ refundOrder.deliverierMobile }}</td>
+                    <td>{{ refundOrder.deliveryDeductFee }}</td>
+                    <td>{{ refundOrder.deliveryFee }}</td>
+                    <td>{{ refundOrder.contact }}</td>
+                    <td jhiTranslate="{{ 'jhrApp.Sex.' + refundOrder.sex }}">{{ refundOrder.sex }}</td>
+                    <td>{{ refundOrder.mobile }}</td>
+                    <td>{{ refundOrder.country }}</td>
+                    <td>{{ refundOrder.province }}</td>
+                    <td>{{ refundOrder.city }}</td>
+                    <td>{{ refundOrder.district }}</td>
+                    <td jhiTranslate="{{ 'jhrApp.OffsetType.' + refundOrder.offsetType }}">{{ refundOrder.offsetType }}</td>
+                    <td>{{ refundOrder.longitude }}</td>
+                    <td>{{ refundOrder.latitude }}</td>
+                    <td>{{ refundOrder.address }}</td>
+                    <td>{{ refundOrder.packingFee }}</td>
+                    <td jhiTranslate="{{ 'jhrApp.PaymentMethod.' + refundOrder.paymentMode }}">{{ refundOrder.paymentMode }}</td>
+                    <td>{{ refundOrder.diningDate | date:'medium' }}</td>
+                    <td>{{ refundOrder.remark }}</td>
+                    <td jhiTranslate="{{ 'jhrApp.OrderStatus.' + refundOrder.status }}">{{ refundOrder.status }}</td>
+                    <td>{{ refundOrder.createdDate | date:'medium' }}</td>
+                    <td>{{ refundOrder.paidDate | date:'medium' }}</td>
+                    <td>{{ refundOrder.completedDate | date:'medium' }}</td>
+                    <td>{{ refundOrder.exceptionDate | date:'medium' }}</td>
+                    <td>{{ refundOrder.handler }}</td>
+                    <td>{{ refundOrder.handledDate | date:'medium' }}</td>
+                    <td>{{ refundOrder.handledDesc }}</td>
+                    <td>{{ refundOrder.applicant }}</td>
+                    <td>{{ refundOrder.appliedDate | date:'medium' }}</td>
+                    <td>{{ refundOrder.refundDesc }}</td>
+                    <td>{{ refundOrder.refundedBy }}</td>
+                    <td>{{ refundOrder.refundedDate | date:'medium' }}</td>
+                    <td>{{ refundOrder.refundAmount }}</td>
+                    <td>{{ refundOrder.reply }}</td>
+                    <td>{{ refundOrder.passed }}</td>
+                    <td class="text-right">
+                        <div class="btn-group">
+                            <button type="submit"
+                                    [routerLink]="['/refund-order', refundOrder.id, 'view']"
+                                    class="btn btn-info btn-sm">
+                                <fa-icon icon="eye"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                            </button>
+
+                            <button type="submit"
+                                    [routerLink]="['/refund-order', refundOrder.id, 'edit']"
+                                    class="btn btn-primary btn-sm">
+                                <fa-icon icon="pencil-alt"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                            </button>
+
+                            <button type="submit" (click)="delete(refundOrder)"
+                                    class="btn btn-danger btn-sm">
+                                <fa-icon icon="times"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div *ngIf="refundOrders?.length > 0">
+        <div class="row justify-content-center">
+            <jhi-item-count [page]="page" [total]="totalItems" [itemsPerPage]="itemsPerPage"></jhi-item-count>
+        </div>
+
+        <div class="row justify-content-center">
+            <ngb-pagination [collectionSize]="totalItems" [(page)]="ngbPaginationPage" [pageSize]="itemsPerPage" [maxSize]="5" [rotate]="true" [boundaryLinks]="true" (pageChange)="loadPage($event)"></ngb-pagination>
+        </div>
+    </div>
+</div>

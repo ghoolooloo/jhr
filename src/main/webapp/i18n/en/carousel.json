@@ -1,0 +1,32 @@
+{
+  "jhrApp": {
+    "carousel": {
+      "home": {
+        "title": "Carousels",
+        "createLabel": "Create a new Carousel",
+        "createOrEditLabel": "Create or edit a Carousel",
+        "notFound": "No Carousels found"
+      },
+      "created": "A new Carousel is created with identifier {{ param }}",
+      "updated": "A Carousel is updated with identifier {{ param }}",
+      "deleted": "A Carousel is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Carousel {{ id }}?"
+      },
+      "detail": {
+        "title": "Carousel"
+      },
+      "picture": "Picture",
+      "sort": "Sort",
+      "status": "Status",
+      "createdBy": "Created By",
+      "createdDate": "Created Date",
+      "lastModifiedDate": "Last Modified Date",
+      "lastModifiedBy": "Last Modified By",
+      "help": {
+        "picture": "大图",
+        "sort": "轮播的顺序"
+      }
+    }
+  }
+}

@@ -1,0 +1,158 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="order">
+            <h2><span jhiTranslate="jhrApp.order.detail.title">Order</span> {{ order.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="jhrApp.order.sn" [ngbTooltip]="'jhrApp.order.help.sn' | translate">Sn</span></dt>
+                <dd>
+                    <span>{{ order.sn }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhrApp.order.memberName" [ngbTooltip]="'jhrApp.order.help.memberName' | translate">Member Name</span></dt>
+                <dd>
+                    <span>{{ order.memberName }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhrApp.order.memberSN" [ngbTooltip]="'jhrApp.order.help.memberSN' | translate">Member SN</span></dt>
+                <dd>
+                    <span>{{ order.memberSN }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhrApp.order.orderType" [ngbTooltip]="'jhrApp.order.help.orderType' | translate">Order Type</span></dt>
+                <dd>
+                    <span jhiTranslate="{{ 'jhrApp.OrderType.' + order.orderType }}">{{ order.orderType }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhrApp.order.shopSN" [ngbTooltip]="'jhrApp.order.help.shopSN' | translate">Shop SN</span></dt>
+                <dd>
+                    <span>{{ order.shopSN }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhrApp.order.shopName" [ngbTooltip]="'jhrApp.order.help.shopName' | translate">Shop Name</span></dt>
+                <dd>
+                    <span>{{ order.shopName }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhrApp.order.priceTotal" [ngbTooltip]="'jhrApp.order.help.priceTotal' | translate">Price Total</span></dt>
+                <dd>
+                    <span>{{ order.priceTotal }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhrApp.order.cardReduce" [ngbTooltip]="'jhrApp.order.help.cardReduce' | translate">Card Reduce</span></dt>
+                <dd>
+                    <span>{{ order.cardReduce }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhrApp.order.cards" [ngbTooltip]="'jhrApp.order.help.cards' | translate">Cards</span></dt>
+                <dd>
+                    <span>{{ order.cards }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhrApp.order.rewardPointsReduce" [ngbTooltip]="'jhrApp.order.help.rewardPointsReduce' | translate">Reward Points Reduce</span></dt>
+                <dd>
+                    <span>{{ order.rewardPointsReduce }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhrApp.order.paymentTotal" [ngbTooltip]="'jhrApp.order.help.paymentTotal' | translate">Payment Total</span></dt>
+                <dd>
+                    <span>{{ order.paymentTotal }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhrApp.order.distributionPlatform" [ngbTooltip]="'jhrApp.order.help.distributionPlatform' | translate">Distribution Platform</span></dt>
+                <dd>
+                    <span jhiTranslate="{{ 'jhrApp.DistributionPlatform.' + order.distributionPlatform }}">{{ order.distributionPlatform }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhrApp.order.deliveryNo" [ngbTooltip]="'jhrApp.order.help.deliveryNo' | translate">Delivery No</span></dt>
+                <dd>
+                    <span>{{ order.deliveryNo }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhrApp.order.deliveryFee" [ngbTooltip]="'jhrApp.order.help.deliveryFee' | translate">Delivery Fee</span></dt>
+                <dd>
+                    <span>{{ order.deliveryFee }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhrApp.order.contact" [ngbTooltip]="'jhrApp.order.help.contact' | translate">Contact</span></dt>
+                <dd>
+                    <span>{{ order.contact }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhrApp.order.sex" [ngbTooltip]="'jhrApp.order.help.sex' | translate">Sex</span></dt>
+                <dd>
+                    <span jhiTranslate="{{ 'jhrApp.Sex.' + order.sex }}">{{ order.sex }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhrApp.order.mobile" [ngbTooltip]="'jhrApp.order.help.mobile' | translate">Mobile</span></dt>
+                <dd>
+                    <span>{{ order.mobile }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhrApp.order.country" [ngbTooltip]="'jhrApp.order.help.country' | translate">Country</span></dt>
+                <dd>
+                    <span>{{ order.country }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhrApp.order.province" [ngbTooltip]="'jhrApp.order.help.province' | translate">Province</span></dt>
+                <dd>
+                    <span>{{ order.province }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhrApp.order.city" [ngbTooltip]="'jhrApp.order.help.city' | translate">City</span></dt>
+                <dd>
+                    <span>{{ order.city }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhrApp.order.district" [ngbTooltip]="'jhrApp.order.help.district' | translate">District</span></dt>
+                <dd>
+                    <span>{{ order.district }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhrApp.order.offsetType" [ngbTooltip]="'jhrApp.order.help.offsetType' | translate">Offset Type</span></dt>
+                <dd>
+                    <span jhiTranslate="{{ 'jhrApp.OffsetType.' + order.offsetType }}">{{ order.offsetType }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhrApp.order.longitude" [ngbTooltip]="'jhrApp.order.help.longitude' | translate">Longitude</span></dt>
+                <dd>
+                    <span>{{ order.longitude }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhrApp.order.latitude" [ngbTooltip]="'jhrApp.order.help.latitude' | translate">Latitude</span></dt>
+                <dd>
+                    <span>{{ order.latitude }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhrApp.order.address" [ngbTooltip]="'jhrApp.order.help.address' | translate">Address</span></dt>
+                <dd>
+                    <span>{{ order.address }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhrApp.order.packingFee" [ngbTooltip]="'jhrApp.order.help.packingFee' | translate">Packing Fee</span></dt>
+                <dd>
+                    <span>{{ order.packingFee }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhrApp.order.paymentMode" [ngbTooltip]="'jhrApp.order.help.paymentMode' | translate">Payment Mode</span></dt>
+                <dd>
+                    <span jhiTranslate="{{ 'jhrApp.PaymentMethod.' + order.paymentMode }}">{{ order.paymentMode }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhrApp.order.diningDate" [ngbTooltip]="'jhrApp.order.help.diningDate' | translate">Dining Date</span></dt>
+                <dd>
+                    <span>{{ order.diningDate }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhrApp.order.remark" [ngbTooltip]="'jhrApp.order.help.remark' | translate">Remark</span></dt>
+                <dd>
+                    <span>{{ order.remark }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhrApp.order.status" [ngbTooltip]="'jhrApp.order.help.status' | translate">Status</span></dt>
+                <dd>
+                    <span jhiTranslate="{{ 'jhrApp.OrderStatus.' + order.status }}">{{ order.status }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhrApp.order.createdDate" [ngbTooltip]="'jhrApp.order.help.createdDate' | translate">Created Date</span></dt>
+                <dd>
+                    <span>{{ order.createdDate }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhrApp.order.paidDate" [ngbTooltip]="'jhrApp.order.help.paidDate' | translate">Paid Date</span></dt>
+                <dd>
+                    <span>{{ order.paidDate }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhrApp.order.expiredDate" [ngbTooltip]="'jhrApp.order.help.expiredDate' | translate">Expired Date</span></dt>
+                <dd>
+                    <span>{{ order.expiredDate }}</span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/order', order.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,103 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="jhrApp.foodSalesReport.home.title">Food Sales Reports</span>
+
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-food-sales-report" [routerLink]="['/food-sales-report/new']">
+            <fa-icon icon="plus"></fa-icon>
+            <span  jhiTranslate="jhrApp.foodSalesReport.home.createLabel">
+            Create a new Food Sales Report
+            </span>
+        </button>
+    </h2>
+
+    <jhi-alert-error></jhi-alert-error>
+
+    <jhi-alert></jhi-alert>
+
+    <div class="alert alert-warning" id="no-result" *ngIf="foodSalesReports?.length === 0">
+        <span jhiTranslate="jhrApp.foodSalesReport.home.notFound">No foodSalesReports found</span>
+    </div>
+
+    <div class="table-responsive" id="entities" *ngIf="foodSalesReports?.length > 0">
+        <table class="table table-striped" aria-describedby="page-heading">
+            <thead>
+                <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" [callback]="loadPage.bind(this)">
+                    <th scope="col"  jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="day"><span jhiTranslate="jhrApp.foodSalesReport.day">Day</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="shopSN"><span jhiTranslate="jhrApp.foodSalesReport.shopSN">Shop SN</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="shopName"><span jhiTranslate="jhrApp.foodSalesReport.shopName">Shop Name</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="categorySN"><span jhiTranslate="jhrApp.foodSalesReport.categorySN">Category SN</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="categoryName"><span jhiTranslate="jhrApp.foodSalesReport.categoryName">Category Name</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="foodSN"><span jhiTranslate="jhrApp.foodSalesReport.foodSN">Food SN</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="foodName"><span jhiTranslate="jhrApp.foodSalesReport.foodName">Food Name</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="cost"><span jhiTranslate="jhrApp.foodSalesReport.cost">Cost</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="price"><span jhiTranslate="jhrApp.foodSalesReport.price">Price</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="originalPrice"><span jhiTranslate="jhrApp.foodSalesReport.originalPrice">Original Price</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="salesQuantity"><span jhiTranslate="jhrApp.foodSalesReport.salesQuantity">Sales Quantity</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="salesAmount"><span jhiTranslate="jhrApp.foodSalesReport.salesAmount">Sales Amount</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="refundOrders"><span jhiTranslate="jhrApp.foodSalesReport.refundOrders">Refund Orders</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="refundAmount"><span jhiTranslate="jhrApp.foodSalesReport.refundAmount">Refund Amount</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="grossProfit"><span jhiTranslate="jhrApp.foodSalesReport.grossProfit">Gross Profit</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="initQuantity"><span jhiTranslate="jhrApp.foodSalesReport.initQuantity">Init Quantity</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="remainder"><span jhiTranslate="jhrApp.foodSalesReport.remainder">Remainder</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let foodSalesReport of foodSalesReports ;trackBy: trackId">
+                    <td><a [routerLink]="['/food-sales-report', foodSalesReport.id, 'view']">{{ foodSalesReport.id }}</a></td>
+                    <td>{{ foodSalesReport.day | date:'medium' }}</td>
+                    <td>{{ foodSalesReport.shopSN }}</td>
+                    <td>{{ foodSalesReport.shopName }}</td>
+                    <td>{{ foodSalesReport.categorySN }}</td>
+                    <td>{{ foodSalesReport.categoryName }}</td>
+                    <td>{{ foodSalesReport.foodSN }}</td>
+                    <td>{{ foodSalesReport.foodName }}</td>
+                    <td>{{ foodSalesReport.cost }}</td>
+                    <td>{{ foodSalesReport.price }}</td>
+                    <td>{{ foodSalesReport.originalPrice }}</td>
+                    <td>{{ foodSalesReport.salesQuantity }}</td>
+                    <td>{{ foodSalesReport.salesAmount }}</td>
+                    <td>{{ foodSalesReport.refundOrders }}</td>
+                    <td>{{ foodSalesReport.refundAmount }}</td>
+                    <td>{{ foodSalesReport.grossProfit }}</td>
+                    <td>{{ foodSalesReport.initQuantity }}</td>
+                    <td>{{ foodSalesReport.remainder }}</td>
+                    <td class="text-right">
+                        <div class="btn-group">
+                            <button type="submit"
+                                    [routerLink]="['/food-sales-report', foodSalesReport.id, 'view']"
+                                    class="btn btn-info btn-sm">
+                                <fa-icon icon="eye"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                            </button>
+
+                            <button type="submit"
+                                    [routerLink]="['/food-sales-report', foodSalesReport.id, 'edit']"
+                                    class="btn btn-primary btn-sm">
+                                <fa-icon icon="pencil-alt"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                            </button>
+
+                            <button type="submit" (click)="delete(foodSalesReport)"
+                                    class="btn btn-danger btn-sm">
+                                <fa-icon icon="times"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div *ngIf="foodSalesReports?.length > 0">
+        <div class="row justify-content-center">
+            <jhi-item-count [page]="page" [total]="totalItems" [itemsPerPage]="itemsPerPage"></jhi-item-count>
+        </div>
+
+        <div class="row justify-content-center">
+            <ngb-pagination [collectionSize]="totalItems" [(page)]="ngbPaginationPage" [pageSize]="itemsPerPage" [maxSize]="5" [rotate]="true" [boundaryLinks]="true" (pageChange)="loadPage($event)"></ngb-pagination>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,63 @@
+{
+    "name": "RewardPoints",
+    "fields": [
+        {
+            "fieldName": "memberName",
+            "javadoc": "会员名称",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required",
+                "maxlength"
+            ],
+            "fieldValidateRulesMaxlength": "20"
+        },
+        {
+            "fieldName": "memberSN",
+            "javadoc": "会员编号",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required",
+                "maxlength"
+            ],
+            "fieldValidateRulesMaxlength": "20"
+        },
+        {
+            "fieldName": "balance",
+            "javadoc": "积分余额",
+            "fieldType": "Integer",
+            "fieldValidateRules": [
+                "required",
+                "min"
+            ],
+            "fieldValidateRulesMin": "0"
+        },
+        {
+            "fieldName": "lastModifiedDate",
+            "javadoc": "最后统计时间",
+            "fieldType": "Instant",
+            "fieldValidateRules": [
+                "required"
+            ]
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "rewardPointsRecord",
+            "otherEntityRelationshipName": "rewardPoints",
+            "relationshipName": "records"
+        }
+    ],
+    "changelogDate": "20200423071700",
+    "javadoc": "积分\\n@author Jo",
+    "entityTableName": "reward_points",
+    "dto": "mapstruct",
+    "pagination": "pagination",
+    "service": "serviceClass",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "readOnly": false,
+    "embedded": false,
+    "clientRootFolder": "",
+    "applications": "*"
+}

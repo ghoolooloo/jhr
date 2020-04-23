@@ -1,0 +1,122 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="card">
+            <h2><span jhiTranslate="jhrApp.card.detail.title">Card</span> {{ card.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="jhrApp.card.sn" [ngbTooltip]="'jhrApp.card.help.sn' | translate">Sn</span></dt>
+                <dd>
+                    <span>{{ card.sn }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhrApp.card.cardType" [ngbTooltip]="'jhrApp.card.help.cardType' | translate">Card Type</span></dt>
+                <dd>
+                    <span jhiTranslate="{{ 'jhrApp.CardType.' + card.cardType }}">{{ card.cardType }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhrApp.card.title" [ngbTooltip]="'jhrApp.card.help.title' | translate">Title</span></dt>
+                <dd>
+                    <span>{{ card.title }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhrApp.card.thumbnail" [ngbTooltip]="'jhrApp.card.help.thumbnail' | translate">Thumbnail</span></dt>
+                <dd>
+                    <span>{{ card.thumbnail }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhrApp.card.details" [ngbTooltip]="'jhrApp.card.help.details' | translate">Details</span></dt>
+                <dd>
+                    <span>{{ card.details }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhrApp.card.validPeriodBeginAt" [ngbTooltip]="'jhrApp.card.help.validPeriodBeginAt' | translate">Valid Period Begin At</span></dt>
+                <dd>
+                    <span>{{ card.validPeriodBeginAt }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhrApp.card.validPeriodEndAt" [ngbTooltip]="'jhrApp.card.help.validPeriodEndAt' | translate">Valid Period End At</span></dt>
+                <dd>
+                    <span>{{ card.validPeriodEndAt }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhrApp.card.quantity" [ngbTooltip]="'jhrApp.card.help.quantity' | translate">Quantity</span></dt>
+                <dd>
+                    <span>{{ card.quantity }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhrApp.card.receivedQuantity" [ngbTooltip]="'jhrApp.card.help.receivedQuantity' | translate">Received Quantity</span></dt>
+                <dd>
+                    <span>{{ card.receivedQuantity }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhrApp.card.canUseWithOtherCard" [ngbTooltip]="'jhrApp.card.help.canUseWithOtherCard' | translate">Can Use With Other Card</span></dt>
+                <dd>
+                    <span>{{ card.canUseWithOtherCard }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhrApp.card.acceptCategories" [ngbTooltip]="'jhrApp.card.help.acceptCategories' | translate">Accept Categories</span></dt>
+                <dd>
+                    <span>{{ card.acceptCategories }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhrApp.card.acceptShops" [ngbTooltip]="'jhrApp.card.help.acceptShops' | translate">Accept Shops</span></dt>
+                <dd>
+                    <span>{{ card.acceptShops }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhrApp.card.leastCost" [ngbTooltip]="'jhrApp.card.help.leastCost' | translate">Least Cost</span></dt>
+                <dd>
+                    <span>{{ card.leastCost }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhrApp.card.reduceCost" [ngbTooltip]="'jhrApp.card.help.reduceCost' | translate">Reduce Cost</span></dt>
+                <dd>
+                    <span>{{ card.reduceCost }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhrApp.card.discount" [ngbTooltip]="'jhrApp.card.help.discount' | translate">Discount</span></dt>
+                <dd>
+                    <span>{{ card.discount }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhrApp.card.gift" [ngbTooltip]="'jhrApp.card.help.gift' | translate">Gift</span></dt>
+                <dd>
+                    <span>{{ card.gift }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhrApp.card.giftQuantity" [ngbTooltip]="'jhrApp.card.help.giftQuantity' | translate">Gift Quantity</span></dt>
+                <dd>
+                    <span>{{ card.giftQuantity }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhrApp.card.status" [ngbTooltip]="'jhrApp.card.help.status' | translate">Status</span></dt>
+                <dd>
+                    <span jhiTranslate="{{ 'jhrApp.CardStatus.' + card.status }}">{{ card.status }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhrApp.card.createdBy">Created By</span></dt>
+                <dd>
+                    <span>{{ card.createdBy }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhrApp.card.createdDate">Created Date</span></dt>
+                <dd>
+                    <span>{{ card.createdDate }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhrApp.card.deliveriedBy" [ngbTooltip]="'jhrApp.card.help.deliveriedBy' | translate">Deliveried By</span></dt>
+                <dd>
+                    <span>{{ card.deliveriedBy }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhrApp.card.deliveriedDate" [ngbTooltip]="'jhrApp.card.help.deliveriedDate' | translate">Deliveried Date</span></dt>
+                <dd>
+                    <span>{{ card.deliveriedDate }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhrApp.card.lastModifiedDate">Last Modified Date</span></dt>
+                <dd>
+                    <span>{{ card.lastModifiedDate }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhrApp.card.lastModifiedBy">Last Modified By</span></dt>
+                <dd>
+                    <span>{{ card.lastModifiedBy }}</span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/card', card.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

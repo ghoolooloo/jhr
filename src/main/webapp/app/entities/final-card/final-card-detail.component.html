@@ -1,0 +1,130 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="finalCard">
+            <h2><span jhiTranslate="jhrApp.finalCard.detail.title">Final Card</span> {{ finalCard.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="jhrApp.finalCard.sn" [ngbTooltip]="'jhrApp.finalCard.help.sn' | translate">Sn</span></dt>
+                <dd>
+                    <span>{{ finalCard.sn }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhrApp.finalCard.cardType" [ngbTooltip]="'jhrApp.finalCard.help.cardType' | translate">Card Type</span></dt>
+                <dd>
+                    <span jhiTranslate="{{ 'jhrApp.CardType.' + finalCard.cardType }}">{{ finalCard.cardType }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhrApp.finalCard.title" [ngbTooltip]="'jhrApp.finalCard.help.title' | translate">Title</span></dt>
+                <dd>
+                    <span>{{ finalCard.title }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhrApp.finalCard.thumbnail" [ngbTooltip]="'jhrApp.finalCard.help.thumbnail' | translate">Thumbnail</span></dt>
+                <dd>
+                    <span>{{ finalCard.thumbnail }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhrApp.finalCard.details" [ngbTooltip]="'jhrApp.finalCard.help.details' | translate">Details</span></dt>
+                <dd>
+                    <span>{{ finalCard.details }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhrApp.finalCard.validPeriodBeginAt" [ngbTooltip]="'jhrApp.finalCard.help.validPeriodBeginAt' | translate">Valid Period Begin At</span></dt>
+                <dd>
+                    <span>{{ finalCard.validPeriodBeginAt }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhrApp.finalCard.validPeriodEndAt" [ngbTooltip]="'jhrApp.finalCard.help.validPeriodEndAt' | translate">Valid Period End At</span></dt>
+                <dd>
+                    <span>{{ finalCard.validPeriodEndAt }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhrApp.finalCard.quantity" [ngbTooltip]="'jhrApp.finalCard.help.quantity' | translate">Quantity</span></dt>
+                <dd>
+                    <span>{{ finalCard.quantity }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhrApp.finalCard.receivedQuantity" [ngbTooltip]="'jhrApp.finalCard.help.receivedQuantity' | translate">Received Quantity</span></dt>
+                <dd>
+                    <span>{{ finalCard.receivedQuantity }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhrApp.finalCard.canUseWithOtherCard" [ngbTooltip]="'jhrApp.finalCard.help.canUseWithOtherCard' | translate">Can Use With Other Card</span></dt>
+                <dd>
+                    <span>{{ finalCard.canUseWithOtherCard }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhrApp.finalCard.acceptCategories" [ngbTooltip]="'jhrApp.finalCard.help.acceptCategories' | translate">Accept Categories</span></dt>
+                <dd>
+                    <span>{{ finalCard.acceptCategories }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhrApp.finalCard.acceptShops" [ngbTooltip]="'jhrApp.finalCard.help.acceptShops' | translate">Accept Shops</span></dt>
+                <dd>
+                    <span>{{ finalCard.acceptShops }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhrApp.finalCard.leastCost" [ngbTooltip]="'jhrApp.finalCard.help.leastCost' | translate">Least Cost</span></dt>
+                <dd>
+                    <span>{{ finalCard.leastCost }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhrApp.finalCard.reduceCost" [ngbTooltip]="'jhrApp.finalCard.help.reduceCost' | translate">Reduce Cost</span></dt>
+                <dd>
+                    <span>{{ finalCard.reduceCost }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhrApp.finalCard.discount" [ngbTooltip]="'jhrApp.finalCard.help.discount' | translate">Discount</span></dt>
+                <dd>
+                    <span>{{ finalCard.discount }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhrApp.finalCard.gift" [ngbTooltip]="'jhrApp.finalCard.help.gift' | translate">Gift</span></dt>
+                <dd>
+                    <span>{{ finalCard.gift }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhrApp.finalCard.giftQuantity" [ngbTooltip]="'jhrApp.finalCard.help.giftQuantity' | translate">Gift Quantity</span></dt>
+                <dd>
+                    <span>{{ finalCard.giftQuantity }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhrApp.finalCard.status" [ngbTooltip]="'jhrApp.finalCard.help.status' | translate">Status</span></dt>
+                <dd>
+                    <span jhiTranslate="{{ 'jhrApp.CardStatus.' + finalCard.status }}">{{ finalCard.status }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhrApp.finalCard.createdBy">Created By</span></dt>
+                <dd>
+                    <span>{{ finalCard.createdBy }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhrApp.finalCard.createdDate">Created Date</span></dt>
+                <dd>
+                    <span>{{ finalCard.createdDate }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhrApp.finalCard.deliveriedBy" [ngbTooltip]="'jhrApp.finalCard.help.deliveriedBy' | translate">Deliveried By</span></dt>
+                <dd>
+                    <span>{{ finalCard.deliveriedBy }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhrApp.finalCard.deliveriedDate" [ngbTooltip]="'jhrApp.finalCard.help.deliveriedDate' | translate">Deliveried Date</span></dt>
+                <dd>
+                    <span>{{ finalCard.deliveriedDate }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhrApp.finalCard.discontinueBy" [ngbTooltip]="'jhrApp.finalCard.help.discontinueBy' | translate">Discontinue By</span></dt>
+                <dd>
+                    <span>{{ finalCard.discontinueBy }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhrApp.finalCard.discontinueDate" [ngbTooltip]="'jhrApp.finalCard.help.discontinueDate' | translate">Discontinue Date</span></dt>
+                <dd>
+                    <span>{{ finalCard.discontinueDate }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhrApp.finalCard.lastModifiedDate">Last Modified Date</span></dt>
+                <dd>
+                    <span>{{ finalCard.lastModifiedDate }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhrApp.finalCard.lastModifiedBy">Last Modified By</span></dt>
+                <dd>
+                    <span>{{ finalCard.lastModifiedBy }}</span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/final-card', finalCard.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

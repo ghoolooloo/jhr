@@ -1,0 +1,36 @@
+{
+  "jhrApp": {
+    "merchant": {
+      "home": {
+        "title": "Merchants",
+        "createLabel": "Create a new Merchant",
+        "createOrEditLabel": "Create or edit a Merchant",
+        "notFound": "No Merchants found"
+      },
+      "created": "A new Merchant is created with identifier {{ param }}",
+      "updated": "A Merchant is updated with identifier {{ param }}",
+      "deleted": "A Merchant is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Merchant {{ id }}?"
+      },
+      "detail": {
+        "title": "Merchant"
+      },
+      "name": "Name",
+      "logo": "Logo",
+      "tel": "Tel",
+      "email": "Email",
+      "website": "Website",
+      "icp": "Icp",
+      "createdBy": "Created By",
+      "createdDate": "Created Date",
+      "lastModifiedDate": "Last Modified Date",
+      "lastModifiedBy": "Last Modified By",
+      "help": {
+        "name": "商户名称",
+        "tel": "客服电话",
+        "icp": "ICP许可证"
+      }
+    }
+  }
+}

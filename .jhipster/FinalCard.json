@@ -1,0 +1,242 @@
+{
+    "name": "FinalCard",
+    "fields": [
+        {
+            "fieldName": "sn",
+            "javadoc": "卡券编号",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required",
+                "unique",
+                "maxlength"
+            ],
+            "fieldValidateRulesMaxlength": "20"
+        },
+        {
+            "fieldName": "cardType",
+            "javadoc": "卡券类型",
+            "fieldType": "CardType",
+            "fieldValues": "CASH,DISCOUNT,GIFT,BUY_ONE_GET_ONE",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "title",
+            "javadoc": "标题",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required",
+                "maxlength"
+            ],
+            "fieldValidateRulesMaxlength": "100"
+        },
+        {
+            "fieldName": "thumbnail",
+            "javadoc": "缩略图",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "maxlength"
+            ],
+            "fieldValidateRulesMaxlength": "200"
+        },
+        {
+            "fieldName": "details",
+            "javadoc": "优惠说明（兑换券的兑换内容也是写在这里）",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "maxlength"
+            ],
+            "fieldValidateRulesMaxlength": "300"
+        },
+        {
+            "fieldName": "validPeriodBeginAt",
+            "javadoc": "有效期开始时间",
+            "fieldType": "Instant"
+        },
+        {
+            "fieldName": "validPeriodEndAt",
+            "javadoc": "有效期截止时间",
+            "fieldType": "Instant"
+        },
+        {
+            "fieldName": "quantity",
+            "javadoc": "投放数量",
+            "fieldType": "Integer",
+            "fieldValidateRules": [
+                "min",
+                "max"
+            ],
+            "fieldValidateRulesMin": "0",
+            "fieldValidateRulesMax": "999999999"
+        },
+        {
+            "fieldName": "receivedQuantity",
+            "javadoc": "已领取数量",
+            "fieldType": "Integer",
+            "fieldValidateRules": [
+                "min",
+                "max"
+            ],
+            "fieldValidateRulesMin": "0",
+            "fieldValidateRulesMax": "999999999"
+        },
+        {
+            "fieldName": "canUseWithOtherCard",
+            "javadoc": "能否与其他卡券同时使用",
+            "fieldType": "Boolean",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "acceptCategories",
+            "javadoc": "适用的菜品分类。分类编号之间由逗号分隔，值为空时表示不限定分类",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "maxlength"
+            ],
+            "fieldValidateRulesMaxlength": "500"
+        },
+        {
+            "fieldName": "acceptShops",
+            "javadoc": "适用的门店。门店编号之间由逗号分隔，值为空时表示不限定门店",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "maxlength"
+            ],
+            "fieldValidateRulesMaxlength": "500"
+        },
+        {
+            "fieldName": "leastCost",
+            "javadoc": "起用金额，单位为分。如果无起用门槛则填0",
+            "fieldType": "Integer",
+            "fieldValidateRules": [
+                "min",
+                "max"
+            ],
+            "fieldValidateRulesMin": "0",
+            "fieldValidateRulesMax": "99999"
+        },
+        {
+            "fieldName": "reduceCost",
+            "javadoc": "减免金额，单位为分（代金券专用）",
+            "fieldType": "Integer",
+            "fieldValidateRules": [
+                "min",
+                "max"
+            ],
+            "fieldValidateRulesMin": "0",
+            "fieldValidateRulesMax": "99999"
+        },
+        {
+            "fieldName": "discount",
+            "javadoc": "打折额度（百分比，例如：30就是七折）（折扣券专用）",
+            "fieldType": "Integer",
+            "fieldValidateRules": [
+                "min",
+                "max"
+            ],
+            "fieldValidateRulesMin": "0",
+            "fieldValidateRulesMax": "100"
+        },
+        {
+            "fieldName": "gift",
+            "javadoc": "兑换的菜品（兑换券专用）",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "maxlength"
+            ],
+            "fieldValidateRulesMaxlength": "10"
+        },
+        {
+            "fieldName": "giftQuantity",
+            "javadoc": "兑换菜品数量（兑换券专用）",
+            "fieldType": "Integer",
+            "fieldValidateRules": [
+                "min",
+                "max"
+            ],
+            "fieldValidateRulesMin": "0",
+            "fieldValidateRulesMax": "99999"
+        },
+        {
+            "fieldName": "status",
+            "javadoc": "卡券状态。这里只可能取 DISCONTINUE 和 EXPIRED 两种值",
+            "fieldType": "CardStatus",
+            "fieldValues": "NEW,PUT,DISCONTINUE,EXPIRED",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "createdBy",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required",
+                "maxlength"
+            ],
+            "fieldValidateRulesMaxlength": "20"
+        },
+        {
+            "fieldName": "createdDate",
+            "fieldType": "Instant",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "deliveriedBy",
+            "javadoc": "投放人",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "maxlength"
+            ],
+            "fieldValidateRulesMaxlength": "20"
+        },
+        {
+            "fieldName": "deliveriedDate",
+            "javadoc": "投放时间",
+            "fieldType": "Instant"
+        },
+        {
+            "fieldName": "discontinueBy",
+            "javadoc": "中止人",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "maxlength"
+            ],
+            "fieldValidateRulesMaxlength": "20"
+        },
+        {
+            "fieldName": "discontinueDate",
+            "javadoc": "中止时间",
+            "fieldType": "Instant"
+        },
+        {
+            "fieldName": "lastModifiedDate",
+            "fieldType": "Instant"
+        },
+        {
+            "fieldName": "lastModifiedBy",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "maxlength"
+            ],
+            "fieldValidateRulesMaxlength": "20"
+        }
+    ],
+    "relationships": [],
+    "changelogDate": "20200423072000",
+    "javadoc": "已完结卡券\\n已经过期或中止的卡券将被移到这里。\\n@author Jo",
+    "entityTableName": "final_card",
+    "dto": "mapstruct",
+    "pagination": "pagination",
+    "service": "serviceClass",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "readOnly": false,
+    "embedded": false,
+    "clientRootFolder": "",
+    "applications": "*"
+}

@@ -1,0 +1,11 @@
+{
+  "jhrApp": {
+    "CardStatus": {
+      "null": "",
+      "NEW": "NEW",
+      "PUT": "PUT",
+      "DISCONTINUE": "DISCONTINUE",
+      "EXPIRED": "EXPIRED"
+    }
+  }
+}

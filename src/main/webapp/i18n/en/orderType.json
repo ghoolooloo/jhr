@@ -1,0 +1,10 @@
+{
+  "jhrApp": {
+    "OrderType": {
+      "null": "",
+      "TOGO": "TOGO",
+      "PACK": "PACK",
+      "FORHERE": "FORHERE"
+    }
+  }
+}

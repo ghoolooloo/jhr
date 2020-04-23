@@ -1,0 +1,51 @@
+{
+  "jhrApp": {
+    "food": {
+      "home": {
+        "title": "Foods",
+        "createLabel": "创建新 Food",
+        "createOrEditLabel": "创建或编辑 Food",
+        "notFound": "No Foods found"
+      },
+      "created": "Food {{ param }} 创建成功",
+      "updated": "Food {{ param }} 更新成功",
+      "deleted": "Food {{ param }} 删除成功",
+      "delete": {
+        "question": "你确定要删除 Food {{ id }} 吗？"
+      },
+      "detail": {
+        "title": "Food"
+      },
+      "name": "Name",
+      "sn": "Sn",
+      "thumbnail": "Thumbnail",
+      "picture": "Picture",
+      "price": "Price",
+      "originalPrice": "Original Price",
+      "cost": "Cost",
+      "packingFee": "Packing Fee",
+      "desc": "Desc",
+      "sort": "Sort",
+      "feedingMode": "Feeding Mode",
+      "disabled": "Disabled",
+      "createdBy": "Created By",
+      "createdDate": "Created Date",
+      "lastModifiedDate": "Last Modified Date",
+      "lastModifiedBy": "Last Modified By",
+      "category": "Category",
+      "help": {
+        "sn": "编号",
+        "thumbnail": "缩略图",
+        "picture": "大图",
+        "price": "售价（单位：分）",
+        "originalPrice": "原价（单位：分）。原价要么为空，要么大于售价。原价为空时，是普通菜品；原价不为空且原价大于售价时，是特惠菜品",
+        "cost": "成本（单位：分）",
+        "packingFee": "包装费（单位：分）",
+        "desc": "描述",
+        "sort": "序号",
+        "feedingMode": "供餐方式",
+        "disabled": "是否禁用。已禁用的菜品要从一周菜单中删除"
+      }
+    }
+  }
+}

@@ -1,0 +1,82 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="orderItem">
+            <h2><span jhiTranslate="jhrApp.orderItem.detail.title">Order Item</span> {{ orderItem.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="jhrApp.orderItem.orderSN" [ngbTooltip]="'jhrApp.orderItem.help.orderSN' | translate">Order SN</span></dt>
+                <dd>
+                    <span>{{ orderItem.orderSN }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhrApp.orderItem.foodCategoryName" [ngbTooltip]="'jhrApp.orderItem.help.foodCategoryName' | translate">Food Category Name</span></dt>
+                <dd>
+                    <span>{{ orderItem.foodCategoryName }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhrApp.orderItem.foodCategorySN" [ngbTooltip]="'jhrApp.orderItem.help.foodCategorySN' | translate">Food Category SN</span></dt>
+                <dd>
+                    <span>{{ orderItem.foodCategorySN }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhrApp.orderItem.foodName" [ngbTooltip]="'jhrApp.orderItem.help.foodName' | translate">Food Name</span></dt>
+                <dd>
+                    <span>{{ orderItem.foodName }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhrApp.orderItem.foodSN" [ngbTooltip]="'jhrApp.orderItem.help.foodSN' | translate">Food SN</span></dt>
+                <dd>
+                    <span>{{ orderItem.foodSN }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhrApp.orderItem.foodThumbnail" [ngbTooltip]="'jhrApp.orderItem.help.foodThumbnail' | translate">Food Thumbnail</span></dt>
+                <dd>
+                    <span>{{ orderItem.foodThumbnail }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhrApp.orderItem.foodPicture" [ngbTooltip]="'jhrApp.orderItem.help.foodPicture' | translate">Food Picture</span></dt>
+                <dd>
+                    <span>{{ orderItem.foodPicture }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhrApp.orderItem.price" [ngbTooltip]="'jhrApp.orderItem.help.price' | translate">Price</span></dt>
+                <dd>
+                    <span>{{ orderItem.price }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhrApp.orderItem.originalPrice" [ngbTooltip]="'jhrApp.orderItem.help.originalPrice' | translate">Original Price</span></dt>
+                <dd>
+                    <span>{{ orderItem.originalPrice }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhrApp.orderItem.cost" [ngbTooltip]="'jhrApp.orderItem.help.cost' | translate">Cost</span></dt>
+                <dd>
+                    <span>{{ orderItem.cost }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhrApp.orderItem.packingFee" [ngbTooltip]="'jhrApp.orderItem.help.packingFee' | translate">Packing Fee</span></dt>
+                <dd>
+                    <span>{{ orderItem.packingFee }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhrApp.orderItem.desc" [ngbTooltip]="'jhrApp.orderItem.help.desc' | translate">Desc</span></dt>
+                <dd>
+                    <span>{{ orderItem.desc }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhrApp.orderItem.quantity" [ngbTooltip]="'jhrApp.orderItem.help.quantity' | translate">Quantity</span></dt>
+                <dd>
+                    <span>{{ orderItem.quantity }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhrApp.orderItem.coupon" [ngbTooltip]="'jhrApp.orderItem.help.coupon' | translate">Coupon</span></dt>
+                <dd>
+                    <span>{{ orderItem.coupon }}</span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/order-item', orderItem.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

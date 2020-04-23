@@ -1,0 +1,10 @@
+{
+  "jhrApp": {
+    "CarouselStatus": {
+      "null": "",
+      "NEW": "NEW",
+      "PUBLISHED": "PUBLISHED",
+      "RECEDED": "RECEDED"
+    }
+  }
+}
