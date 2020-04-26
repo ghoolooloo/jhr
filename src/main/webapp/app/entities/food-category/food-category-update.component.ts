@@ -9,7 +9,7 @@ import { DATE_TIME_FORMAT } from 'app/shared/constants/input.constants';
 
 import { IFoodCategory, FoodCategory } from 'app/shared/model/food-category.model';
 import { FoodCategoryService } from './food-category.service';
-import { map, catchError } from 'rxjs/operators';
+import { map, catchError, debounceTime } from 'rxjs/operators';
 
 @Component({
   selector: 'jhi-food-category-update',
@@ -21,10 +21,7 @@ export class FoodCategoryUpdateComponent implements OnInit {
   editForm = this.fb.group({
     id: [],
     name: [null, [Validators.required, Validators.maxLength(10)]],
-    sn: [
-      null,
-      { validators: [Validators.required, Validators.maxLength(5)], asyncValidators: [this.uniqueSnValidator()], updateOn: 'blur' }
-    ],
+    sn: [null, [Validators.required, Validators.maxLength(5)], [this.uniqueSnValidator()]],
     icon: [null, [Validators.maxLength(200)]],
     sort: [null, [Validators.required, Validators.min(0), Validators.max(999999999)]],
     disabled: [],
@@ -82,7 +79,9 @@ export class FoodCategoryUpdateComponent implements OnInit {
       const id = this.editForm.get(['id'])!.value;
       window.console.log('************************************************' + id);
       return this.foodCategoryService.checkUniqueSn(control.value, id).pipe(
-        map(isUnique => (isUnique ? null : { duplicateSn: control.value })),
+        // 舍弃掉在两次输出之间小于指定时间的发出值，用于防止频繁发请求，单位毫秒。
+        debounceTime(500),
+        map(isUnique => (isUnique.body ? null : { duplicateSn: control.value })),
         catchError(() => of(null))
       );
     };
