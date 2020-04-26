@@ -81,4 +81,9 @@ public class FoodCategoryService {
         log.debug("Request to delete FoodCategory : {}", id);
         foodCategoryRepository.deleteById(id);
     }
+
+    public Optional<FoodCategoryDTO> findBySn(String sn) {
+        return foodCategoryRepository.findBySn(sn)
+            .map(foodCategoryMapper::toDto);
+    }
 }

@@ -114,4 +114,17 @@ public class FoodCategoryResource {
         foodCategoryService.delete(id);
         return ResponseEntity.noContent().headers(HeaderUtil.createEntityDeletionAlert(applicationName, true, ENTITY_NAME, id.toString())).build();
     }
+
+    @GetMapping("/food-categories/sn")
+    public ResponseEntity<Boolean> checkUniqueSN(String sn, Long id) {
+        log.info("======================================" + id);
+        Boolean isUnique = foodCategoryService.findBySn(sn).map(fc -> {
+            if (id !=null && fc.getId().equals(id)) {
+                return true;
+            }
+            return false;
+        }).orElse(true);
+        return ResponseEntity.ok().body(isUnique);
+        // return ResponseUtil.wrapOrNotFound(isUnique);
+    }
 }

@@ -40,6 +40,10 @@
                                *ngIf="editForm.get('sn')?.errors?.maxlength" jhiTranslate="entity.validation.maxlength" [translateValues]="{ max: 5 }">
                         This field cannot be longer than 5 characters.
                         </small>
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('sn')?.errors?.duplicateSn">
+                        编号重复
+                        </small>
                     </div>
                 </div>
 

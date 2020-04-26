@@ -1,14 +1,15 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpResponse } from '@angular/common/http';
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
-import { FormBuilder, Validators } from '@angular/forms';
+import { FormBuilder, Validators, AsyncValidatorFn, AbstractControl, ValidationErrors } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
-import { Observable } from 'rxjs';
+import { Observable, of } from 'rxjs';
 import * as moment from 'moment';
 import { DATE_TIME_FORMAT } from 'app/shared/constants/input.constants';
 
 import { IFoodCategory, FoodCategory } from 'app/shared/model/food-category.model';
 import { FoodCategoryService } from './food-category.service';
+import { map, catchError } from 'rxjs/operators';
 
 @Component({
   selector: 'jhi-food-category-update',
@@ -20,7 +21,10 @@ export class FoodCategoryUpdateComponent implements OnInit {
   editForm = this.fb.group({
     id: [],
     name: [null, [Validators.required, Validators.maxLength(10)]],
-    sn: [null, [Validators.required, Validators.maxLength(5)]],
+    sn: [
+      null,
+      { validators: [Validators.required, Validators.maxLength(5)], asyncValidators: [this.uniqueSnValidator()], updateOn: 'blur' }
+    ],
     icon: [null, [Validators.maxLength(200)]],
     sort: [null, [Validators.required, Validators.min(0), Validators.max(999999999)]],
     disabled: [],
@@ -71,6 +75,17 @@ export class FoodCategoryUpdateComponent implements OnInit {
     } else {
       this.subscribeToSaveResponse(this.foodCategoryService.create(foodCategory));
     }
+  }
+
+  uniqueSnValidator(): AsyncValidatorFn {
+    return (control: AbstractControl): Promise<ValidationErrors | null> | Observable<ValidationErrors | null> => {
+      const id = this.editForm.get(['id'])!.value;
+      window.console.log('************************************************' + id);
+      return this.foodCategoryService.checkUniqueSn(control.value, id).pipe(
+        map(isUnique => (isUnique ? null : { duplicateSn: control.value })),
+        catchError(() => of(null))
+      );
+    };
   }
 
   private createFromForm(): IFoodCategory {

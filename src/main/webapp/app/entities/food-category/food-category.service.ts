@@ -48,6 +48,14 @@ export class FoodCategoryService {
     return this.http.delete(`${this.resourceUrl}/${id}`, { observe: 'response' });
   }
 
+  checkUniqueSn(sn: number, id: number): Observable<HttpResponse<boolean>> {
+    if (id) {
+      return this.http.get<boolean>(`${this.resourceUrl}/sn?sn=${sn}&id=${id}`, { observe: 'response' });
+    } else {
+      return this.http.get<boolean>(`${this.resourceUrl}/sn?sn=${sn}`, { observe: 'response' });
+    }
+  }
+
   protected convertDateFromClient(foodCategory: IFoodCategory): IFoodCategory {
     const copy: IFoodCategory = Object.assign({}, foodCategory, {
       createdDate: foodCategory.createdDate && foodCategory.createdDate.isValid() ? foodCategory.createdDate.toJSON() : undefined,

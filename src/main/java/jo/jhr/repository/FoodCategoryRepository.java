@@ -2,6 +2,8 @@ package jo.jhr.repository;
 
 import jo.jhr.domain.FoodCategory;
 
+import java.util.Optional;
+
 import org.springframework.data.jpa.repository.*;
 import org.springframework.stereotype.Repository;
 
@@ -11,4 +13,5 @@ import org.springframework.stereotype.Repository;
 @SuppressWarnings("unused")
 @Repository
 public interface FoodCategoryRepository extends JpaRepository<FoodCategory, Long> {
+    Optional<FoodCategory> findBySn(String sn);
 }
