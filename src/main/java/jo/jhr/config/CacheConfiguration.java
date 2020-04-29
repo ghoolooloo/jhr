@@ -1,7 +1,6 @@
 package jo.jhr.config;
 
 import org.springframework.cache.annotation.EnableCaching;
-import org.springframework.context.annotation.*;
 import org.redisson.Redisson;
 import org.redisson.config.Config;
 import org.redisson.jcache.configuration.RedissonConfiguration;

@@ -7,8 +7,6 @@ import javax.persistence.*;
 import javax.validation.constraints.*;
 
 import java.io.Serializable;
-import java.util.Objects;
-
 import jo.jhr.domain.enumeration.Sex;
 
 import jo.jhr.domain.enumeration.OffsetType;
